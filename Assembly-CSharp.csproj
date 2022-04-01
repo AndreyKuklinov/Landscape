@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ScenesFolders\MainGame\GameManager.cs" />
      <Compile Include="Assets\ScenesFolders\MetaScripts\SceneChanger.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
