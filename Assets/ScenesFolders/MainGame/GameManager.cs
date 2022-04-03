@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using UnityEngine;
+using static ScenesFolders.MainGame.TilesEnum;
 
 namespace ScenesFolders.MainGame
 {
@@ -14,18 +15,15 @@ namespace ScenesFolders.MainGame
 
         private ((Point currentCoordinates, Point coordinatesBefore), Actions) previouseAction;
 
-        public TilesEnum.Tiles[] GetPossibleTiles(int diceValue)
+        public Tiles[] GetPossibleTiles(int diceValue)
         {
             if (diceValue == 6)
                 return new[]
-                {
-                    TilesEnum.Tiles.Mountain, TilesEnum.Tiles.Forest, TilesEnum.Tiles.Plain, TilesEnum.Tiles.Lake,
-                    TilesEnum.Tiles.Village
-                };
-            return new[] {(TilesEnum.Tiles) (diceValue - 1)};
+                    {Tiles.Mountain, Tiles.Forest, Tiles.Plain, Tiles.Lake, Tiles.Village};
+            return new[] {(Tiles) (diceValue - 1)};
         }
 
-        public void PlaceTile(int x, int y, TilesEnum.Tiles tile)
+        public void PlaceTile(int x, int y, Tiles tile)
         {
             previouseAction = ((new Point(x, y), Point.Empty), Actions.Place);
             throw new NotImplementedException();

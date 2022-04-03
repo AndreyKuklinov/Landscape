@@ -1,28 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SettingsManager : MonoBehaviour
+namespace ScenesFolders.Settings
 {
-    private void SetDifficulty(string newDifficulty)
+    public class SettingsManager : MonoBehaviour
     {
-        PlayerPrefs.SetString("Difficulty", newDifficulty);
-    }
+        private void SetDifficulty(string newDifficulty)
+        {
+            PlayerPrefs.SetString("Difficulty", newDifficulty);
+        }
     
-    private string GetDifficulty()
-    {
-        return PlayerPrefs.GetString("Difficulty");
-    }
+        private string GetDifficulty()
+        {
+            return PlayerPrefs.GetString("Difficulty");
+        }
     
-    private void SetVolume(int newVolume)
-    {
-        PlayerPrefs.SetInt("Volume", newVolume);
-    }
+        private void SetVolume(int newVolume)
+        {
+            PlayerPrefs.SetInt("Volume", newVolume);
+        }
     
-    private int GetVolume()
-    {
-        return PlayerPrefs.GetInt("Volume");
+        private int GetVolume()
+        {
+            return PlayerPrefs.GetInt("Volume");
+        }
     }
-
-    
 }
