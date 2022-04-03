@@ -6,22 +6,22 @@ public class SettingsManager : MonoBehaviour
 {
     private void SetDifficulty(string newDifficulty)
     {
-        PlayerPrefs.SetString("Difficulty", newDifficulty)
+        PlayerPrefs.SetString("Difficulty", newDifficulty);
     }
     
     private string GetDifficulty()
     {
-        PlayerPrefs.GetString("Difficulty")
+        return PlayerPrefs.GetString("Difficulty");
     }
     
     private void SetVolume(int newVolume)
     {
-        PlayerPrefs.SetInt("Volume", newVolume)
+        PlayerPrefs.SetInt("Volume", newVolume);
     }
     
     private int GetVolume()
     {
-        PlayerPrefs.GetInt("Volume")
+        return PlayerPrefs.GetInt("Volume");
     }
 
     
