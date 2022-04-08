@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using static ScenesFolders.MainGame.DirectionsEnum;
 
 namespace ScenesFolders.MainGame
 {
@@ -18,13 +17,19 @@ namespace ScenesFolders.MainGame
             //do passive animations
         }
 
-        public void StartMovingAnimation(DirectionsEnum direction, GameObject gameObject)
+        public static void StartMovingAnimation(int startX, int startY, int targetX, int targetY)
         {
             //animator.SetTrigger(...);
             throw new NotImplementedException();
         }
 
-        public void StartPlacingAnimation()
+        public static void StartPlacingAnimation(int x, int y, TileTypes tileType, TileVariations tileTypeVariant)
+        {
+            //animator.SetTrigger(...);
+            throw new NotImplementedException();
+        }
+
+        public static void StartRoadCreationAnimation(int x, int y, TileTypes tileType)
         {
             //animator.SetTrigger(...);
             throw new NotImplementedException();
