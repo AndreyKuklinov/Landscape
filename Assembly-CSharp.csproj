@@ -55,8 +55,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ScenesFolders\MainGame\AnimationsController.cs" />
+     <Compile Include="Assets\ScenesFolders\MainGame\DirectionsEnum.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\GameManager.cs" />
-     <Compile Include="Assets\ScenesFolders\MainGame\TilesEnum.cs" />
      <Compile Include="Assets\ScenesFolders\MetaScripts\SceneChanger.cs" />
      <Compile Include="Assets\ScenesFolders\Settings\SettingsManager.cs" />
  <Reference Include="UnityEngine">

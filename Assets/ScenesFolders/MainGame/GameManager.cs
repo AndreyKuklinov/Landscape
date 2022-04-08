@@ -1,54 +1,97 @@
 ﻿using System;
-using System.Drawing;
+using System.Collections.Generic;
 using UnityEngine;
-using static ScenesFolders.MainGame.TilesEnum;
+using Random = UnityEngine.Random;
 
 namespace ScenesFolders.MainGame
 {
+    public enum TileTypes
+    {
+        Mountain,
+        Forest,
+        Plain,
+        Lake,
+        Village,
+        Empty
+    }
+    
+    public struct Tile
+    {
+        public bool HasRoad { get; private set; }
+        public TileTypes Type { get; private set; }
+
+        public Tile(TileTypes type)
+        {
+            HasRoad = false;
+            Type = type;
+        }
+    }
+    
     public class GameManager : MonoBehaviour
     {
-        private enum Actions
+        public int Score { get; private set; }
+        public Tile[,] GameBoard { get; private set; }
+        public int[] DiceRoll { get; private set; }
+        public bool SkippedTurn { get; private set; }
+        
+        public void StartGame()
         {
-            Place,
-            Move
+            GameBoard = new Tile[5, 5];
+            StartTurn();
         }
 
-        private ((Point currentCoordinates, Point coordinatesBefore), Actions) previouseAction;
+        public void EndGame()
+        {
+            //TODO
+        }
 
-        public Tiles[] GetPossibleTiles(int diceValue)
+        public TileTypes[] GetPossibleTiles(int x, int y)
+        {
+            var diceValues = new List<int>(DiceRoll);
+            if (GameBoard[x,y].Type != TileTypes.Empty
+                || !diceValues.Remove(x) 
+                || !diceValues.Remove(y) 
+                || diceValues.Count != 1)
+                return Array.Empty<TileTypes>();
+            return GetPossibleTiles(diceValues[0]);
+        }
+
+        public void MakeTurn(int x, int y, TileTypes tileType)
+        {
+            GameBoard[x, y] = new Tile(tileType);
+            SkippedTurn = false;
+            EndTurn();
+        }
+
+        public void SkipTurn()
+        {
+            if(SkippedTurn)
+                EndGame();
+            SkippedTurn = true;
+            EndTurn();
+        }
+        
+        private void StartTurn()
+        {
+            DiceRoll = new int[3];
+            for (int i = 0; i < 3; i++)
+                DiceRoll[i] = Random.Range(1, 6);
+        }
+
+        private void EndTurn()
+        {
+            StartTurn();
+        }
+        
+        private TileTypes[] GetPossibleTiles(int diceValue)
         {
             if (diceValue == 6)
                 return new[]
-                    {Tiles.Mountain, Tiles.Forest, Tiles.Plain, Tiles.Lake, Tiles.Village};
-            return new[] {(Tiles) (diceValue - 1)};
+                    {TileTypes.Mountain, TileTypes.Forest, TileTypes.Plain, TileTypes.Lake, TileTypes.Village};
+            return new[] {(TileTypes) (diceValue)};
         }
-
-        public void PlaceTile(int x, int y, Tiles tile)
-        {
-            previouseAction = ((new Point(x, y), Point.Empty), Actions.Place);
-            throw new NotImplementedException();
-        }
-
-        public void MoveTile(int startX, int startY, int targetX, int targetY)
-        {
-            previouseAction = ((new Point(targetX, targetY), new Point(startX, startY)), Actions.Move);
-            throw new NotImplementedException();
-        }
-
-        public void Undo()
-        {
-            if (previouseAction.Item2 == Actions.Move)
-            {
-                throw new NotImplementedException();
-            }
-
-            if (previouseAction.Item2 == Actions.Place)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsSpotFree(int x, int y)
+        
+        private void MoveTile(int startX, int startY, int targetX, int targetY)
         {
             throw new NotImplementedException();
         }
