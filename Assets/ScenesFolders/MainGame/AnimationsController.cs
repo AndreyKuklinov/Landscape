@@ -29,7 +29,7 @@ namespace ScenesFolders.MainGame
             throw new NotImplementedException();
         }
 
-        public static void StartRoadCreationAnimation(int x, int y, TileTypes tileType)
+        public static void StartRoadCreationAnimation(int x, int y, TileTypes tileType, int direction)
         {
             //animator.SetTrigger(...);
             throw new NotImplementedException();

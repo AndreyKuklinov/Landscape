@@ -19,10 +19,8 @@ namespace ScenesFolders.MainGame
     public enum TileVariations
     {
         Wet,
-        Dry,
         Elevated,
         WithCrops,
-        WithSmallTrees,
         Default
     }
 
@@ -141,11 +139,11 @@ namespace ScenesFolders.MainGame
                 if (GameBoard[x1, y1].Type == TileTypes.Lake)
                     types.Add(TileVariations.Wet);
                 if (GameBoard[x1, y1].Type == TileTypes.Plain)
-                    types.Add(TileVariations.Dry);
+                    types.Add(TileVariations.Default);
                 if (GameBoard[x1, y1].Type == TileTypes.Mountain)
                     types.Add(TileVariations.Elevated);
                 if (GameBoard[x1, y1].Type == TileTypes.Forest)
-                    types.Add(TileVariations.WithSmallTrees);
+                    types.Add(TileVariations.Default);
             }
 
             return types.GroupBy(type => type)
@@ -168,9 +166,9 @@ namespace ScenesFolders.MainGame
 
         private void CreateRoads()
         {
-            for (var x = 0; x < GameBoard.GetLength(0); x++)
+            for (var x = 0; x < 4; x++)
             {
-                for (var y = 0; y < GameBoard.GetLength(1); y++)
+                for (var y = 0; y < 4; y++)
                 {
                     if (GameBoard[x, y].Type != TileTypes.Village) continue;
                     for (var x1 = 0; x1 < 4; x1++)
@@ -178,8 +176,13 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x1, y].Type != TileTypes.Village) continue;
                         for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
                         {
+                            // direction 0 <=> сверху вниз
+                            // direction 1 <=> слева направо
+                            // direction 2 <=> перекресток
+                            var direction = 1;
+                            if (GameBoard[x2, y].HasRoad) direction = 2;
                             GameBoard[x2, y].HasRoad = true;
-                            AnimationsController.StartRoadCreationAnimation(x2, y, GameBoard[x2, y].Type);
+                            AnimationsController.StartRoadCreationAnimation(x2, y, GameBoard[x2, y].Type, direction);
                         }
                     }
 
@@ -188,8 +191,10 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x, y1].Type != TileTypes.Village) continue;
                         for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
                         {
+                            var direction = 0;
+                            if (GameBoard[x, y2].HasRoad) direction = 2;
                             GameBoard[x, y2].HasRoad = true;
-                            AnimationsController.StartRoadCreationAnimation(x, y2, GameBoard[x, y2].Type);
+                            AnimationsController.StartRoadCreationAnimation(x, y2, GameBoard[x, y2].Type, direction);
                         }
                     }
                 }
