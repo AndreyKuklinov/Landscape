@@ -162,7 +162,7 @@ namespace ScenesFolders.MainGame
         public int CountAdjacentOfType(int x, int y, TileTypes type) =>
             GetNeighbours(x, y).Count(tile => tile.Type == type);
 
-        private IEnumerable<Tile> GetNeighbours(int x, int y)
+        public IEnumerable<Tile> GetNeighbours(int x, int y)
         {
             for (var dx = -1; dx < 1; dx++)
             for (var dy = -1; dy < 1; dy++)
