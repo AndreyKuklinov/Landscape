@@ -32,18 +32,34 @@ namespace ScenesFolders.MainGame
 
     public class GameManager : MonoBehaviour
     {
-        public int Score { get; private set; }
+        public int Score
+        {
+            get
+            {
+                var res = Objectives.Aggregate(1, (current, obj) => current * (obj.Points + 1));
+                return res - 1;
+            }
+        }
+
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
         private bool SkippedTurn { get; set; }
 
-        public void StartGame()
+        public GameManager()
         {
             GameBoard = new Tile[5, 5];
             Objectives = PickRandomObjectives(3);
             StartTurn();
         }
+
+        public GameManager(Objective[] objectives, Tile[,] gameBoard)
+        {
+            Objectives = objectives;
+            GameBoard = gameBoard;
+            StartTurn();
+        }
+
 
         public void EndGame()
         {
@@ -162,7 +178,7 @@ namespace ScenesFolders.MainGame
         public int CountAdjacentOfType(int x, int y, TileTypes type) =>
             GetNeighbours(x, y).Count(tile => tile.Type == type);
 
-        private IEnumerable<Tile> GetNeighbours(int x, int y)
+        public IEnumerable<Tile> GetNeighbours(int x, int y)
         {
             for (var dx = -1; dx < 1; dx++)
             for (var dy = -1; dy < 1; dy++)
