@@ -27,13 +27,7 @@ namespace ScenesFolders.MainGame
     public struct Tile
     {
         public bool HasRoad { get; set; }
-        public TileTypes Type { get; private set; }
-
-        public Tile(TileTypes type)
-        {
-            HasRoad = false;
-            Type = type;
-        }
+        public TileTypes Type { get; set; }
     }
 
     public class GameManager : MonoBehaviour
@@ -87,6 +81,12 @@ namespace ScenesFolders.MainGame
                     case TileTypes.Forest:
                         types.Add(TileVariations.Default);
                         break;
+                    case TileTypes.Empty:
+                        break;
+                    default:
+                        Debug.LogError(
+                            "Tile seems to be newly added to Enum, need to add case for this enum to TileVariation");
+                        break;
                 }
             }
 
@@ -97,11 +97,9 @@ namespace ScenesFolders.MainGame
 
         public void MakeTurn(int x, int y, TileTypes tileType)
         {
-            GameBoard[x, y] = new Tile(tileType);
+            if (tileType == TileTypes.Empty) Debug.LogError("Tile to place can't be empty");
 
-
-            AnimationsController.StartPlacingAnimation(x, y, tileType, TileVariation(x, y));
-
+            GameBoard[x, y].Type = tileType;
             SkippedTurn = false;
             if (tileType == TileTypes.Village)
                 CreateRoads();
