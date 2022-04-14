@@ -65,85 +65,29 @@ namespace ScenesFolders.MainGame
             return GetPossibleTiles(diceValues[0]);
         }
 
-        private (int, int)[] FindNeighbours(int x, int y)
-        {
-            (int, int)[] result;
-            if (x + y == 8)
-            {
-                result = new (int, int)[2];
-                result[0] = (x, y - 1);
-                result[1] = (x - 1, y);
-                return result;
-            }
-
-            if (x + y == 0)
-            {
-                result = new (int, int)[2];
-                result[0] = (x, y + 1);
-                result[1] = (x + 1, y);
-                return result;
-            }
-
-            if (x == 0 && y == 4)
-            {
-                result = new (int, int)[2];
-                result[0] = (x, y - 1);
-                result[1] = (1, y);
-                return result;
-            }
-
-            if (y == 0 && x == 4)
-            {
-                result = new (int, int)[2];
-                result[0] = (x, 1);
-                result[1] = (x - 1, y);
-                return result;
-            }
-
-
-            if (x == 4)
-            {
-                result = new (int, int)[3];
-                result[0] = (x, y - 1);
-                result[1] = (x - 1, y);
-                result[2] = (x - 1, y + 1);
-                return result;
-            }
-
-            if (y == 4)
-            {
-                result = new (int, int)[3];
-                result[0] = (x - 1, y);
-                result[1] = (x, y - 1);
-                result[2] = (x + 1, y);
-                return result;
-            }
-
-            result = new (int, int)[4];
-            result[0] = (x, y + 1);
-            result[1] = (x + 1, y);
-            result[2] = (x - 1, y);
-            result[3] = (x, y - 1);
-
-            return result;
-        }
-
         private TileVariations TileVariation(int x, int y)
         {
             var types = new List<TileVariations>();
-            var neighbours = FindNeighbours(x, y);
-            foreach (var (x1, y1) in neighbours)
+            foreach (var tile in GetNeighbours(x, y))
             {
-                if (GameBoard[x1, y1].Type == TileTypes.Village)
-                    types.Add(TileVariations.WithCrops);
-                if (GameBoard[x1, y1].Type == TileTypes.Lake)
-                    types.Add(TileVariations.Wet);
-                if (GameBoard[x1, y1].Type == TileTypes.Plain)
-                    types.Add(TileVariations.Default);
-                if (GameBoard[x1, y1].Type == TileTypes.Mountain)
-                    types.Add(TileVariations.Elevated);
-                if (GameBoard[x1, y1].Type == TileTypes.Forest)
-                    types.Add(TileVariations.Default);
+                switch (tile.Type)
+                {
+                    case TileTypes.Village:
+                        types.Add(TileVariations.WithCrops);
+                        break;
+                    case TileTypes.Lake:
+                        types.Add(TileVariations.Wet);
+                        break;
+                    case TileTypes.Plain:
+                        types.Add(TileVariations.Default);
+                        break;
+                    case TileTypes.Mountain:
+                        types.Add(TileVariations.Elevated);
+                        break;
+                    case TileTypes.Forest:
+                        types.Add(TileVariations.Default);
+                        break;
+                }
             }
 
             return types.GroupBy(type => type)
@@ -199,6 +143,30 @@ namespace ScenesFolders.MainGame
                     }
                 }
             }
+        }
+
+        public int CountAdjacentOfType(int x, int y, TileTypes type) =>
+            GetNeighbours(x, y).Count(tile => tile.Type == type);
+
+        public IEnumerable<Tile> GetNeighbours(int x, int y)
+        {
+            for (var dx = -1; dx < 1; dx++)
+            for (var dy = -1; dy < 1; dy++)
+            {
+                if (Math.Abs(dx) == Math.Abs(dy))
+                    continue;
+                yield return GetTileAt(x + dx, y + dy);
+            }
+        }
+
+        private Tile GetTileAt(int x, int y)
+        {
+            if (x < 0
+                || y < 0
+                || x >= GameBoard.GetLength(0)
+                || y >= GameBoard.GetLength(1))
+                return new Tile();
+            return GameBoard[x, y];
         }
 
         public void SkipTurn()
