@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=be413da2_002D3f15_002D40c9_002Db221_002Deb4fe03c9488/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestDeserts" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::20B46EA9-7288-4A0A-A507-CC95A9E6CFF6::net6.0::ScenesFolders.MainGame.Testing.CriteriaTests.TestDeserts&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::20B46EA9-7288-4A0A-A507-CC95A9E6CFF6::net6.0::GameManagerTests.TestPossibleTiles&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

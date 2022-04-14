@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Diagnostics;
 
 namespace ScenesFolders.MainGame
 {
@@ -30,7 +29,7 @@ namespace ScenesFolders.MainGame
         public TileTypes Type { get; set; }
     }
 
-    public class GameManager : MonoBehaviour
+    public class GameManager
     {
         public int Score
         {
@@ -53,10 +52,10 @@ namespace ScenesFolders.MainGame
             StartTurn();
         }
 
-        public GameManager(Objective[] objectives, Tile[,] gameBoard)
+        public GameManager(Objective[] objectives)
         {
+            GameBoard = new Tile[5, 5];
             Objectives = objectives;
-            GameBoard = gameBoard;
             StartTurn();
         }
 
@@ -72,7 +71,7 @@ namespace ScenesFolders.MainGame
             var res = new List<Objective>();
             for (var i = 0; i < num; i++)
             {
-                var chosen = possibleCriteria[Random.Range(0, possibleCriteria.Count - 1)];
+                var chosen = possibleCriteria[new Random().Next(0, possibleCriteria.Count)];
                 res.Add(new Objective(chosen));
                 possibleCriteria.Remove(chosen);
             }
@@ -116,7 +115,7 @@ namespace ScenesFolders.MainGame
                     case TileTypes.Empty:
                         break;
                     default:
-                        Debug.LogError(
+                        Debug.Print(
                             "Tile seems to be newly added to Enum, need to add case for this enum to TileVariation");
                         break;
                 }
@@ -129,7 +128,7 @@ namespace ScenesFolders.MainGame
 
         public void MakeTurn(int x, int y, TileTypes tileType)
         {
-            if (tileType == TileTypes.Empty) Debug.LogError("Tile to place can't be empty");
+            if (tileType == TileTypes.Empty) Debug.Print("Tile to place can't be empty");
 
             GameBoard[x, y].Type = tileType;
             SkippedTurn = false;
@@ -211,7 +210,7 @@ namespace ScenesFolders.MainGame
         {
             DiceRoll = new int[3];
             for (var i = 0; i < 3; i++)
-                DiceRoll[i] = Random.Range(1, 6);
+                DiceRoll[i] = new Random().Next(1, 7);
         }
 
         private void UpdatePoints()
