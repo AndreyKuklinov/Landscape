@@ -34,18 +34,34 @@ namespace ScenesFolders.MainGame
     {
         public int Score { get; private set; }
         public Tile[,] GameBoard { get; private set; }
+        public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
         private bool SkippedTurn { get; set; }
 
         public void StartGame()
         {
             GameBoard = new Tile[5, 5];
+            Objectives = PickRandomObjectives(3);
             StartTurn();
         }
 
         public void EndGame()
         {
             //TODO
+        }
+
+        private Objective[] PickRandomObjectives(int num)
+        {
+            var possibleCriteria = new List<ScoringCriterion>(Criteria.GetAll);
+            var res = new List<Objective>();
+            for (var i = 0; i < num; i++)
+            {
+                var chosen = possibleCriteria[Random.Range(0, possibleCriteria.Count - 1)];
+                res.Add(new Objective(chosen));
+                possibleCriteria.Remove(chosen);
+            }
+
+            return res.ToArray();
         }
 
         public TileTypes[] GetPossibleTiles(int x, int y)
@@ -182,8 +198,15 @@ namespace ScenesFolders.MainGame
                 DiceRoll[i] = Random.Range(1, 6);
         }
 
+        private void UpdatePoints()
+        {
+            foreach (var obj in Objectives)
+                obj.UpdatePoints(this);
+        }
+
         private void EndTurn()
         {
+            UpdatePoints();
             StartTurn();
         }
 
