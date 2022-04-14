@@ -30,11 +30,29 @@ namespace ScenesFolders.MainGame
         public int[] DiceRoll { get; private set; }
         public bool SkippedTurn { get; private set; }
 
-        public void StartGame()
+        public GameManager()
         {
             GameBoard = new Tile[5, 5];
             Objectives = PickRandomObjectives(3);
             StartTurn();
+        }
+
+        public GameManager(Objective[] objectives, Tile[,] gameBoard)
+        {
+            Objectives = objectives;
+            GameBoard = gameBoard;
+            StartTurn();
+        }
+        
+        public int Score
+        {
+            get
+            {
+                var res = 1;
+                foreach (var obj in Objectives)
+                    res *= obj.Points + 1;
+                return res - 1;
+            }
         }
 
         public void EndGame()
