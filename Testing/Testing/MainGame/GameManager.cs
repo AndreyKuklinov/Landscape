@@ -197,6 +197,7 @@ namespace ScenesFolders.MainGame
         private void MoveTile(int startX, int startY, int targetX, int targetY)
         {
             throw new NotImplementedException();
+            var a = GetTileAt(1, 1);
         }
-    }
+    }   
 }

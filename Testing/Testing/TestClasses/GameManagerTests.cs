@@ -2,31 +2,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using ScenesFolders.MainGame;
 
-[TestFixture]
-public class GameManagerTests
+namespace ScenesFolders.MainGame.Testing
 {
-    [Test]
-    public void TestPossibleTiles()
+    [TestFixture]
+    public class GameManagerTests
     {
-        throw new NotImplementedException();
-    }
-    
-    [Test]
-    public void TestGetNeighbours()
-    {
-        throw new NotImplementedException();
-    }
-    
-    [Test]
-    public void TestCountAdjacentOfType()
-    {
-        throw new NotImplementedException();
-    }
-    
-    [Test]
-    public void TestGetTileAt()
-    {
-        throw new NotImplementedException();
+        [Test]
+        public void TestPossibleTiles()
+        {
+            var gm = GameManager;
+        }
+
+        [Test]
+        public void TestGetNeighbours()
+        {
+            var gm = GameManager;
+            Assert.AreEqual(gm.GetNeighbours(1, 1), GameBoard[1, 1]);
+        }
+
+        [Test]
+        public void TestCountAdjacentOfType(int x, int y)
+        {
+            return x + y;
+        }
+
+        [Test]
+        public void TestGetTileAt()
+        {
+            var gm = new GameManager();
+            Assert.AreEqual(gm.GetTileAt(1, 1), GameBoard[1, 1]);
+            Assert.AreEqual(gm.GetTileAt(5, 1), Tile);
+            Assert.AreEqual(gm.GetTileAt(1, -1), Tile) ;
+
+        }
     }
 }
