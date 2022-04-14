@@ -19,7 +19,7 @@
             }
         }
 
-        private static int Twins(int x, int y, GameManager gm)
+        public static int Twins(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
                && gm.CountAdjacentOfType(x, y, TileTypes.Mountain) == 1)
@@ -27,7 +27,7 @@
             return 0;
         }
 
-        private static int Groves(int x, int y, GameManager gm)
+        public static int Groves(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Forest
                && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0)
@@ -35,7 +35,7 @@
             return 0;
         }
         
-        private static int Fields(int x, int y, GameManager gm)
+        public static int Fields(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Plain
                && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 1)
@@ -43,7 +43,7 @@
             return 0;
         }
         
-        private static int Swamps(int x, int y, GameManager gm)
+        public static int Swamps(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Forest
                && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 1)
@@ -51,7 +51,7 @@
             return 0;
         }
         
-        private static int Deserts(int x, int y, GameManager gm)
+        public static int Deserts(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Plain
                && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0
