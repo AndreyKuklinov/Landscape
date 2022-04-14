@@ -32,18 +32,34 @@ namespace ScenesFolders.MainGame
 
     public class GameManager : MonoBehaviour
     {
-        public int Score { get; private set; }
+        public int Score
+        {
+            get
+            {
+                var res = Objectives.Aggregate(1, (current, obj) => current * (obj.Points + 1));
+                return res - 1;
+            }
+        }
+
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
         private bool SkippedTurn { get; set; }
 
-        public void StartGame()
+        public GameManager()
         {
             GameBoard = new Tile[5, 5];
             Objectives = PickRandomObjectives(3);
             StartTurn();
         }
+
+        public GameManager(Objective[] objectives, Tile[,] gameBoard)
+        {
+            Objectives = objectives;
+            GameBoard = gameBoard;
+            StartTurn();
+        }
+
 
         public void EndGame()
         {
