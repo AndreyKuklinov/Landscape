@@ -8,12 +8,12 @@ namespace ScenesFolders.MainGame
 {
     public enum TileTypes
     {
+        Empty,
         Mountain,
         Forest,
         Plain,
         Lake,
-        Village,
-        Empty
+        Village
     }
 
     public enum TileVariations
