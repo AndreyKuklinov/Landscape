@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\ScenesFolders\MainGame\AnimationsController.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Criteria.cs" />
-     <Compile Include="Assets\ScenesFolders\MainGame\DirectionsEnum.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\GameManager.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Objective.cs" />
      <Compile Include="Assets\ScenesFolders\MetaScripts\SceneChanger.cs" />

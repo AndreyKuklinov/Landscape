@@ -159,7 +159,7 @@ namespace ScenesFolders.MainGame
             }
         }
 
-        private Tile GetTileAt(int x, int y)
+        public Tile GetTileAt(int x, int y)
         {
             if (x < 0
                 || y < 0
