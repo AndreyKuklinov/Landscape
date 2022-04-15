@@ -4,24 +4,16 @@ namespace ScenesFolders.Settings
 {
     public class SettingsManager : MonoBehaviour
     {
-        private void SetDifficulty(string newDifficulty)
+        public string Difficulty
         {
-            PlayerPrefs.SetString("Difficulty", newDifficulty);
+            set => PlayerPrefs.SetString("Difficulty", value);
+            get => PlayerPrefs.GetString("Difficulty");
         }
-    
-        private string GetDifficulty()
+
+        public int Volume
         {
-            return PlayerPrefs.GetString("Difficulty");
-        }
-    
-        private void SetVolume(int newVolume)
-        {
-            PlayerPrefs.SetInt("Volume", newVolume);
-        }
-    
-        private int GetVolume()
-        {
-            return PlayerPrefs.GetInt("Volume");
+            set => PlayerPrefs.SetInt("Volume", value);
+            get => PlayerPrefs.GetInt("Volume");
         }
     }
 }
