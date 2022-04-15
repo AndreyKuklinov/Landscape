@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj": {}
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj": {
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj",
+        "projectUniqueName": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj",
         "projectName": "Testing",
-        "projectPath": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj",
-        "packagesPath": "C:\\Users\\AcerGrey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\obj\\",
+        "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj",
+        "packagesPath": "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\AcerGrey\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Andrew Kuklinov\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +37,24 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -49,7 +65,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

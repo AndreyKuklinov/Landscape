@@ -59,6 +59,7 @@ namespace ScenesFolders.MainGame.Testing
             Assert.AreEqual(4, gm.Score);
         }
 
+        [Test]
         public void TestFields()
         {
             var objectives = new[] { new Objective(Criteria.Fields) };
@@ -73,6 +74,7 @@ namespace ScenesFolders.MainGame.Testing
             Assert.AreEqual(3, gm.Score);
         }
 
+        [Test]
         public void TestGroves()
         {
             var objectives = new[] { new Objective(Criteria.Groves) };
