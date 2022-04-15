@@ -20,7 +20,7 @@ namespace ScenesFolders.MainGame
     {
         Wet,
         Elevated,
-        WithCrops,
+        WithCropsOrMines,
         Default
     }
 
@@ -99,7 +99,7 @@ namespace ScenesFolders.MainGame
                 switch (tile.Type)
                 {
                     case TileTypes.Village:
-                        types.Add(TileVariations.WithCrops);
+                        types.Add(TileVariations.WithCropsOrMines);
                         break;
                     case TileTypes.Lake:
                         types.Add(TileVariations.Wet);
