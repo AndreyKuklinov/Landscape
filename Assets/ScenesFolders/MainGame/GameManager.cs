@@ -34,8 +34,16 @@ namespace ScenesFolders.MainGame
 
     public struct Tile
     {
-        public bool HasRoad { get; set; }
+        public RoadDirection RoadDirection { get; set; }
         public TileTypes Type { get; set; }
+
+        public Tile(TileTypes type)
+        {
+            Type = type;
+            RoadDirection = RoadDirection.None;
+        }
+
+        public bool HasRoad => RoadDirection != RoadDirection.None;
     }
 
     public class GameManager : MonoBehaviour
@@ -160,8 +168,7 @@ namespace ScenesFolders.MainGame
                         {
                             var direction = RoadDirection.LeftToRight;
                             if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
-                            GameBoard[x2, y].HasRoad = true;
-                            AnimationsController.StartRoadCreationAnimation(x2, y, GameBoard[x2, y].Type, direction);
+                            GameBoard[x2, y].RoadDirection = direction;
                         }
                     }
 
@@ -172,8 +179,7 @@ namespace ScenesFolders.MainGame
                         {
                             var direction = RoadDirection.UpToDown;
                             if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
-                            GameBoard[x, y2].HasRoad = true;
-                            AnimationsController.StartRoadCreationAnimation(x, y2, GameBoard[x, y2].Type, direction);
+                            GameBoard[x, y2].RoadDirection = direction;
                         }
                     }
                 }
