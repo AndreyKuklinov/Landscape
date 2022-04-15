@@ -3854,24 +3854,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\": {}
+    "C:\\Users\\AcerGrey\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj",
+      "projectUniqueName": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj",
       "projectName": "Testing",
-      "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\Testing.csproj",
-      "packagesPath": "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 2\\Game\\Landscape\\Testing\\Testing\\obj\\",
+      "projectPath": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\Testing.csproj",
+      "packagesPath": "C:\\Users\\AcerGrey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AcerGrey\\Documents\\GitHub\\Landscape\\Testing\\Testing\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Andrew Kuklinov\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\AcerGrey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3922,7 +3929,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
