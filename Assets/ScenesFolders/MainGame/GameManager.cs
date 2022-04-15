@@ -180,8 +180,8 @@ namespace ScenesFolders.MainGame
 
         public IEnumerable<Tile> GetNeighbours(int x, int y)
         {
-            for (var dx = -1; dx < 1; dx++)
-            for (var dy = -1; dy < 1; dy++)
+            for (var dx = -1; dx <= 1; dx++)
+            for (var dy = -1; dy <= 1; dy++)
             {
                 if (Math.Abs(dx) == Math.Abs(dy))
                     continue;

@@ -59,6 +59,7 @@
      <Compile Include="Assets\ScenesFolders\MainGame\Criteria.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\GameManager.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Objective.cs" />
+     <Compile Include="Assets\ScenesFolders\MainGame\Test.cs" />
      <Compile Include="Assets\ScenesFolders\MetaScripts\SceneChanger.cs" />
      <Compile Include="Assets\ScenesFolders\Settings\SettingsManager.cs" />
  <Reference Include="UnityEngine">
