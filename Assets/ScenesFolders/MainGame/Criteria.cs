@@ -42,11 +42,11 @@
                 return 1;
             return 0;
         }
-        
+
         private static int Swamps(int x, int y, GameManager gm)
         {
             if(gm.GetTileAt(x,y).Type == TileTypes.Forest
-               && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 1)
+               && gm.CountAdjacentOfType(x, y, TileTypes.Lake) >= 1)
                 return 1;
             return 0;
         }
