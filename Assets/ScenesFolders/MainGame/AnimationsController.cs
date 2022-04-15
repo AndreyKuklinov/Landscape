@@ -29,10 +29,10 @@ namespace ScenesFolders.MainGame
             throw new NotImplementedException();
         }
 
-        public static void StartRoadCreationAnimation(int x, int y, TileTypes tileType, int direction)
+        public static void StartRoadCreationAnimation(int x, int y, TileTypes tileType, Direction direction)
         {
             //animator.SetTrigger(...);
             throw new NotImplementedException();
         }
     }
-}
+}   

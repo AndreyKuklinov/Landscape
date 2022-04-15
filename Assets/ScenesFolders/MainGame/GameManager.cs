@@ -24,6 +24,13 @@ namespace ScenesFolders.MainGame
         Default
     }
 
+    public enum Direction
+    {
+        LeftToRight,
+        UpToDown,
+        Crossroad
+    }
+
     public struct Tile
     {
         public bool HasRoad { get; set; }
@@ -150,11 +157,8 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x1, y].Type != TileTypes.Village) continue;
                         for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
                         {
-                            // direction 0 <=> сверху вниз
-                            // direction 1 <=> слева направо
-                            // direction 2 <=> перекресток
-                            var direction = 1;
-                            if (GameBoard[x2, y].HasRoad) direction = 2;
+                            var direction = Direction.LeftToRight;
+                            if (GameBoard[x2, y].HasRoad) direction = Direction.Crossroad;
                             GameBoard[x2, y].HasRoad = true;
                             AnimationsController.StartRoadCreationAnimation(x2, y, GameBoard[x2, y].Type, direction);
                         }
@@ -165,8 +169,8 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x, y1].Type != TileTypes.Village) continue;
                         for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
                         {
-                            var direction = 0;
-                            if (GameBoard[x, y2].HasRoad) direction = 2;
+                            var direction = Direction.UpToDown;
+                            if (GameBoard[x, y2].HasRoad) direction = Direction.Crossroad;
                             GameBoard[x, y2].HasRoad = true;
                             AnimationsController.StartRoadCreationAnimation(x, y2, GameBoard[x, y2].Type, direction);
                         }
@@ -183,20 +187,24 @@ namespace ScenesFolders.MainGame
             for (var dx = -1; dx <= 1; dx++)
             for (var dy = -1; dy <= 1; dy++)
             {
-                if (Math.Abs(dx) == Math.Abs(dy))
+                if (Math.Abs(dx) == Math.Abs(dy) || !TileExists(x + dx, y + dy))
                     continue;
                 yield return GetTileAt(x + dx, y + dy);
             }
         }
 
+
         public Tile GetTileAt(int x, int y)
         {
-            if (x < 0
-                || y < 0
-                || x >= GameBoard.GetLength(0)
-                || y >= GameBoard.GetLength(1))
-                return new Tile();
-            return GameBoard[x, y];
+            return TileExists(x, y) ? GameBoard[x, y] : new Tile();
+        }
+
+        private bool TileExists(int x, int y)
+        {
+            return x >= 0
+                   && y >= 0
+                   && x < GameBoard.GetLength(0)
+                   && y < GameBoard.GetLength(1);
         }
 
         public void SkipTurn()
