@@ -10,10 +10,16 @@ namespace ScenesFolders.Settings
             get => PlayerPrefs.GetString("Difficulty");
         }
 
-        public int Volume
+        public int MusicVolume
         {
-            set => PlayerPrefs.SetInt("Volume", value);
-            get => PlayerPrefs.GetInt("Volume");
+            set => PlayerPrefs.SetInt("MusicVolume", value);
+            get => PlayerPrefs.GetInt("MusicVolume");
         }
+        public int InterfaceVolume
+        {
+            set => PlayerPrefs.SetInt("InterfaceVolume", value);
+            get => PlayerPrefs.GetInt("InterfaceVolume");
+        }
+
     }
 }
