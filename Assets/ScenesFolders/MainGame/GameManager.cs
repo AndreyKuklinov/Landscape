@@ -24,8 +24,9 @@ namespace ScenesFolders.MainGame
         Default
     }
 
-    public enum Direction
+    public enum RoadDirection
     {
+        None,
         LeftToRight,
         UpToDown,
         Crossroad
@@ -157,8 +158,8 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x1, y].Type != TileTypes.Village) continue;
                         for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
                         {
-                            var direction = Direction.LeftToRight;
-                            if (GameBoard[x2, y].HasRoad) direction = Direction.Crossroad;
+                            var direction = RoadDirection.LeftToRight;
+                            if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
                             GameBoard[x2, y].HasRoad = true;
                             AnimationsController.StartRoadCreationAnimation(x2, y, GameBoard[x2, y].Type, direction);
                         }
@@ -169,8 +170,8 @@ namespace ScenesFolders.MainGame
                         if (GameBoard[x, y1].Type != TileTypes.Village) continue;
                         for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
                         {
-                            var direction = Direction.UpToDown;
-                            if (GameBoard[x, y2].HasRoad) direction = Direction.Crossroad;
+                            var direction = RoadDirection.UpToDown;
+                            if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
                             GameBoard[x, y2].HasRoad = true;
                             AnimationsController.StartRoadCreationAnimation(x, y2, GameBoard[x, y2].Type, direction);
                         }
