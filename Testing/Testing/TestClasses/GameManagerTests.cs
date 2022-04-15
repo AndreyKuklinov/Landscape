@@ -19,7 +19,7 @@ namespace ScenesFolders.MainGame.Testing
             gm.MakeTurn(0, 1, TileTypes.Village);
             gm.MakeTurn(1, 2, TileTypes.Forest);
             Assert.AreEqual(4, gm.GetNeighbours(1, 1).ToArray().Length);
-            Assert.AreEqual(4, gm.GetNeighbours(4, 4).ToArray().Length);
+            Assert.AreEqual(2, gm.GetNeighbours(4, 4).ToArray().Length);
         }
 
         [Test]

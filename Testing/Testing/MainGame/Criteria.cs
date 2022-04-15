@@ -112,7 +112,11 @@ namespace ScenesFolders.MainGame
         
         public static int Ponds(int x, int y, GameManager gm)
         {
-            throw new NotImplementedException();
+            if (gm.GetTileAt(x, y).Type == TileTypes.Lake
+                && gm.GetNeighbours(x, y).Distinct().Count() == 1
+                && gm.CountAdjacentOfType(x, y, TileTypes.Empty) == 0)
+                return 1;
+            return 0;
         }
         
         public static int Hollows(int x, int y, GameManager gm)
@@ -136,7 +140,10 @@ namespace ScenesFolders.MainGame
         
         public static int Islands(int x, int y, GameManager gm)
         {
-            throw new NotImplementedException();
+            if (gm.GetTileAt(x, y).Type != TileTypes.Empty
+                && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == gm.GetNeighbours(x,y).Count())
+                return 1;
+            return 0;
         }
         
         public static int Bridges(int x, int y, GameManager gm)
@@ -166,12 +173,17 @@ namespace ScenesFolders.MainGame
         
         public static int Mines(int x, int y, GameManager gm)
         {
-            throw new NotImplementedException();
+            if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
+                && gm.GetNeighbours(x, y).All(tile => tile.HasRoad || tile.Type == TileTypes.Village))
+                return 1;
+            return 0;
         }
         
         public static int Crossroads(int x, int y, GameManager gm)
         {
-            throw new NotImplementedException();
+            if (gm.GetTileAt(x, y).RoadDirection == RoadDirection.Crossroad)
+                return 1;
+            return 0;
         }
         
         public static int Towns(int x, int y, GameManager gm)
@@ -192,7 +204,10 @@ namespace ScenesFolders.MainGame
         
         public static int Stations(int x, int y, GameManager gm)
         {
-            throw new NotImplementedException();
+            if (gm.GetTileAt(x, y).Type == TileTypes.Village
+                && gm.GetTileAt(x, y).HasRoad)
+                return 1;
+            return 0;
         }
     }
 }

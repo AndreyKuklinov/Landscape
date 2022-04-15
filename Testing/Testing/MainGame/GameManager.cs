@@ -15,24 +15,26 @@ namespace ScenesFolders.MainGame
         Village
     }
 
-    public enum TileVariations
+    public enum RoadDirection
     {
-        Wet,
-        Elevated,
-        WithCrops,
-        Default
+        None,
+        LeftToRight,
+        UpToDown,
+        Crossroad
     }
-
+    
     public struct Tile
     {
-        public bool HasRoad { get; set; }
+        public RoadDirection RoadDirection { get; set; }
         public TileTypes Type { get; set; }
 
         public Tile(TileTypes type)
         {
             Type = type;
-            HasRoad = false;
+            RoadDirection = RoadDirection.None;
         }
+
+        public bool HasRoad => RoadDirection != RoadDirection.None;
     }
 
     public class GameManager
@@ -96,42 +98,6 @@ namespace ScenesFolders.MainGame
             return GetPossibleTiles(diceValues[0]);
         }
 
-        private TileVariations TileVariation(int x, int y)
-        {
-            var types = new List<TileVariations>();
-            foreach (var tile in GetNeighbours(x, y))
-            {
-                switch (tile.Type)
-                {
-                    case TileTypes.Village:
-                        types.Add(TileVariations.WithCrops);
-                        break;
-                    case TileTypes.Lake:
-                        types.Add(TileVariations.Wet);
-                        break;
-                    case TileTypes.Plain:
-                        types.Add(TileVariations.Default);
-                        break;
-                    case TileTypes.Mountain:
-                        types.Add(TileVariations.Elevated);
-                        break;
-                    case TileTypes.Forest:
-                        types.Add(TileVariations.Default);
-                        break;
-                    case TileTypes.Empty:
-                        break;
-                    default:
-                        Debug.Print(
-                            "Tile seems to be newly added to Enum, need to add case for this enum to TileVariation");
-                        break;
-                }
-            }
-
-            return types.GroupBy(type => type)
-                .OrderByDescending(g => g.Count())
-                .First().Key;
-        }
-
         public void MakeTurn(int x, int y, TileTypes tileType)
         {
             if (tileType == TileTypes.Empty) Debug.Print("Tile to place can't be empty");
@@ -141,6 +107,38 @@ namespace ScenesFolders.MainGame
             EndTurn();
         }
 
+        private void CreateRoads()
+        {
+            for (var x = 0; x < 4; x++)
+            {
+                for (var y = 0; y < 4; y++)
+                {
+                    if (GameBoard[x, y].Type != TileTypes.Village) continue;
+                    for (var x1 = 0; x1 < 4; x1++)
+                    {
+                        if (GameBoard[x1, y].Type != TileTypes.Village) continue;
+                        for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
+                        {
+                            var direction = RoadDirection.LeftToRight;
+                            if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
+                            GameBoard[x2, y].RoadDirection = direction;
+                        }
+                    }
+
+                    for (var y1 = 0; y1 < 4; y1++)
+                    {
+                        if (GameBoard[x, y1].Type != TileTypes.Village) continue;
+                        for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
+                        {
+                            var direction = RoadDirection.UpToDown;
+                            if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
+                            GameBoard[x, y2].RoadDirection = direction;
+                        }
+                    }
+                }
+            }
+        }
+        
         public int CountAdjacentOfType(int x, int y, TileTypes type) =>
             GetNeighbours(x, y).Count(tile => tile.Type == type);
 
@@ -149,7 +147,7 @@ namespace ScenesFolders.MainGame
             for (var dx = -1; dx <= 1; dx++)
             for (var dy = -1; dy <= 1; dy++)
             {
-                if (Math.Abs(dx) == Math.Abs(dy))
+                if (Math.Abs(dx) == Math.Abs(dy) || !TileExists(x + dx,y + dy))
                     continue;
                 yield return GetTileAt(x + dx, y + dy);
             }
@@ -157,14 +155,17 @@ namespace ScenesFolders.MainGame
 
         public Tile GetTileAt(int x, int y)
         {
-            if (x < 0
-                || y < 0
-                || x >= GameBoard.GetLength(0)
-                || y >= GameBoard.GetLength(1))
-                return new Tile();
-            return GameBoard[x, y];
+            return TileExists(x,y) ? GameBoard[x, y] : new Tile();
         }
 
+        private bool TileExists(int x, int y)
+        {
+            return x >= 0
+                   && y >= 0
+                   && x < GameBoard.GetLength(0)
+                   && y < GameBoard.GetLength(1);
+        }
+        
         public void SkipTurn()
         {
             if (SkippedTurn)
@@ -189,6 +190,7 @@ namespace ScenesFolders.MainGame
         private void EndTurn()
         {
             UpdatePoints();
+            CreateRoads();
             StartTurn();
         }
 
