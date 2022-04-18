@@ -6,48 +6,14 @@ using Random = UnityEngine.Random;
 
 namespace ScenesFolders.MainGame
 {
-    public enum TileTypes
-    {
-        Empty,
-        Mountain,
-        Forest,
-        Plain,
-        Lake,
-        Village
-    }
-
-    public enum TileVariations
-    {
-        Wet,
-        Elevated,
-        WithCropsOrMines,
-        Default
-    }
-
-    public enum RoadDirection
-    {
-        None,
-        LeftToRight,
-        UpToDown,
-        Crossroad
-    }
-
-    public struct Tile
-    {
-        public RoadDirection RoadDirection { get; set; }
-        public TileTypes Type { get; set; }
-
-        public Tile(TileTypes type)
-        {
-            Type = type;
-            RoadDirection = RoadDirection.None;
-        }
-
-        public bool HasRoad => RoadDirection != RoadDirection.None;
-    }
-
     public class GameManager : MonoBehaviour
     {
+        public BoardRenderer BoardRenderer;
+        public Tile[,] GameBoard { get; private set; }
+        public Objective[] Objectives { get; private set; }
+        private int[] DiceRoll { get; set; }
+        private bool SkippedTurn { get; set; }
+
         public int Score
         {
             get
@@ -56,26 +22,13 @@ namespace ScenesFolders.MainGame
                 return res - 1;
             }
         }
-
-        public Tile[,] GameBoard { get; private set; }
-        public Objective[] Objectives { get; private set; }
-        private int[] DiceRoll { get; set; }
-        private bool SkippedTurn { get; set; }
-
-        public GameManager()
+        
+        public void Start()
         {
             GameBoard = new Tile[5, 5];
             Objectives = PickRandomObjectives(3);
             StartTurn();
         }
-
-        public GameManager(Objective[] objectives, Tile[,] gameBoard)
-        {
-            Objectives = objectives;
-            GameBoard = gameBoard;
-            StartTurn();
-        }
-
 
         public void EndGame()
         {
@@ -105,42 +58,6 @@ namespace ScenesFolders.MainGame
                 || diceValues.Count != 1)
                 return Array.Empty<TileTypes>();
             return GetPossibleTiles(diceValues[0]);
-        }
-
-        private TileVariations TileVariation(int x, int y)
-        {
-            var types = new List<TileVariations>();
-            foreach (var tile in GetNeighbours(x, y))
-            {
-                switch (tile.Type)
-                {
-                    case TileTypes.Village:
-                        types.Add(TileVariations.WithCropsOrMines);
-                        break;
-                    case TileTypes.Lake:
-                        types.Add(TileVariations.Wet);
-                        break;
-                    case TileTypes.Plain:
-                        types.Add(TileVariations.Default);
-                        break;
-                    case TileTypes.Mountain:
-                        types.Add(TileVariations.Elevated);
-                        break;
-                    case TileTypes.Forest:
-                        types.Add(TileVariations.Default);
-                        break;
-                    case TileTypes.Empty:
-                        break;
-                    default:
-                        Debug.LogError(
-                            "Tile seems to be newly added to Enum, need to add case for this enum to TileVariation");
-                        break;
-                }
-            }
-
-            return types.GroupBy(type => type)
-                .OrderByDescending(g => g.Count())
-                .First().Key;
         }
 
         public void MakeTurn(int x, int y, TileTypes tileType)
@@ -251,7 +168,7 @@ namespace ScenesFolders.MainGame
 
         private void MoveTile(int startX, int startY, int targetX, int targetY)
         {
-            AnimationsController.StartMovingAnimation(startX, startY, targetX, targetY);
+            //AnimationsController.StartMovingAnimation(startX, startY, targetX, targetY);
             throw new NotImplementedException();
         }
     }
