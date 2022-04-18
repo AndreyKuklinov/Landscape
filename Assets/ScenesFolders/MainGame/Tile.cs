@@ -26,11 +26,15 @@ namespace ScenesFolders.MainGame
     {
         public RoadDirection RoadDirection { get; set; }
         public TileTypes Type { get; set; }
+        public int X { get; }
+        public int Y { get; }
 
-        public Tile(TileTypes type)
+        public Tile(TileTypes type, int x, int y)
         {
             Type = type;
             RoadDirection = RoadDirection.None;
+            X = x;
+            Y = y;
         }
 
         public bool HasRoad => RoadDirection != RoadDirection.None;

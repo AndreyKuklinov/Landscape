@@ -8,7 +8,9 @@ namespace ScenesFolders.MainGame
 {
     public class GameManager : MonoBehaviour
     {
-        public BoardRenderer BoardRenderer;
+        public BoardRenderer boardRenderer;
+        public int boardWidth;
+        public int boardHeight;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
@@ -25,7 +27,11 @@ namespace ScenesFolders.MainGame
         
         public void Start()
         {
-            GameBoard = new Tile[5, 5];
+            GameBoard = new Tile[boardWidth, boardHeight];
+            for(var x = 0; x < boardWidth; x++)
+            for (var y = 0; y < boardHeight; y++)
+                GameBoard[x, y] = new Tile(TileTypes.Empty, x, y);
+            boardRenderer.DrawEmptyBoard(boardWidth, boardHeight);
             Objectives = PickRandomObjectives(3);
             StartTurn();
         }

@@ -1,18 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class TileObject : MonoBehaviour
+namespace ScenesFolders.MainGame
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TileObject : MonoBehaviour
     {
-        
-    }
+        public Tile Tile { get; private set; }
+        private GameObject _model;
 
-    // Update is called once per frame
-    void Update()
-    {
+        public void Init(Tile tile, GameObject modelPrefab, Vector3 screenPosition)
+        {
+            Tile = tile;
+            transform.position = screenPosition;
+            Draw(modelPrefab);
+        }
         
+        public void Draw(GameObject newModel)
+        {
+            if (newModel != _model) //TODO: Проверить, что это условие правильное
+            {
+                Destroy(_model);
+                _model = Instantiate(newModel, transform);
+            }
+        }
+        
+        public void OnMouseUp()
+        {
+            Debug.Log("(" + Tile.X + " " + Tile.Y + ") was clicked!");
+        }
     }
 }
