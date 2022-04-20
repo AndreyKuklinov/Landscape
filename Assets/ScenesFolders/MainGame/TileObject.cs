@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ScenesFolders.MainGame
 {
     public class TileObject : MonoBehaviour
     {
-        public Tile Tile { get; private set; }
+        public Tile _tile;
         private GameObject _model;
         private GameObject _light;
+        private GameManager _gameManager;
 
         private bool _isLit;
         public bool IsLit
@@ -20,29 +22,40 @@ namespace ScenesFolders.MainGame
                 _isLit = value;
             }
         }
-        
-        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, Vector3 screenPosition)
+
+        public TileTypes Type
         {
-            Tile = tile;
+            get => _tile.Type;
+            set => _tile = new Tile(value, _tile.X, _tile.Y);
+        }
+        
+        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, 
+            GameManager gameManager, Vector3 screenPosition)
+        {
+            _tile = tile;
             transform.position = screenPosition;
+            _gameManager = gameManager;
             _isLit = false;
             _light = Instantiate(lightModelPrefab, transform);
             _light.SetActive(false);
             Draw(modelPrefab);
         }
-        
+
         public void Draw(GameObject newModel)
         {
-            if (newModel != _model) //TODO: Проверить, что это условие правильное
-            {
-                Destroy(_model);
-                _model = Instantiate(newModel, transform);
-            }
+            Destroy(_model);
+            _model = Instantiate(newModel, transform);
         }
 
         public void OnMouseUp()
         {
-            IsLit = false;
+            var moves = _gameManager.GetMovesAt(_tile.X, _tile.Y);
+            if(moves.Length == 0)
+                return;
+            
+            //TESTING (6 not implemented)
+            var choice = moves[Random.Range(0, moves.Length-1)];
+            _gameManager.MakeTurn(_tile.X, _tile.Y, choice);
         }
     }
 }

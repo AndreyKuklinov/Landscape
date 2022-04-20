@@ -55,22 +55,22 @@ namespace ScenesFolders.MainGame
             return res.ToArray();
         }
 
-        public TileTypes[] GetPossibleTiles(int x, int y)
+        public TileTypes[] GetMovesAt(int x, int y)
         {
             var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
-                || !(diceValues.Remove(x) || diceValues.Remove(6))
-                || !(diceValues.Remove(y) || diceValues.Remove(6)))
+                || !(diceValues.Remove(x+1) || diceValues.Remove(6))
+                || !(diceValues.Remove(y+1) || diceValues.Remove(6)))
                 return Array.Empty<TileTypes>();
-            return GetPossibleTiles(diceValues[0]);
+            return GetTileFromDice(diceValues[0]);
         }
 
-        public IEnumerable<Tile> GetPossibleMoves()
+        public IEnumerable<Tile> GetAllMoves()
         {
             for(var x = 0; x<boardWidth; x++)
             for (var y = 0; y < boardHeight; y++)
             {
-                var moves = GetPossibleTiles(x, y);
+                var moves = GetMovesAt(x, y);
                 if (moves.Length > 0)
                     yield return GameBoard[x, y];
             }
@@ -81,6 +81,7 @@ namespace ScenesFolders.MainGame
             if (tileType == TileTypes.Empty) Debug.LogError("Tile to place can't be empty");
 
             GameBoard[x, y].Type = tileType;
+            boardRenderer.ChangeTile(x, y, tileType);
             SkippedTurn = false;
             if (tileType == TileTypes.Village)
                 CreateRoads();
@@ -158,8 +159,9 @@ namespace ScenesFolders.MainGame
         {
             DiceRoll = new int[3];
             for (var i = 0; i < 3; i++)
-                DiceRoll[i] = Random.Range(1, 6);
-            foreach (var tile in GetPossibleMoves())
+                DiceRoll[i] = Random.Range(1, 7);
+            Debug.Log("Rolled: "+DiceRoll[0]+" "+DiceRoll[1]+" "+DiceRoll[2]);
+            foreach (var tile in GetAllMoves())
                 boardRenderer.LightTile(tile.X, tile.Y);
         }
 
@@ -176,7 +178,7 @@ namespace ScenesFolders.MainGame
             StartTurn();
         }
 
-        private TileTypes[] GetPossibleTiles(int diceValue)
+        private TileTypes[] GetTileFromDice(int diceValue)
         {
             if (diceValue == 6)
                 return new[]

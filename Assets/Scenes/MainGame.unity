@@ -420,7 +420,6 @@ MonoBehaviour:
     type: 3}
   lightModel: {fileID: 919132149155446097, guid: 468b11a9e9ee7cf43a4fb71c7d247569,
     type: 3}
-  mainCamera: {fileID: 963194225}
   models:
   - {fileID: 919132149155446097, guid: 82921a29b8bee2b41983c60793ad36bc, type: 3}
   - {fileID: 919132149155446097, guid: 5c9ae7cb56199a4408735caef7ec7f9b, type: 3}
@@ -597,13 +596,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 4, y: 10, z: -2}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: 4, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!1 &1178566551
 GameObject:
   m_ObjectHideFlags: 0
