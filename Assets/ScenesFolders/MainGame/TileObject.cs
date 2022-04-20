@@ -8,11 +8,26 @@ namespace ScenesFolders.MainGame
     {
         public Tile Tile { get; private set; }
         private GameObject _model;
+        private GameObject _light;
 
-        public void Init(Tile tile, GameObject modelPrefab, Vector3 screenPosition)
+        private bool _isLit;
+        public bool IsLit
+        {
+            get => _isLit;
+            set
+            {
+                _light.SetActive(value);
+                _isLit = value;
+            }
+        }
+        
+        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, Vector3 screenPosition)
         {
             Tile = tile;
             transform.position = screenPosition;
+            _isLit = false;
+            _light = Instantiate(lightModelPrefab, transform);
+            _light.SetActive(false);
             Draw(modelPrefab);
         }
         
@@ -24,10 +39,10 @@ namespace ScenesFolders.MainGame
                 _model = Instantiate(newModel, transform);
             }
         }
-        
+
         public void OnMouseUp()
         {
-            Debug.Log("(" + Tile.X + " " + Tile.Y + ") was clicked!");
+            IsLit = false;
         }
     }
 }

@@ -59,11 +59,21 @@ namespace ScenesFolders.MainGame
         {
             var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
-                || !diceValues.Remove(x)
-                || !diceValues.Remove(y)
-                || diceValues.Count != 1)
+                || !(diceValues.Remove(x) || diceValues.Remove(6))
+                || !(diceValues.Remove(y) || diceValues.Remove(6)))
                 return Array.Empty<TileTypes>();
             return GetPossibleTiles(diceValues[0]);
+        }
+
+        public IEnumerable<Tile> GetPossibleMoves()
+        {
+            for(var x = 0; x<boardWidth; x++)
+            for (var y = 0; y < boardHeight; y++)
+            {
+                var moves = GetPossibleTiles(x, y);
+                if (moves.Length > 0)
+                    yield return GameBoard[x, y];
+            }
         }
 
         public void MakeTurn(int x, int y, TileTypes tileType)
@@ -123,7 +133,6 @@ namespace ScenesFolders.MainGame
             }
         }
 
-
         public Tile GetTileAt(int x, int y)
         {
             return TileExists(x, y) ? GameBoard[x, y] : new Tile();
@@ -150,6 +159,8 @@ namespace ScenesFolders.MainGame
             DiceRoll = new int[3];
             for (var i = 0; i < 3; i++)
                 DiceRoll[i] = Random.Range(1, 6);
+            foreach (var tile in GetPossibleMoves())
+                boardRenderer.LightTile(tile.X, tile.Y);
         }
 
         private void UpdatePoints()
@@ -161,6 +172,7 @@ namespace ScenesFolders.MainGame
         private void EndTurn()
         {
             UpdatePoints();
+            boardRenderer.UnlightTiles();
             StartTurn();
         }
 
