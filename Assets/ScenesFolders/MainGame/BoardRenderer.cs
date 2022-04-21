@@ -10,6 +10,7 @@ namespace ScenesFolders.MainGame
         public GameManager gameManager;
         public GameObject tilePrefab;
         public GameObject lightModel;
+        public GameObject mainCamera;
         public List<GameObject> models;
         public float tileSize;
         private List<TileObject> _litTiles;
@@ -26,6 +27,9 @@ namespace ScenesFolders.MainGame
                 var pos = new Vector3(x * tileSize, 0, y*tileSize);
                 GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, gameManager, pos);
             }
+
+            var centerPos = GameBoard[2, 0].transform.position;
+            mainCamera.transform.position = new Vector3(centerPos.x, 7.5f, centerPos.z);
         }
 
         // public void LightTile(int x, int y)

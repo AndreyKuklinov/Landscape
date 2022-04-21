@@ -16,7 +16,7 @@ namespace ScenesFolders.MainGame
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
         private int[] _diceRoll;
-        private bool _skippedTurn;
+        private int _skippedTurns = 0;
 
         public int Score
         {
@@ -43,7 +43,6 @@ namespace ScenesFolders.MainGame
         {
             GameOver = true;
             guiManager.GameOver();
-            Debug.Log("Lol, game over");
         }
 
         private Objective[] PickRandomObjectives(int num)
@@ -87,7 +86,7 @@ namespace ScenesFolders.MainGame
 
             GameBoard[x, y].Type = tileType;
             boardRenderer.ChangeTile(x, y, tileType);
-            _skippedTurn = false;
+            _skippedTurns = 0;
             if (tileType == TileTypes.Village)
                 CreateRoads();
             EndTurn();
@@ -156,9 +155,9 @@ namespace ScenesFolders.MainGame
         {
             if(GameOver)
                 return;
-            if (_skippedTurn)
+            if (_skippedTurns >= 10)
                 EndGame();
-            _skippedTurn = true;
+            _skippedTurns++;
             EndTurn();
             
         }
@@ -174,8 +173,11 @@ namespace ScenesFolders.MainGame
             var moves = GetAllMoves().ToArray();
             // foreach (var tile in moves)
             //     boardRenderer.LightTile(tile.X, tile.Y);
-            if(moves.Length == 0)
-                guiManager.SetSkipButton(true, _skippedTurn ? "End game" : "Skip turn");
+            if (moves.Length == 0)
+            {
+                // guiManager.SetSkipButton(true, _skippedTurn ? "End game" : "Skip turn");
+                SkipTurn();
+            }
         }
 
         private void UpdatePoints()

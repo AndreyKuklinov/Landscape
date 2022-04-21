@@ -498,6 +498,7 @@ MonoBehaviour:
     type: 3}
   lightModel: {fileID: 919132149155446097, guid: 468b11a9e9ee7cf43a4fb71c7d247569,
     type: 3}
+  mainCamera: {fileID: 963194225}
   models:
   - {fileID: 919132149155446097, guid: 82921a29b8bee2b41983c60793ad36bc, type: 3}
   - {fileID: 919132149155446097, guid: 5c9ae7cb56199a4408735caef7ec7f9b, type: 3}
@@ -505,7 +506,7 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a311ac17ccaca2d4fa06f8153c7e1609, type: 3}
   - {fileID: 919132149155446097, guid: 24903b37243d7a84ab5eaaf758963c08, type: 3}
   - {fileID: 919132149155446097, guid: cb53b9b39c9aa5d44aa13d59fffedffa, type: 3}
-  tileSize: 2
+  tileSize: 1.3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 4, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -7,7 +7,7 @@ namespace ScenesFolders.MainGame
 {
     public class TileObject : MonoBehaviour
     {
-        public Tile _tile;
+        public Tile Tile { get; private set; }
         private GameObject _model;
         private GameObject _light;
         private GameManager _gameManager;
@@ -25,14 +25,14 @@ namespace ScenesFolders.MainGame
 
         public TileTypes Type
         {
-            get => _tile.Type;
-            set => _tile = new Tile(value, _tile.X, _tile.Y);
+            get => Tile.Type;
+            set => Tile = new Tile(value, Tile.X, Tile.Y);
         }
         
         public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, 
             GameManager gameManager, Vector3 screenPosition)
         {
-            _tile = tile;
+            Tile = tile;
             transform.position = screenPosition;
             _gameManager = gameManager;
             _isLit = false;
@@ -49,13 +49,13 @@ namespace ScenesFolders.MainGame
 
         public void OnMouseUp()
         {
-            var moves = _gameManager.GetMovesAt(_tile.X, _tile.Y);
+            var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
             if(moves.Length == 0 || _gameManager.GameOver)
                 return;
             
             //TESTING (6 not implemented)
             var choice = moves[Random.Range(0, moves.Length-1)];
-            _gameManager.MakeTurn(_tile.X, _tile.Y, choice);
+            _gameManager.MakeTurn(Tile.X, Tile.Y, choice);
         }
     }
 }
