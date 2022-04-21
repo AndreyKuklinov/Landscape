@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ScenesFolders.MainGame
 {
@@ -48,20 +49,18 @@ namespace ScenesFolders.MainGame
 
         public void OnMouseUp()
         {
-            var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
-            if(moves.Length == 0 || _gameManager.GameOver)
+            if (_gameManager.guiManager.IsChoosingATile || _gameManager.GameOver)
                 return;
-
-            //TESTING (6 not implemented)
-            var choice = moves[Random.Range(0, moves.Length-1)];
-            _gameManager.MakeTurn(Tile.X, Tile.Y, choice);
+            var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
+            if(moves.Length == 0 )
+                return;
             if (moves.Length == 1)
-                _gameManager.MakeTurn(_tile.X, _tile.Y, moves[0]);
-        }
-
-        public void ChoseTileType(TileTypes choice)
-        {
-            _gameManager.MakeTurn(_tile.X, _tile.Y, choice);
+                _gameManager.MakeTurn(Tile.X, Tile.Y, moves[0]);
+            else
+            {
+                _gameManager.guiManager.DisplayTileButtons(Tile);
+                _gameManager.boardRenderer.LightTile(Tile.X, Tile.Y);
+            }
         }
     }
 }

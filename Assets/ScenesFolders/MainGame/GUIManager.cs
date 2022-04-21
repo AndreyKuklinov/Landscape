@@ -10,11 +10,15 @@ namespace ScenesFolders.MainGame
         public Text dice2;
         public Text dice3;
         public GameObject skipButton;
-        private Text skipButtonText;
+        public GameManager gameManager;
+        public bool IsChoosingATile { get; private set; }
+        private Tile _clickedTile;
+        private Text _skipButtonText;
 
         public void Start()
         {
-            skipButtonText = skipButton.GetComponentInChildren<Text>();
+            _skipButtonText = skipButton.GetComponentInChildren<Text>();
+            IsChoosingATile = false;
         }
 
         public Text score;
@@ -40,7 +44,7 @@ namespace ScenesFolders.MainGame
         public void SetSkipButton(bool value, string text = "")
         {
             skipButton.SetActive(value);
-            skipButtonText.text = text;
+            _skipButtonText.text = text;
         }
 
         public void GameOver()
@@ -54,11 +58,13 @@ namespace ScenesFolders.MainGame
         public void DisplayScore(int newScore) =>
             score.text = newScore.ToString();
 
-        public void DisplayAvailableTiles(GameManager gm, int diceValue)
+        public void DisplayTileButtons(Tile clickedTile)
         {
+            _clickedTile = clickedTile;
+            IsChoosingATile = true;
             var buttons = new[] {b1, b2, b3, b4, b5};
             var count = 0;
-            var types = gm.GetTileFromDice(diceValue);
+            var types = gameManager.GetTileFromDice(6);
             foreach (var type in types)
             {
                 switch (type)
@@ -98,18 +104,17 @@ namespace ScenesFolders.MainGame
         public void ManageChoice(int buttonNumber)
         {
             var buttons = new[] {b1, b2, b3, b4, b5};
-            var tileObj = gameObject.AddComponent<TileObject>();
             var buttonPressed = buttons[buttonNumber];
             if (buttonPressed.image.sprite == mountain)
-                tileObj.ChoseTileType( TileTypes.Mountain);
+                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Mountain);
             if (buttonPressed.image.sprite == plain)
-                tileObj.ChoseTileType( TileTypes.Plain);
+                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Plain);
             if (buttonPressed.image.sprite == forest)
-                tileObj.ChoseTileType(TileTypes.Forest);
+                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Forest);
             if (buttonPressed.image.sprite == lake)
-                tileObj.ChoseTileType(TileTypes.Lake);
+                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Lake);
             if (buttonPressed.image.sprite == village)
-                tileObj.ChoseTileType(TileTypes.Village);
+                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Village);
         }
 
         public void SwitchCardsOff()
@@ -119,6 +124,8 @@ namespace ScenesFolders.MainGame
             {
                 buttons[i].gameObject.SetActive(false);
             }
+
+            IsChoosingATile = false;
         }
     }
 }

@@ -190,8 +190,8 @@ namespace ScenesFolders.MainGame
         public void EndTurn()
         {
             UpdatePoints();
-            // boardRenderer.UnlightTiles();
-            guiManager.SetSkipButton(false);
+            boardRenderer.UnlightTiles();
+            //guiManager.SetSkipButton(false);
             guiManager.SwitchCardsOff();
             StartTurn();
         }

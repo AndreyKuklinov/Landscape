@@ -13,10 +13,10 @@ namespace ScenesFolders.MainGame
                 return new ScoringCriterion[]
                 {
                     Twins,
-                    Groves,
+                    //Groves,
                     Fields,
                     Swamps,
-                    Deserts,
+                    //Deserts,
                     //Meadows,
                     //Cliffs,
                     //Foothills,

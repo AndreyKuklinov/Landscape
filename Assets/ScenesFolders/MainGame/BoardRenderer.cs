@@ -29,22 +29,22 @@ namespace ScenesFolders.MainGame
             }
 
             var centerPos = GameBoard[2, 0].transform.position;
-            mainCamera.transform.position = new Vector3(centerPos.x, 7.5f, centerPos.z);
+            mainCamera.transform.position = new Vector3(centerPos.x, 7.5f, centerPos.z-tileSize/4);
         }
 
-        // public void LightTile(int x, int y)
-        // {
-        //     var tile = GameBoard[x, y];
-        //     _litTiles.Add(tile);
-        //     tile.IsLit = true;
-        // }
-        //
-        // public void UnlightTiles()
-        // {
-        //     foreach (var tile in _litTiles)
-        //         tile.IsLit = false;
-        //     _litTiles = new List<TileObject>();
-        // }
+        public void LightTile(int x, int y)
+        {
+            var tile = GameBoard[x, y];
+            _litTiles.Add(tile);
+            tile.IsLit = true;
+        }
+        
+        public void UnlightTiles()
+        {
+            foreach (var tile in _litTiles)
+                tile.IsLit = false;
+            _litTiles = new List<TileObject>();
+        }
 
         public void ChangeTile(int x, int y, TileTypes newType)
         {
