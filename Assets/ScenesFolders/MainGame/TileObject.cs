@@ -51,8 +51,8 @@ namespace ScenesFolders.MainGame
             var moves = _gameManager.GetMovesAt(_tile.X, _tile.Y);
             if(moves.Length == 0)
                 return;
-            
-            //TESTING (6 not implemented)
+            if (moves.Length == 1)
+                _gameManager.MakeTurn(_tile.X, _tile.Y, moves[0]);
         }
 
         public void ChoseTileType(TileTypes choice)

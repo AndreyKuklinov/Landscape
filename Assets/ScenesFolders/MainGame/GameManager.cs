@@ -180,6 +180,7 @@ namespace ScenesFolders.MainGame
         {
             UpdatePoints();
             boardRenderer.UnlightTiles();
+            guiManager.SwitchCardsOff();
             StartTurn();
         }
 

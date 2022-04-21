@@ -62,7 +62,7 @@ namespace ScenesFolders.MainGame
                         count++;
                         break;
                     case TileTypes.Forest:
-                        buttons[count].image.sprite = plain;
+                        buttons[count].image.sprite = forest;
                         buttons[count].gameObject.SetActive(true);
                         count++;
                         break;
@@ -75,12 +75,8 @@ namespace ScenesFolders.MainGame
 
         public void ManageChoice(int buttonNumber)
         {
-            var tileObj = gameObject.AddComponent<TileObject>();
             var buttons = new[] {b1, b2, b3, b4, b5};
-            for (var i = 0; i < 5; i++)
-            {
-                buttons[i].gameObject.SetActive(false);
-            }
+            var tileObj = gameObject.AddComponent<TileObject>();
             var buttonPressed = buttons[buttonNumber];
             if (buttonPressed.image.sprite == mountain)
                 tileObj.ChoseTileType( TileTypes.Mountain);
@@ -93,6 +89,14 @@ namespace ScenesFolders.MainGame
             if (buttonPressed.image.sprite == village)
                 tileObj.ChoseTileType(TileTypes.Village);
         }
-        
+
+        public void SwitchCardsOff()
+        {
+            var buttons = new[] {b1, b2, b3, b4, b5};
+            for (var i = 0; i < 5; i++)
+            {
+                buttons[i].gameObject.SetActive(false);
+            }
+        }
     }
 }
