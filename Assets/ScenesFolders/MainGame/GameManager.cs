@@ -170,6 +170,7 @@ namespace ScenesFolders.MainGame
         {
             foreach (var obj in Objectives)
                 obj.UpdatePoints(this);
+            guiManager.DisplayScore(Score);
         }
 
         public void EndTurn()
