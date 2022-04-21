@@ -11,6 +11,7 @@ namespace ScenesFolders.MainGame
         public BoardRenderer boardRenderer;
         public int boardWidth;
         public int boardHeight;
+        public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
@@ -150,6 +151,7 @@ namespace ScenesFolders.MainGame
             DiceRoll = new int[3];
             for (var i = 0; i < 3; i++)
                 DiceRoll[i] = Random.Range(1, 6);
+            guiManager.DisplayDice(DiceRoll);
         }
 
         private void UpdatePoints()
@@ -158,7 +160,7 @@ namespace ScenesFolders.MainGame
                 obj.UpdatePoints(this);
         }
 
-        private void EndTurn()
+        public void EndTurn()
         {
             UpdatePoints();
             StartTurn();
