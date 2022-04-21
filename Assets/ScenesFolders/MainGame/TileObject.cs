@@ -50,7 +50,7 @@ namespace ScenesFolders.MainGame
         public void OnMouseUp()
         {
             var moves = _gameManager.GetMovesAt(_tile.X, _tile.Y);
-            if(moves.Length == 0)
+            if(moves.Length == 0 || _gameManager.GameOver)
                 return;
             
             //TESTING (6 not implemented)

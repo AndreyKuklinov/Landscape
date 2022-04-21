@@ -824,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429349642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1178566553}
-        m_MethodName: EndTurn
+        m_MethodName: SkipTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1274,7 +1274,7 @@ GameObject:
   - component: {fileID: 2095488659}
   - component: {fileID: 2095488660}
   m_Layer: 5
-  m_Name: DiceController
+  m_Name: GUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1314,3 +1314,4 @@ MonoBehaviour:
   dice1: {fileID: 1269647590}
   dice2: {fileID: 627243185}
   dice3: {fileID: 1521820253}
+  skipButton: {fileID: 1429349641}

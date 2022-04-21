@@ -28,19 +28,19 @@ namespace ScenesFolders.MainGame
             }
         }
 
-        public void LightTile(int x, int y)
-        {
-            var tile = GameBoard[x, y];
-            _litTiles.Add(tile);
-            tile.IsLit = true;
-        }
-
-        public void UnlightTiles()
-        {
-            foreach (var tile in _litTiles)
-                tile.IsLit = false;
-            _litTiles = new List<TileObject>();
-        }
+        // public void LightTile(int x, int y)
+        // {
+        //     var tile = GameBoard[x, y];
+        //     _litTiles.Add(tile);
+        //     tile.IsLit = true;
+        // }
+        //
+        // public void UnlightTiles()
+        // {
+        //     foreach (var tile in _litTiles)
+        //         tile.IsLit = false;
+        //     _litTiles = new List<TileObject>();
+        // }
 
         public void ChangeTile(int x, int y, TileTypes newType)
         {

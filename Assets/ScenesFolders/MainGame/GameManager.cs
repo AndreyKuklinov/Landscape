@@ -14,8 +14,9 @@ namespace ScenesFolders.MainGame
         public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
-        private int[] DiceRoll { get; set; }
-        private bool SkippedTurn { get; set; }
+        public bool GameOver { get; private set; }
+        private int[] _diceRoll;
+        private bool _skippedTurn;
 
         public int Score
         {
@@ -34,12 +35,15 @@ namespace ScenesFolders.MainGame
                 GameBoard[x, y] = new Tile(TileTypes.Empty, x, y);
             boardRenderer.DrawEmptyBoard(boardWidth, boardHeight);
             Objectives = PickRandomObjectives(3);
+            GameOver = false;
             StartTurn();
         }
 
         public void EndGame()
         {
-            //TODO
+            GameOver = true;
+            guiManager.GameOver();
+            Debug.Log("Lol, game over");
         }
 
         private Objective[] PickRandomObjectives(int num)
@@ -58,7 +62,7 @@ namespace ScenesFolders.MainGame
 
         public TileTypes[] GetMovesAt(int x, int y)
         {
-            var diceValues = new List<int>(DiceRoll);
+            var diceValues = new List<int>(_diceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
                 || !(diceValues.Remove(x+1) || diceValues.Remove(6))
                 || !(diceValues.Remove(y+1) || diceValues.Remove(6)))
@@ -83,7 +87,7 @@ namespace ScenesFolders.MainGame
 
             GameBoard[x, y].Type = tileType;
             boardRenderer.ChangeTile(x, y, tileType);
-            SkippedTurn = false;
+            _skippedTurn = false;
             if (tileType == TileTypes.Village)
                 CreateRoads();
             EndTurn();
@@ -150,20 +154,28 @@ namespace ScenesFolders.MainGame
 
         public void SkipTurn()
         {
-            if (SkippedTurn)
+            if(GameOver)
+                return;
+            if (_skippedTurn)
                 EndGame();
-            SkippedTurn = true;
+            _skippedTurn = true;
             EndTurn();
+            
         }
 
         private void StartTurn()
         {
-            DiceRoll = new int[3];
+            if(GameOver)
+                return;
+            _diceRoll = new int[3];
             for (var i = 0; i < 3; i++)
-                DiceRoll[i] = Random.Range(1, 7);
-            guiManager.DisplayDice(DiceRoll);
-            foreach (var tile in GetAllMoves())
-                boardRenderer.LightTile(tile.X, tile.Y);
+                _diceRoll[i] = Random.Range(1, 7);
+            guiManager.DisplayDice(_diceRoll);
+            var moves = GetAllMoves().ToArray();
+            // foreach (var tile in moves)
+            //     boardRenderer.LightTile(tile.X, tile.Y);
+            if(moves.Length == 0)
+                guiManager.SetSkipButton(true, _skippedTurn ? "End game" : "Skip turn");
         }
 
         private void UpdatePoints()
@@ -175,7 +187,8 @@ namespace ScenesFolders.MainGame
         public void EndTurn()
         {
             UpdatePoints();
-            boardRenderer.UnlightTiles();
+            // boardRenderer.UnlightTiles();
+            guiManager.SetSkipButton(false);
             StartTurn();
         }
 
