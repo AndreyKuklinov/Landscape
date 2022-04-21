@@ -161,7 +161,7 @@ namespace ScenesFolders.MainGame
             DiceRoll = new int[3];
             for (var i = 0; i < 3; i++)
                 DiceRoll[i] = Random.Range(1, 7);
-            Debug.Log("Rolled: "+DiceRoll[0]+" "+DiceRoll[1]+" "+DiceRoll[2]);
+            guiManager.DisplayDice(DiceRoll);
             foreach (var tile in GetAllMoves())
                 boardRenderer.LightTile(tile.X, tile.Y);
         }
