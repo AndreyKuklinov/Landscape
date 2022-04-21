@@ -11,6 +11,7 @@ namespace ScenesFolders.MainGame
         public BoardRenderer boardRenderer;
         public int boardWidth;
         public int boardHeight;
+        public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         private int[] DiceRoll { get; set; }
@@ -24,7 +25,7 @@ namespace ScenesFolders.MainGame
                 return res - 1;
             }
         }
-        
+
         public void Start()
         {
             GameBoard = new Tile[boardWidth, boardHeight];
@@ -171,7 +172,7 @@ namespace ScenesFolders.MainGame
                 obj.UpdatePoints(this);
         }
 
-        private void EndTurn()
+        public void EndTurn()
         {
             UpdatePoints();
             boardRenderer.UnlightTiles();

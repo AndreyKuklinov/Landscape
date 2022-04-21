@@ -61,6 +61,7 @@
      <Compile Include="Assets\ScenesFolders\MainGame\AnimationsController.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\BoardRenderer.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Criteria.cs" />
+     <Compile Include="Assets\ScenesFolders\MainGame\GUIManager.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\GameManager.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Objective.cs" />
      <Compile Include="Assets\ScenesFolders\MainGame\Tile.cs" />
