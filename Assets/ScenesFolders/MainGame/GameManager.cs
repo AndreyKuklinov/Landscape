@@ -164,6 +164,9 @@ namespace ScenesFolders.MainGame
             guiManager.DisplayDice(DiceRoll);
             foreach (var tile in GetAllMoves())
                 boardRenderer.LightTile(tile.X, tile.Y);
+            /*if (!GetAllMoves().Any())
+                SkipTurn();*/
+            guiManager.DisplayAvailableTiles(this, DiceRoll[2]);
         }
 
         private void UpdatePoints()
@@ -180,7 +183,7 @@ namespace ScenesFolders.MainGame
             StartTurn();
         }
 
-        private TileTypes[] GetTileFromDice(int diceValue)
+        public TileTypes[] GetTileFromDice(int diceValue)
         {
             if (diceValue == 6)
                 return new[]
