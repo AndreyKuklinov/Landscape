@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace ScenesFolders.MainGame
 {
@@ -28,8 +27,8 @@ namespace ScenesFolders.MainGame
             get => Tile.Type;
             set => Tile = new Tile(value, Tile.X, Tile.Y);
         }
-        
-        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, 
+
+        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab,
             GameManager gameManager, Vector3 screenPosition)
         {
             Tile = tile;
@@ -52,10 +51,17 @@ namespace ScenesFolders.MainGame
             var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
             if(moves.Length == 0 || _gameManager.GameOver)
                 return;
-            
+
             //TESTING (6 not implemented)
             var choice = moves[Random.Range(0, moves.Length-1)];
             _gameManager.MakeTurn(Tile.X, Tile.Y, choice);
+            if (moves.Length == 1)
+                _gameManager.MakeTurn(_tile.X, _tile.Y, moves[0]);
+        }
+
+        public void ChoseTileType(TileTypes choice)
+        {
+            _gameManager.MakeTurn(_tile.X, _tile.Y, choice);
         }
     }
 }

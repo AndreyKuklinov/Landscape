@@ -159,7 +159,7 @@ namespace ScenesFolders.MainGame
                 EndGame();
             _skippedTurns++;
             EndTurn();
-            
+
         }
 
         private void StartTurn()
@@ -184,6 +184,7 @@ namespace ScenesFolders.MainGame
         {
             foreach (var obj in Objectives)
                 obj.UpdatePoints(this);
+            guiManager.DisplayScore(Score);
         }
 
         public void EndTurn()
@@ -191,10 +192,11 @@ namespace ScenesFolders.MainGame
             UpdatePoints();
             // boardRenderer.UnlightTiles();
             guiManager.SetSkipButton(false);
+            guiManager.SwitchCardsOff();
             StartTurn();
         }
 
-        private TileTypes[] GetTileFromDice(int diceValue)
+        public TileTypes[] GetTileFromDice(int diceValue)
         {
             if (diceValue == 6)
                 return new[]
