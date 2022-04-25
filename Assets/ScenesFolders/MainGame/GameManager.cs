@@ -41,6 +41,7 @@ namespace ScenesFolders.MainGame
 
         public void EndGame()
         {
+            PlayerPrefs.SetInt("LastScore", Score);
             GameOver = true;
             guiManager.GameOver();
         }
