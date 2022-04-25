@@ -65,6 +65,7 @@
      <Compile Include="Assets\ScenesFolders\MainGame\TileObject.cs" />
      <Compile Include="Assets\ScenesFolders\MetaScripts\SceneChanger.cs" />
      <Compile Include="Assets\ScenesFolders\Settings\SettingsManager.cs" />
+     <Compile Include="Assets\ScenesFolders\StartMenu\GUIManager.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
