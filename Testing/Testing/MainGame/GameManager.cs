@@ -109,12 +109,12 @@ namespace ScenesFolders.MainGame
 
         private void CreateRoads()
         {
-            for (var x = 0; x < 4; x++)
+            for (var x = 0; x < 5; x++)
             {
-                for (var y = 0; y < 4; y++)
+                for (var y = 0; y < 5; y++)
                 {
                     if (GameBoard[x, y].Type != TileTypes.Village) continue;
-                    for (var x1 = 0; x1 < 4; x1++)
+                    for (var x1 = 0; x1 < 5; x1++)
                     {
                         if (GameBoard[x1, y].Type != TileTypes.Village) continue;
                         for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
@@ -125,7 +125,7 @@ namespace ScenesFolders.MainGame
                         }
                     }
 
-                    for (var y1 = 0; y1 < 4; y1++)
+                    for (var y1 = 0; y1 < 5; y1++)
                     {
                         if (GameBoard[x, y1].Type != TileTypes.Village) continue;
                         for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
