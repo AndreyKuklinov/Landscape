@@ -132,7 +132,7 @@ namespace ScenesFolders.MainGame
         
         public static int Expanses(int x, int y, GameManager gm)
         {
-            if (gm.GetTileAt(x, y).Type != TileTypes.Plain
+            if (gm.GetTileAt(x, y).Type != TileTypes.Plain && gm.GetTileAt(x, y).Type != TileTypes.Empty
                 && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 2)
                 return 1;
             return 0;

@@ -26,11 +26,11 @@ namespace ScenesFolders.MainGame.Testing
         public void TestCountAdjacentOfType()
         {
             var gm = new GameManager();
-            gm.MakeTurn(1, 0, TileTypes.Mountain);
-            gm.MakeTurn(2, 1, TileTypes.Mountain);
-            gm.MakeTurn(0, 1, TileTypes.Forest);
-            Assert.AreEqual(2, gm.CountAdjacentOfType(1, 1, TileTypes.Mountain));
-            Assert.AreEqual(1, gm.CountAdjacentOfType(1, 1, TileTypes.Forest));
+            gm.MakeTurn(0, 0, TileTypes.Lake);
+            gm.MakeTurn(0, 1, TileTypes.Plain);
+            gm.MakeTurn(1, 0, TileTypes.Plain);
+            Assert.AreEqual(0, gm.CountAdjacentOfType(1, 1, TileTypes.Lake));
+            Assert.AreEqual(2, gm.CountAdjacentOfType(0, 0, TileTypes.Plain));
             Assert.AreEqual(0, gm.CountAdjacentOfType(1, 1, TileTypes.Village));
         }
 
