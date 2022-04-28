@@ -10,7 +10,7 @@ namespace ScenesFolders.MainGame
         public GameManager gameManager;
         public GameObject tilePrefab;
         public GameObject lightModel;
-        public GameObject tileButtonPrefab;
+        [FormerlySerializedAs("tileButtonPrefab")] public GameObject spriteObject;
         public GameObject mainCamera;
         public List<GameObject> models; 
         public List<Sprite> moveSprites;
@@ -27,7 +27,7 @@ namespace ScenesFolders.MainGame
             {
                 GameBoard[x, y] = Instantiate(tilePrefab, transform).GetComponent<TileObject>();
                 var pos = new Vector3(x * tileSize, 0, y*tileSize);
-                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, tileButtonPrefab, gameManager, pos);
+                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, spriteObject, gameManager, pos);
             }
 
             var centerPos = GameBoard[2, 0].transform.position;
