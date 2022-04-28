@@ -11,14 +11,50 @@ namespace ScenesFolders.MainGame
         public Text dice3;
         public GameObject skipButton;
         public GameManager gameManager;
+        public Camera camera;
+        public float scrollSpeed;
+        public float rotaionSpeed;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private Text _skipButtonText;
+        private bool isGameDone = true;
+        private bool isMovementAlowed;
+        private Vector3 LastMousePosition;
 
         public void Start()
         {
             _skipButtonText = skipButton.GetComponentInChildren<Text>();
             IsChoosingATile = false;
+        }
+
+        private void ScrollHandler()
+        {
+            var horizontalInput = Input.mouseScrollDelta.x;
+            var verticalInput = Input.mouseScrollDelta.y;
+            camera.transform.Translate(Vector3.forward * verticalInput * scrollSpeed * Time.deltaTime);
+            camera.transform.Translate(Vector3.right * horizontalInput * scrollSpeed * Time.deltaTime);
+        }
+
+        private void MovementHandler()
+        {
+            var currentMousePosition = Input.mousePosition;
+            var difference = currentMousePosition - LastMousePosition;
+
+            camera.transform.RotateAround(new Vector3(10, 10, 0), difference,
+                Mathf.SmoothStep(0, 90, Time.deltaTime * rotaionSpeed));
+            LastMousePosition = currentMousePosition;
+        }
+
+        public void FixedUpdate()
+        {
+            if (!isGameDone) return;
+            if (Input.GetMouseButtonDown(1))
+                isMovementAlowed = true;
+            if (Input.GetMouseButtonUp(1))
+                isMovementAlowed = false;
+            ScrollHandler();
+            if (isMovementAlowed)
+                MovementHandler();
         }
 
         public Text score;
@@ -50,11 +86,12 @@ namespace ScenesFolders.MainGame
         public void GameOver()
         {
             SetSkipButton(false);
-            dice1.text = "";
-            dice2.text = "";
-            dice3.text = "";
+            Destroy(dice1);
+            Destroy(dice2);
+            Destroy(dice3);
+            isGameDone = true;
         }
-        
+
         public void DisplayScore(int newScore) =>
             score.text = newScore.ToString();
 

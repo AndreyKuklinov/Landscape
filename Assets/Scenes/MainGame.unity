@@ -2211,6 +2211,9 @@ MonoBehaviour:
   dice3: {fileID: 1423989564}
   skipButton: {fileID: 1429349641}
   gameManager: {fileID: 1178566553}
+  camera: {fileID: 963194227}
+  scrollSpeed: 12
+  rotaionSpeed: 5
   score: {fileID: 965014561}
   b1: {fileID: 386452691}
   b2: {fileID: 1338939044}
