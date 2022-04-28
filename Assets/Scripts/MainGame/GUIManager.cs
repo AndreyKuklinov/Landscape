@@ -14,12 +14,15 @@ namespace ScenesFolders.MainGame
         public new Camera camera;
         public float scrollSpeed;
         public float rotaionSpeed;
+        public float movementSpeed;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private Text _skipButtonText;
         private bool isGameDone = true;
-        private bool isMovementAlowed;
+        private bool isRightMouseButtonPressed;
+        private bool isLeftMouseButtonPressed;
         private Vector3 LastMousePosition;
+        private Vector3 currentMousePosition;
 
         public void Start()
         {
@@ -35,9 +38,9 @@ namespace ScenesFolders.MainGame
             camera.transform.Translate(Vector3.right * horizontalInput * scrollSpeed * Time.deltaTime);
         }
 
-        private void MovementHandler()
+        private void RotationHandler()
         {
-            var currentMousePosition = Input.mousePosition;
+            currentMousePosition = Input.mousePosition;
             var difference = currentMousePosition - LastMousePosition;
 
             camera.transform.RotateAround(new Vector3(2, 2, 0), new Vector3(difference.y, difference.x, difference.z),
@@ -45,15 +48,33 @@ namespace ScenesFolders.MainGame
             LastMousePosition = currentMousePosition;
         }
 
+        private void MovementHandler()
+        {
+            currentMousePosition = Input.mousePosition;
+            var difference = currentMousePosition - LastMousePosition;
+            camera.transform.position += new Vector3(difference.x, difference.z, difference.y).normalized*movementSpeed;
+        }
+
         public void FixedUpdate()
         {
+            currentMousePosition = Input.mousePosition;
             if (!isGameDone) return;
             if (Input.GetMouseButtonDown(1))
-                isMovementAlowed = true;
+                isRightMouseButtonPressed = true;
             if (Input.GetMouseButtonUp(1))
-                isMovementAlowed = false;
+                isRightMouseButtonPressed = false;
+            
+            if (Input.GetMouseButtonDown(0))
+                isLeftMouseButtonPressed = true;
+            if (Input.GetMouseButtonUp(0))
+                isLeftMouseButtonPressed = false;
+            
+            
             ScrollHandler();
-            if (isMovementAlowed)
+            if (isRightMouseButtonPressed)
+                RotationHandler();
+            
+            if (isLeftMouseButtonPressed)
                 MovementHandler();
         }
 
