@@ -11,7 +11,7 @@ namespace ScenesFolders.MainGame
         public Text dice3;
         public GameObject skipButton;
         public GameManager gameManager;
-        public Camera camera;
+        public new Camera camera;
         public float scrollSpeed;
         public float rotaionSpeed;
         public bool IsChoosingATile { get; private set; }
@@ -40,7 +40,7 @@ namespace ScenesFolders.MainGame
             var currentMousePosition = Input.mousePosition;
             var difference = currentMousePosition - LastMousePosition;
 
-            camera.transform.RotateAround(new Vector3(10, 10, 0), difference,
+            camera.transform.RotateAround(new Vector3(2, 2, 0), new Vector3(difference.y, difference.x, difference.z),
                 Mathf.SmoothStep(0, 90, Time.deltaTime * rotaionSpeed));
             LastMousePosition = currentMousePosition;
         }

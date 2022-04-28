@@ -2213,7 +2213,7 @@ MonoBehaviour:
   gameManager: {fileID: 1178566553}
   camera: {fileID: 963194227}
   scrollSpeed: 12
-  rotaionSpeed: 5
+  rotaionSpeed: 4
   score: {fileID: 965014561}
   b1: {fileID: 386452691}
   b2: {fileID: 1338939044}
