@@ -10,6 +10,8 @@ namespace ScenesFolders.MainGame
         public Tile Tile { get; private set; }
         private GameObject _model;
         private GameObject _light;
+        private GameObject _tileButton;
+        private SpriteRenderer _tileButtonSpriteRenderer;
         private GameManager _gameManager;
 
         private bool _isLit;
@@ -29,7 +31,7 @@ namespace ScenesFolders.MainGame
             set => Tile = new Tile(value, Tile.X, Tile.Y);
         }
 
-        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab,
+        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, GameObject tileButtonPrefab,
             GameManager gameManager, Vector3 screenPosition)
         {
             Tile = tile;
@@ -38,6 +40,9 @@ namespace ScenesFolders.MainGame
             _isLit = false;
             _light = Instantiate(lightModelPrefab, transform);
             _light.SetActive(false);
+            _tileButton = Instantiate(tileButtonPrefab, transform);
+            _tileButton.SetActive(false);
+            _tileButtonSpriteRenderer = _tileButton.GetComponentInChildren<SpriteRenderer>();
             Draw(modelPrefab);
         }
 
@@ -61,6 +66,17 @@ namespace ScenesFolders.MainGame
                 _gameManager.guiManager.DisplayTileButtons(Tile);
                 _gameManager.boardRenderer.LightTile(Tile.X, Tile.Y);
             }
+        }
+
+        public void DisplayMove(Sprite sprite)
+        {
+            _tileButtonSpriteRenderer.sprite = sprite;
+            _tileButton.SetActive(true);
+        }
+
+        public void UndisplayMove()
+        {
+            _tileButton.SetActive(false);
         }
     }
 }

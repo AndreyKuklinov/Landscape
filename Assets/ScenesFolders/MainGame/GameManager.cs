@@ -176,6 +176,7 @@ namespace ScenesFolders.MainGame
             var moves = GetAllMoves().ToArray();
             // foreach (var tile in moves)
             //     boardRenderer.LightTile(tile.X, tile.Y);
+            boardRenderer.DisplayPossibleMoves();
             if (moves.Length == 0)
             {
                 // guiManager.SetSkipButton(true, _skippedTurn ? "End game" : "Skip turn");
@@ -194,6 +195,7 @@ namespace ScenesFolders.MainGame
         {
             UpdatePoints();
             boardRenderer.UnlightTiles();
+            boardRenderer.UndisplayMoves();
             //guiManager.SetSkipButton(false);
             guiManager.SwitchCardsOff();
             StartTurn();

@@ -10,8 +10,10 @@ namespace ScenesFolders.MainGame
         public GameManager gameManager;
         public GameObject tilePrefab;
         public GameObject lightModel;
+        public GameObject tileButtonPrefab;
         public GameObject mainCamera;
-        public List<GameObject> models;
+        public List<GameObject> models; 
+        public List<Sprite> moveSprites;
         public float tileSize;
         private List<TileObject> _litTiles;
         public TileObject[,] GameBoard { get; private set; }
@@ -25,7 +27,7 @@ namespace ScenesFolders.MainGame
             {
                 GameBoard[x, y] = Instantiate(tilePrefab, transform).GetComponent<TileObject>();
                 var pos = new Vector3(x * tileSize, 0, y*tileSize);
-                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, gameManager, pos);
+                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, tileButtonPrefab, gameManager, pos);
             }
 
             var centerPos = GameBoard[2, 0].transform.position;
@@ -37,6 +39,25 @@ namespace ScenesFolders.MainGame
             var tile = GameBoard[x, y];
             _litTiles.Add(tile);
             tile.IsLit = true;
+        }
+
+        public void DisplayPossibleMoves()
+        {
+            foreach (var tile in gameManager.GameBoard)
+            {
+                var moves = gameManager.GetMovesAt(tile.X, tile.Y);
+                if(moves.Length == 5)
+                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[5]);
+                else if(moves.Length == 1)
+                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[(int)moves[0]-1]);
+            }
+                
+        }
+
+        public void UndisplayMoves()
+        {
+            foreach(var tile in GameBoard)
+                tile.UndisplayMove();
         }
         
         public void UnlightTiles()
