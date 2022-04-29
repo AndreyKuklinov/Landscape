@@ -1,15 +1,15 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
-
-namespace ScenesFolders.MainGame
+﻿namespace ScenesFolders.MainGame
 {
-    [System.Serializable]
     public class Objective
     {
-        public string name;
-        public Sprite sprite;
+        public ScoringCriterion Criterion { get; private set; }
         public int Points { get; private set; }
-        public ScoringCriterion Criterion => Criteria.Dict[name];
+
+        public Objective(ScoringCriterion criterion)
+        {
+            Criterion = criterion;
+            Points = 0;
+        }
 
         public void UpdatePoints(GameManager gm)
         {

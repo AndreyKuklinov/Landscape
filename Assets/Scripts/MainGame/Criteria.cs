@@ -1,110 +1,114 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace ScenesFolders.MainGame
 {
     public delegate int ScoringCriterion(int x, int y, GameManager gm);
-    
+
     public static class Criteria
     {
-        public static readonly Dictionary<string, ScoringCriterion> Dict = new Dictionary<string, ScoringCriterion>()
+        public static ScoringCriterion[] GetAll
         {
-            {"Twins", Twins},
-            {"Groves", Groves},
-            {"Fields", Fields},
-            {"Swamps", Swamps},
-            {"Deserts", Deserts},
-            {"Meadows", Meadows},
-            {"Cliffs", Cliffs},
-            {"Foothills", Foothills},
-            {"Ponds", Ponds},
-            {"Hollows", Hollows},
-            {"Expanses", Expanses},
-            {"Islands", Islands},
-            {"Bridges", Bridges},
-            {"Parks", Parks},
-            {"Farmlands", Farmlands},
-            {"Mines", Mines},
-            {"Towns", Towns},
-            {"Castles", Castles},
-            {"Stations", Stations},
-            //{"Crossroads", Crossroads},
-        };
+            get
+            {
+                return new ScoringCriterion[]
+                {
+                    Twins,
+                    //Groves,
+                    Fields,
+                    Swamps,
+                    //Deserts,
+                    //Meadows,
+                    //Cliffs,
+                    //Foothills,
+                    //Ponds,
+                    //Hollows,
+                    //Expanses,
+                    //Islands,
+                    //Bridges,
+                    //Parks,
+                    //Farmlands,
+                    //Mines,
+                    //Crossroads,
+                    //Towns,
+                    //Castles,
+                    //Stations
+                };
+            }
+        }
 
         public static int Twins(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
-               && gm.CountAdjacentOfType(x, y, TileTypes.Mountain) == 1)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
+                && gm.CountAdjacentOfType(x, y, TileTypes.Mountain) == 1)
                 return 1;
             return 0;
         }
 
         public static int Groves(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Forest
-               && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Forest
+                && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0)
                 return 1;
             return 0;
         }
-        
+
         public static int Fields(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Plain
-               && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 1)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Plain
+                && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 1)
                 return 1;
             return 0;
         }
-        
+
         public static int Swamps(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Forest
-               && gm.CountAdjacentOfType(x, y, TileTypes.Lake) >= 1)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Forest
+                && gm.CountAdjacentOfType(x, y, TileTypes.Lake) >= 1)
                 return 1;
             return 0;
         }
-        
+
         public static int Deserts(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Plain
-               && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0
-               && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == 0)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Plain
+                && gm.CountAdjacentOfType(x, y, TileTypes.Forest) == 0
+                && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == 0)
                 return 1;
             return 0;
         }
-        
+
         public static int Meadows(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Forest
-               && gm.CountAdjacentOfType(x, y, TileTypes.Plain) == 1)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Forest
+                && gm.CountAdjacentOfType(x, y, TileTypes.Plain) == 1)
                 return 1;
             return 0;
         }
-        
+
         public static int Cliffs(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
-               && gm.GetNeighbours(x,y)
-                   .Select(tile => tile.Type)
-                   .Where(type => type != TileTypes.Empty)
-                   .Distinct()
-                   .Count() >= 3)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
+                && gm.GetNeighbours(x, y)
+                    .Select(tile => tile.Type)
+                    .Where(type => type != TileTypes.Empty)
+                    .Distinct()
+                    .Count() >= 3)
                 return 1;
             return 0;
         }
-        
+
         public static int Foothills(int x, int y, GameManager gm)
         {
             var neighbourTypes = gm.GetNeighbours(x, y)
                 .Select(tile => tile.Type)
                 .Where(type => type != TileTypes.Empty)
                 .ToArray();
-            if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
-               && neighbourTypes.Length != neighbourTypes.Distinct().Count())
+            if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
+                && neighbourTypes.Length != neighbourTypes.Distinct().Count())
                 return 1;
             return 0;
         }
-        
+
         public static int Ponds(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Lake
@@ -113,7 +117,7 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Hollows(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type != TileTypes.Mountain
@@ -124,31 +128,31 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Expanses(int x, int y, GameManager gm)
         {
-            if (gm.GetTileAt(x, y).Type != TileTypes.Plain && gm.GetTileAt(x, y).Type != TileTypes.Empty
+            if (gm.GetTileAt(x, y).Type != TileTypes.Plain
                 && gm.CountAdjacentOfType(x, y, TileTypes.Plain) >= 2)
                 return 1;
             return 0;
         }
-        
+
         public static int Islands(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type != TileTypes.Empty
-                && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == gm.GetNeighbours(x,y).Count())
+                && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == gm.GetNeighbours(x, y).Count())
                 return 1;
             return 0;
         }
-        
+
         public static int Bridges(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Lake
-                && gm.GetTileAt(x,y).HasRoad)
+                && gm.GetTileAt(x, y).HasRoad)
                 return 1;
             return 0;
         }
-        
+
         public static int Parks(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Forest
@@ -157,7 +161,7 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Farmlands(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Plain
@@ -165,7 +169,7 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Mines(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
@@ -173,14 +177,12 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Crossroads(int x, int y, GameManager gm)
         {
-            if (gm.GetTileAt(x, y).RoadDirection == RoadDirection.Crossroad)
-                return 1;
-            return 0;
+            return gm.GetTileAt(x, y).RoadDirection == RoadDirection.Crossroad ? 1 : 0;
         }
-        
+
         public static int Towns(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Village
@@ -188,7 +190,7 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Castles(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Village
@@ -196,7 +198,7 @@ namespace ScenesFolders.MainGame
                 return 1;
             return 0;
         }
-        
+
         public static int Stations(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type == TileTypes.Village

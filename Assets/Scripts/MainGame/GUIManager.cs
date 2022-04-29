@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace ScenesFolders.MainGame
@@ -11,16 +10,18 @@ namespace ScenesFolders.MainGame
         public Text dice2;
         public Text dice3;
         public GameObject skipButton;
-        public GameObject objectiveHolder;
-        public GameObject uiImagePrefab;
         public GameManager gameManager;
-        public Text score;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private Text _skipButtonText;
-        private GameObject[] _objectives;
-        
-        // TODO: Oh, kind soul, please, rid us of this.
+
+        public void Start()
+        {
+            _skipButtonText = skipButton.GetComponentInChildren<Text>();
+            IsChoosingATile = false;
+        }
+
+        public Text score;
         public Button b1;
         public Button b2;
         public Button b3;
@@ -32,19 +33,7 @@ namespace ScenesFolders.MainGame
         public Sprite village;
         public Sprite forest;
 
-        public void Start()
-        {
-            _skipButtonText = skipButton.GetComponentInChildren<Text>();
-            IsChoosingATile = false;
 
-            _objectives = new GameObject[gameManager.Objectives.Length];
-            for (var i = 0; i<_objectives.Length; i++)
-            {
-                _objectives[i] = Instantiate(uiImagePrefab, transform);
-                _objectives[i].GetComponent<Image>().sprite = gameManager.Objectives[i].sprite;
-            }
-        }
-        
         public void DisplayDice(int[] dicesValues)
         {
             dice1.text = dicesValues[0].ToString();
@@ -137,11 +126,6 @@ namespace ScenesFolders.MainGame
             }
 
             IsChoosingATile = false;
-        }
-
-        public void ToggleObjectives()
-        {
-            objectiveHolder.SetActive(!objectiveHolder.activeSelf);
         }
     }
 }

@@ -8,12 +8,10 @@ namespace ScenesFolders.MainGame
 {
     public class GameManager : MonoBehaviour
     {
-        
         public BoardRenderer boardRenderer;
         public int boardWidth;
         public int boardHeight;
         public GUIManager guiManager;
-        public List<Objective> possibleObjectives;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
@@ -52,13 +50,13 @@ namespace ScenesFolders.MainGame
 
         private Objective[] PickRandomObjectives(int num)
         {
-            var objs = new List<Objective>(possibleObjectives);
+            var possibleCriteria = new List<ScoringCriterion>(Criteria.GetAll);
             var res = new List<Objective>();
             for (var i = 0; i < num; i++)
             {
-                var chosen = objs[Random.Range(0, objs.Count - 1)];
-                res.Add(chosen);
-                objs.Remove(chosen);
+                var chosen = possibleCriteria[Random.Range(0, possibleCriteria.Count - 1)];
+                res.Add(new Objective(chosen));
+                possibleCriteria.Remove(chosen);
             }
 
             return res.ToArray();
@@ -95,6 +93,38 @@ namespace ScenesFolders.MainGame
             if (tileType == TileTypes.Village)
                 CreateRoads();
             EndTurn();
+        }
+
+        private void CreateRoads()
+        {
+            for (var x = 0; x < 4; x++)
+            {
+                for (var y = 0; y < 4; y++)
+                {
+                    if (GameBoard[x, y].Type != TileTypes.Village) continue;
+                    for (var x1 = 0; x1 < 4; x1++)
+                    {
+                        if (GameBoard[x1, y].Type != TileTypes.Village) continue;
+                        for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
+                        {
+                            var direction = RoadDirection.LeftToRight;
+                            if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
+                            GameBoard[x2, y].RoadDirection = direction;
+                        }
+                    }
+
+                    for (var y1 = 0; y1 < 4; y1++)
+                    {
+                        if (GameBoard[x, y1].Type != TileTypes.Village) continue;
+                        for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
+                        {
+                            var direction = RoadDirection.UpToDown;
+                            if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
+                            GameBoard[x, y2].RoadDirection = direction;
+                        }
+                    }
+                }
+            }
         }
 
         public int CountAdjacentOfType(int x, int y, TileTypes type) =>
@@ -183,38 +213,6 @@ namespace ScenesFolders.MainGame
         {
             //AnimationsController.StartMovingAnimation(startX, startY, targetX, targetY);
             throw new NotImplementedException();
-        }
-        
-        private void CreateRoads()
-        {
-            for (var x = 0; x < 5; x++)
-            {
-                for (var y = 0; y < 5; y++)
-                {
-                    if (GameBoard[x, y].Type != TileTypes.Village) continue;
-                    for (var x1 = 0; x1 < 5; x1++)
-                    {
-                        if (GameBoard[x1, y].Type != TileTypes.Village) continue;
-                        for (var x2 = Math.Min(x1, x); x2 < Math.Max(x1, x); x2++)
-                        {
-                            var direction = RoadDirection.LeftToRight;
-                            if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
-                            GameBoard[x2, y].RoadDirection = direction;
-                        }
-                    }
-
-                    for (var y1 = 0; y1 < 5; y1++)
-                    {
-                        if (GameBoard[x, y1].Type != TileTypes.Village) continue;
-                        for (var y2 = Math.Min(y1, y); y2 < Math.Max(y1, y); y2++)
-                        {
-                            var direction = RoadDirection.UpToDown;
-                            if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
-                            GameBoard[x, y2].RoadDirection = direction;
-                        }
-                    }
-                }
-            }
         }
     }
 }
