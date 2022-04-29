@@ -107,15 +107,14 @@ namespace ScenesFolders.MainGame.Testing
             var objectives = new[] { new Objective(Criteria.Cliffs) };
             var gm = new GameManager(objectives);
 
-            gm.MakeTurn(0, 1, TileTypes.Plain);
             gm.MakeTurn(0, 2, TileTypes.Mountain);
-            gm.MakeTurn(0, 3, TileTypes.Lake);
-            gm.MakeTurn(1, 2, TileTypes.Plain);
-            gm.MakeTurn(2, 1, TileTypes.Forest);
-            gm.MakeTurn(3, 0, TileTypes.Plain);
-            gm.MakeTurn(3, 1, TileTypes.Mountain);
-            gm.MakeTurn(3, 2, TileTypes.Lake);
-
+            gm.MakeTurn(0, 3, TileTypes.Mountain);
+            gm.MakeTurn(0, 4, TileTypes.Lake);
+            gm.MakeTurn(1, 3, TileTypes.Plain);
+            gm.MakeTurn(3, 1, TileTypes.Forest);
+            gm.MakeTurn(4, 0, TileTypes.Lake);
+            gm.MakeTurn(4, 1, TileTypes.Mountain);
+            gm.MakeTurn(4, 2, TileTypes.Plain);
             Assert.AreEqual(1, gm.Score);
         }
 
@@ -125,12 +124,14 @@ namespace ScenesFolders.MainGame.Testing
             var objectives = new[] { new Objective(Criteria.Foothills) };
             var gm = new GameManager(objectives);
 
-            gm.MakeTurn(0, 1, TileTypes.Plain);
-            gm.MakeTurn(0, 2, TileTypes.Mountain);
-            gm.MakeTurn(0, 3, TileTypes.Forest);
-            gm.MakeTurn(3, 0, TileTypes.Lake);
-            gm.MakeTurn(3, 1, TileTypes.Mountain);
-            gm.MakeTurn(3, 2, TileTypes.Lake);
+            gm.MakeTurn(2, 0, TileTypes.Plain);
+            gm.MakeTurn(3, 0, TileTypes.Mountain);
+            gm.MakeTurn(4, 0, TileTypes.Mountain);
+            gm.MakeTurn(3, 1, TileTypes.Lake);
+            gm.MakeTurn(4, 1, TileTypes.Mountain);
+            gm.MakeTurn(0, 4, TileTypes.Lake);
+            gm.MakeTurn(1, 4, TileTypes.Mountain);
+            gm.MakeTurn(2, 4, TileTypes.Lake);
 
             Assert.AreEqual(1, gm.Score);
         }
@@ -212,6 +213,19 @@ namespace ScenesFolders.MainGame.Testing
             gm.MakeTurn(4, 2, TileTypes.Forest);
             gm.MakeTurn(0, 0, TileTypes.Lake);
             Assert.AreEqual(2, gm.Score);
+        }
+
+        [Test]
+        public void TestBridges1()
+        {
+            var objectives = new[] { new Objective(Criteria.Bridges) };
+            var gm = new GameManager(objectives);
+            gm.MakeTurn(0, 2, TileTypes.Village);
+            gm.MakeTurn(4, 2, TileTypes.Village);
+            gm.MakeTurn(2, 0, TileTypes.Village);
+            gm.MakeTurn(2, 4, TileTypes.Village);
+            gm.MakeTurn(2, 2, TileTypes.Lake);
+            Assert.AreEqual(1, gm.Score);
         }
 
         [Test]

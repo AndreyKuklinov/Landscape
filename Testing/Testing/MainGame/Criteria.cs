@@ -88,10 +88,10 @@ namespace ScenesFolders.MainGame
         
         public static int Cliffs(int x, int y, GameManager gm)
         {
-            if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
-               && gm.GetNeighbours(x,y)
+            if (gm.GetTileAt(x, y).Type == TileTypes.Mountain
+               && gm.GetNeighbours(x, y)
                    .Select(tile => tile.Type)
-                   .Where(type => type != TileTypes.Empty)
+                   .Where(type => type != (TileTypes.Mountain | TileTypes.Empty))
                    .Distinct()
                    .Count() >= 3)
                 return 1;
@@ -102,7 +102,7 @@ namespace ScenesFolders.MainGame
         {
             var neighbourTypes = gm.GetNeighbours(x, y)
                 .Select(tile => tile.Type)
-                .Where(type => type != TileTypes.Empty)
+                .Where(type => type != (TileTypes.Mountain | TileTypes.Empty))
                 .ToArray();
             if(gm.GetTileAt(x,y).Type == TileTypes.Mountain
                && neighbourTypes.Length != neighbourTypes.Distinct().Count())
