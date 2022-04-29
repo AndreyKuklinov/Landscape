@@ -11,6 +11,8 @@ namespace ScenesFolders.MainGame
         public Text dice3;
         public GameObject skipButton;
         public GameManager gameManager;
+        public GameObject objectiveHolder;
+        public GameObject objectiveImagePrefab;
         public new Camera camera;
         public float scrollSpeed;
         public float rotaionSpeed;
@@ -28,14 +30,20 @@ namespace ScenesFolders.MainGame
         {
             _skipButtonText = skipButton.GetComponentInChildren<Text>();
             IsChoosingATile = false;
+            
+            foreach(var obj in gameManager.Objectives)
+            {
+                var objImage = Instantiate(objectiveImagePrefab, objectiveHolder.transform).GetComponent<Image>();
+                objImage.sprite = obj.sprite;
+            }
         }
 
         private void ScrollHandler()
         {
             var horizontalInput = Input.mouseScrollDelta.x;
             var verticalInput = Input.mouseScrollDelta.y;
-            camera.transform.Translate(Vector3.forward * verticalInput * scrollSpeed * Time.deltaTime);
-            camera.transform.Translate(Vector3.right * horizontalInput * scrollSpeed * Time.deltaTime);
+            camera.transform.Translate(Vector3.forward * (verticalInput * scrollSpeed * Time.deltaTime));
+            camera.transform.Translate(Vector3.right * (horizontalInput * scrollSpeed * Time.deltaTime));
         }
 
         private void RotationHandler()

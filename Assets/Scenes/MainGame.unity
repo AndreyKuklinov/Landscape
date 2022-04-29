@@ -2280,6 +2280,9 @@ MonoBehaviour:
   dice3: {fileID: 1423989564}
   skipButton: {fileID: 1429349641}
   gameManager: {fileID: 1178566553}
+  objectiveHolder: {fileID: 1624393626}
+  objectiveImagePrefab: {fileID: 1805885161699905252, guid: c15b4c29f8c903d4eabcf0550126b540,
+    type: 3}
   camera: {fileID: 963194227}
   scrollSpeed: 12
   rotaionSpeed: 4
