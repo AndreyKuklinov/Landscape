@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - GUIManager
     - ScenesFolders.MainGame.BoardRenderer
     - ScenesFolders.MainGame.GUIManager
     - ScenesFolders.MainGame.GameManager
@@ -20,7 +21,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Credits.unity:
@@ -43,21 +46,21 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11450}
     - Class: 114
       Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13062}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -102,29 +105,33 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11410}
+    - Class: 114
+      Script: {instanceID: 11450}
     - Class: 114
       Script: {instanceID: 11756}
     - Class: 114
       Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12526}
+      Script: {instanceID: 12448}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13112}
+      Script: {instanceID: 13062}
+    - Class: 114
+      Script: {instanceID: 13114}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -132,6 +139,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -161,13 +170,13 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11450}
     - Class: 114
       Script: {instanceID: 11568}
     - Class: 114
@@ -175,11 +184,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13062}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -216,21 +225,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11246}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11408}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11450}
     - Class: 114
       Script: {instanceID: 11840}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 11888}
     - Class: 114
-      Script: {instanceID: 12710}
+      Script: {instanceID: 12230}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 12712}
+    - Class: 114
+      Script: {instanceID: 13062}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -273,6 +284,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -297,7 +314,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: e1dab66fe44c3874f55dbd8b1a8c6a79
+      Hash: dad179fe8d97f63035ef88f0f52090db
     assemblyName: Assembly-CSharp.dll
     namespaceName: ScenesFolders.MainGame
     className: BoardRenderer
@@ -393,12 +410,6 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: LayoutElement
-  - hash:
-      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -447,7 +458,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 99eeab1bf69767b6560f9cb722146c74
+      Hash: 803615ab3ff75eba3a4aa5abc4795e69
     assemblyName: Assembly-CSharp.dll
     namespaceName: ScenesFolders.MainGame
     className: GameManager
@@ -481,6 +492,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 5f2088e48c51ede715c0f28006d88d3f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GUIManager
   - hash:
       serializedVersion: 2
       Hash: 8dc90e648ac06f43bdd31ac9fa8f4579
@@ -579,7 +596,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 1635061a6f674704339dfc8310886073
+      Hash: 8737460a05094d75e3d1fede4c34c0cd
     assemblyName: Assembly-CSharp.dll
     namespaceName: ScenesFolders.MainGame
     className: GUIManager
@@ -735,4 +752,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/Tutorial.unity
   playerPath: "C:/Users/Andrew Kuklinov/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
-    \u0441\u0442\u043E\u043B/Landscape.exe"
+    \u0441\u0442\u043E\u043B/Game/Landscape.exe"
