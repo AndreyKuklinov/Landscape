@@ -57,10 +57,7 @@ namespace ScenesFolders.MainGame
 
         public void GameOver()
         {
-            SetSkipButton(false);
-            Destroy(dice1);
-            Destroy(dice2);
-            Destroy(dice3);
+            
         }
 
         public void DisplayScore(int newScore) =>

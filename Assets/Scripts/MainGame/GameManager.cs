@@ -42,8 +42,7 @@ namespace ScenesFolders.MainGame
 
         public void EndGame()
         {
-            PlayerPrefs.SetInt("LastScore", Score);
-            if (PlayerPrefs.GetInt("MaxScore") > Score)
+            if (PlayerPrefs.GetInt("MaxScore") < Score)
                 PlayerPrefs.SetInt("MaxScore", Score);
             GameOver = true;
             guiManager.GameOver();

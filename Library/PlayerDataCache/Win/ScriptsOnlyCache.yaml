@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GUIManager
+    - MainGame.SimpleCameraController
     - ScenesFolders.MainGame.BoardRenderer
     - ScenesFolders.MainGame.GUIManager
     - ScenesFolders.MainGame.GameManager
@@ -9,7 +10,6 @@ ScriptsOnlyBuild:
     - ScenesFolders.MetaScripts.SceneChanger
     - ScenesFolders.Settings.SettingsManager
     Unity.Rider.Editor.dll:
-    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -60,7 +60,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13064}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -129,9 +129,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13114}
+      Script: {instanceID: 13064}
+    - Class: 114
+      Script: {instanceID: 13116}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,7 +190,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13064}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -241,7 +243,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 13064}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -596,7 +598,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 8737460a05094d75e3d1fede4c34c0cd
+      Hash: ebc6cca1562fa4826057988328de4b6e
     assemblyName: Assembly-CSharp.dll
     namespaceName: ScenesFolders.MainGame
     className: GUIManager
@@ -692,6 +694,12 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
+      Hash: 9a19e56c38e8448703295d34ff39e39c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: MainGame
+    className: SimpleCameraController
+  - hash:
+      serializedVersion: 2
       Hash: 9726bc46e15d44429bd38fb013657f1e
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
@@ -751,5 +759,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Settings.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: "C:/Users/Andrew Kuklinov/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
-    \u0441\u0442\u043E\u043B/Game/Landscape.exe"
+  playerPath: "C:/Users/\u0424\u0438\u043B\u0438\u043F\u043F/Downloads/Game/Landscape.exe"
