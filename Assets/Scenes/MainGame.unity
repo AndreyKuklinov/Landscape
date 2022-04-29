@@ -1486,44 +1486,44 @@ MonoBehaviour:
   boardHeight: 5
   guiManager: {fileID: 2095488660}
   possibleObjectives:
+  - name: Bridges
+    sprite: {fileID: 21300000, guid: 0f9b98a130986e946b2f1ee5c2cbd280, type: 3}
+  - name: Castles
+    sprite: {fileID: 21300000, guid: 4faaae11fe11ec34392f5945eff55125, type: 3}
+  - name: Cliffs
+    sprite: {fileID: 21300000, guid: 35a35b1d20bc91544b49d719dba52acd, type: 3}
+  - name: Ponds
+    sprite: {fileID: 21300000, guid: 2a6155ea7abe9f44e9788605db91d160, type: 3}
+  - name: Deserts
+    sprite: {fileID: 21300000, guid: a997ce2390f9f0f428d264c0a54cad51, type: 3}
+  - name: Expanses
+    sprite: {fileID: 21300000, guid: fdf27841d332ca14a8b343f70e7a9baa, type: 3}
+  - name: Farmlands
+    sprite: {fileID: 21300000, guid: 44870f386ffdbf74b8c73f2ebc17b6cb, type: 3}
   - name: Fields
     sprite: {fileID: 21300000, guid: 1596a471b2c522b4c9e0258111bc2709, type: 3}
+  - name: Foothills
+    sprite: {fileID: 21300000, guid: 914aff8433d6fbb4aac66ac990bc7341, type: 3}
+  - name: Groves
+    sprite: {fileID: 21300000, guid: 599e10e9cad30f747b20246185839427, type: 3}
+  - name: Hollows
+    sprite: {fileID: 21300000, guid: 9822d8982e2de6f4f92b15dad4155b77, type: 3}
+  - name: Islands
+    sprite: {fileID: 21300000, guid: 560db21062388f943aa010a54a7b4794, type: 3}
+  - name: Meadows
+    sprite: {fileID: 21300000, guid: 4486af7125ad66f4ead313035b6e2d47, type: 3}
+  - name: Mines
+    sprite: {fileID: 21300000, guid: 9205817e1b7eb5e4ab1ed777a7e6288b, type: 3}
+  - name: Parks
+    sprite: {fileID: 21300000, guid: 5f09e757839751143909792c7049af74, type: 3}
+  - name: Stations
+    sprite: {fileID: 21300000, guid: e32ed9ee54c28a04db75729160af5fdf, type: 3}
+  - name: Swamps
+    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
+  - name: Towns
+    sprite: {fileID: 21300000, guid: 73e03bd4e21a6634980253a8a16107bf, type: 3}
   - name: Twins
     sprite: {fileID: 21300000, guid: ba95421d59cb1ab41a0c4081159fd0a6, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
-  - name: Swamps
-    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
 --- !u!1 &1190917067
 GameObject:
   m_ObjectHideFlags: 0
