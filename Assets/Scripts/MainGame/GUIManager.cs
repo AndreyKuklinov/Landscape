@@ -18,7 +18,7 @@ namespace ScenesFolders.MainGame
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private Text _skipButtonText;
-        private bool isGameDone = true;
+        private bool isGameDone = false;
         private bool isRightMouseButtonPressed;
         private bool isLeftMouseButtonPressed;
         private Vector3 LastMousePosition;
