@@ -193,5 +193,10 @@ namespace ScenesFolders.MainGame
 
             IsChoosingATile = false;
         }
+
+        public void ToggleObjectiveVisibility()
+        {
+            objectiveHolder.SetActive(!objectiveHolder.activeSelf);
+        }
     }
 }
