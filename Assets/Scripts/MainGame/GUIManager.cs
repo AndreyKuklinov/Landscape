@@ -13,18 +13,9 @@ namespace ScenesFolders.MainGame
         public GameManager gameManager;
         public GameObject objectiveHolder;
         public GameObject objectiveImagePrefab;
-        public new Camera camera;
-        public float scrollSpeed;
-        public float rotaionSpeed;
-        public float movementSpeed;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private Text _skipButtonText;
-        private bool isGameDone = false;
-        private bool isRightMouseButtonPressed;
-        private bool isLeftMouseButtonPressed;
-        private Vector3 LastMousePosition;
-        private Vector3 currentMousePosition;
 
         public void Start()
         {
@@ -36,54 +27,6 @@ namespace ScenesFolders.MainGame
                 var objImage = Instantiate(objectiveImagePrefab, objectiveHolder.transform).GetComponent<Image>();
                 objImage.sprite = obj.sprite;
             }
-        }
-
-        private void ScrollHandler()
-        {
-            var horizontalInput = Input.mouseScrollDelta.x;
-            var verticalInput = Input.mouseScrollDelta.y;
-            camera.transform.Translate(Vector3.forward * (verticalInput * scrollSpeed * Time.deltaTime));
-            camera.transform.Translate(Vector3.right * (horizontalInput * scrollSpeed * Time.deltaTime));
-        }
-
-        private void RotationHandler()
-        {
-            currentMousePosition = Input.mousePosition;
-            var difference = currentMousePosition - LastMousePosition;
-
-            camera.transform.RotateAround(new Vector3(2, 2, 0), new Vector3(difference.y, difference.x, difference.z),
-                Mathf.SmoothStep(0, 90, Time.deltaTime * rotaionSpeed));
-            LastMousePosition = currentMousePosition;
-        }
-
-        private void MovementHandler()
-        {
-            currentMousePosition = Input.mousePosition;
-            var difference = currentMousePosition - LastMousePosition;
-            camera.transform.position += new Vector3(difference.x, difference.z, difference.y).normalized*movementSpeed;
-        }
-
-        public void FixedUpdate()
-        {
-            currentMousePosition = Input.mousePosition;
-            if (!isGameDone) return;
-            if (Input.GetMouseButtonDown(1))
-                isRightMouseButtonPressed = true;
-            if (Input.GetMouseButtonUp(1))
-                isRightMouseButtonPressed = false;
-            
-            if (Input.GetMouseButtonDown(0))
-                isLeftMouseButtonPressed = true;
-            if (Input.GetMouseButtonUp(0))
-                isLeftMouseButtonPressed = false;
-            
-            
-            ScrollHandler();
-            if (isRightMouseButtonPressed)
-                RotationHandler();
-            
-            if (isLeftMouseButtonPressed)
-                MovementHandler();
         }
 
         public Text score;
@@ -118,7 +61,6 @@ namespace ScenesFolders.MainGame
             Destroy(dice1);
             Destroy(dice2);
             Destroy(dice3);
-            isGameDone = true;
         }
 
         public void DisplayScore(int newScore) =>
