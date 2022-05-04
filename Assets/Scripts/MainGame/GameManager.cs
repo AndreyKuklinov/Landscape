@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ScenesFolders.MainGame;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     public class GameManager : MonoBehaviour
     {
         public BoardRenderer boardRenderer;
         public int boardWidth;
         public int boardHeight;
-        public global::MainGame.GUIManager guiManager;
+        public GUIManager guiManager;
         public List<Objective> possibleObjectives;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }

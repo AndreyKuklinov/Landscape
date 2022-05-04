@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using MainGame;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace ScenesFolders.MainGame
