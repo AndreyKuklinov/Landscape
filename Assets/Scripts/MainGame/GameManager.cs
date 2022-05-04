@@ -11,7 +11,7 @@ namespace ScenesFolders.MainGame
         public BoardRenderer boardRenderer;
         public int boardWidth;
         public int boardHeight;
-        public GUIManager guiManager;
+        public global::MainGame.GUIManager guiManager;
         public List<Objective> possibleObjectives;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
@@ -140,7 +140,6 @@ namespace ScenesFolders.MainGame
             _diceRoll = new int[3];
             for (var i = 0; i < 3; i++)
                 _diceRoll[i] = Random.Range(1, 7);
-            guiManager.DisplayDice(_diceRoll);
             var moves = GetAllMoves().ToArray();
             // foreach (var tile in moves)
             //     boardRenderer.LightTile(tile.X, tile.Y);

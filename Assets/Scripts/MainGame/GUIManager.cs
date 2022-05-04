@@ -1,28 +1,22 @@
-﻿using System;
+﻿using ScenesFolders.MainGame;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     public class GUIManager : MonoBehaviour
     {
-        public Text dice1;
-        public Text dice2;
-        public Text dice3;
-        public GameObject skipButton;
         public GameManager gameManager;
         public GameObject objectiveHolder;
         public GameObject objectiveImagePrefab;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
-        private Text _skipButtonText;
 
         public void Start()
         {
-            _skipButtonText = skipButton.GetComponentInChildren<Text>();
             IsChoosingATile = false;
-            
-            foreach(var obj in gameManager.Objectives)
+
+            foreach (var obj in gameManager.Objectives)
             {
                 var objImage = Instantiate(objectiveImagePrefab, objectiveHolder.transform).GetComponent<Image>();
                 objImage.sprite = obj.sprite;
@@ -41,23 +35,8 @@ namespace ScenesFolders.MainGame
         public Sprite village;
         public Sprite forest;
 
-
-        public void DisplayDice(int[] dicesValues)
-        {
-            dice1.text = dicesValues[0].ToString();
-            dice2.text = dicesValues[1].ToString();
-            dice3.text = dicesValues[2].ToString();
-        }
-
-        public void SetSkipButton(bool value, string text = "")
-        {
-            skipButton.SetActive(value);
-            _skipButtonText.text = text;
-        }
-
         public void GameOver()
         {
-            
         }
 
         public void DisplayScore(int newScore) =>
@@ -101,6 +80,9 @@ namespace ScenesFolders.MainGame
                         break;
                     case TileTypes.Empty:
                         Debug.LogError("Tile card can't be empty");
+                        break;
+                    default:
+                        Debug.LogError("Tile not initialized in GUIManager");
                         break;
                 }
             }
