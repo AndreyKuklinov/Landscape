@@ -7,8 +7,9 @@ namespace MainGame
     public class GUIManager : MonoBehaviour
     {
         public GameManager gameManager;
-        public GameObject objectiveHolder;
-        public GameObject objectiveImagePrefab;
+        public GameObject scoreHolder;
+        public GameObject scoreObjectPrefab;
+        public Image objectiveImage;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
 
@@ -18,8 +19,8 @@ namespace MainGame
 
             foreach (var obj in gameManager.Objectives)
             {
-                var objImage = Instantiate(objectiveImagePrefab, objectiveHolder.transform).GetComponent<Image>();
-                objImage.sprite = obj.sprite;
+                var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform).GetComponent<ScoreObject>();
+                scoreObject.Init(obj.sprite, objectiveImage);
             }
         }
 
@@ -114,9 +115,9 @@ namespace MainGame
             IsChoosingATile = false;
         }
 
-        public void ToggleObjectiveVisibility()
-        {
-            objectiveHolder.SetActive(!objectiveHolder.activeSelf);
-        }
+        // public void ToggleObjectiveVisibility()
+        // {
+        //     objectiveHolder.SetActive(!objectiveHolder.activeSelf);
+        // }
     }
 }
