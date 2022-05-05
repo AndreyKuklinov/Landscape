@@ -1,4 +1,5 @@
-﻿using ScenesFolders.MainGame;
+﻿using System.Collections.Generic;
+using ScenesFolders.MainGame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,18 +13,8 @@ namespace MainGame
         public Image objectiveImage;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
-
-        public void Start()
-        {
-            IsChoosingATile = false;
-
-            foreach (var obj in gameManager.Objectives)
-            {
-                var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform).GetComponent<ScoreObject>();
-                scoreObject.Init(obj.sprite, objectiveImage);
-            }
-        }
-
+        private List<Text> _scoreTexts;
+        
         public Text score;
         public Button b1;
         public Button b2;
@@ -36,8 +27,30 @@ namespace MainGame
         public Sprite village;
         public Sprite forest;
 
+        public void Start()
+        {
+            IsChoosingATile = false;
+            _scoreTexts = new List<Text>();
+            foreach (var obj in gameManager.Objectives)
+            {
+                var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
+                scoreObject.GetComponent<ScoreObject>().Init(obj.sprite, objectiveImage);
+                _scoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
+            }
+        }
+
+        public void UpdateScore()
+        {
+            for (var i = 0; i < gameManager.Objectives.Length; i++)
+            {
+                Debug.Log("Objective "+i+": "+gameManager.Objectives[i].Points);
+                _scoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
+            }
+        }
+        
         public void GameOver()
         {
+            scoreHolder.SetActive(false);
             score.text = gameManager.Score.ToString();
             score.transform.parent.gameObject.SetActive(true);
         }
@@ -114,10 +127,5 @@ namespace MainGame
 
             IsChoosingATile = false;
         }
-
-        // public void ToggleObjectiveVisibility()
-        // {
-        //     objectiveHolder.SetActive(!objectiveHolder.activeSelf);
-        // }
     }
 }

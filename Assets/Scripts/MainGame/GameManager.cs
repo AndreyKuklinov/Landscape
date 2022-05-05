@@ -18,7 +18,6 @@ namespace MainGame
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
         private int[] _diceRoll;
-        private int _skippedTurns = 0;
         private int _turnCount = 0;
 
         public int Score
@@ -91,7 +90,6 @@ namespace MainGame
 
             GameBoard[x, y].Type = tileType;
             boardRenderer.ChangeTile(x, y, tileType);
-            _skippedTurns = 0;
             if (tileType == TileTypes.Village)
                 CreateRoads();
             EndTurn();
@@ -128,11 +126,9 @@ namespace MainGame
         {
             if (GameOver)
                 return;
-            if (_skippedTurns >= 10)
+            if (_turnCount == 25)
                 EndGame();
-            _skippedTurns++;
             EndTurn();
-
         }
 
         private void StartTurn()
@@ -156,6 +152,7 @@ namespace MainGame
             boardRenderer.UnlightTiles();
             boardRenderer.UndisplayMoves();
             guiManager.SwitchCardsOff();
+            guiManager.UpdateScore();
             StartTurn();
         }
 
