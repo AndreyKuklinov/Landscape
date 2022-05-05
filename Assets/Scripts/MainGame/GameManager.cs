@@ -186,7 +186,7 @@ namespace MainGame
         {
             foreach (var obj in Objectives)
                 obj.UpdatePoints(this);
-            guiManager.DisplayScore(Score);
+            // TODO
         }
         
         private void MoveTile(int startX, int startY, int targetX, int targetY)

@@ -37,10 +37,9 @@ namespace MainGame
 
         public void GameOver()
         {
+            score.text = gameManager.Score.ToString();
+            score.transform.parent.gameObject.SetActive(true);
         }
-
-        public void DisplayScore(int newScore) =>
-            score.text = newScore.ToString();
 
         public void DisplayTileButtons(Tile clickedTile)
         {
