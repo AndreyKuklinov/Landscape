@@ -56,8 +56,10 @@ namespace ScenesFolders.MainGame
 
         public void OnMouseUp()
         {
-            if (_gameManager.guiManager.IsChoosingATile || _gameManager.GameOver)
+            if (_gameManager.GameOver)
                 return;
+            _gameManager.boardRenderer.UnlightTiles();
+            _gameManager.guiManager.SwitchCardsOff();
             var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
             if(moves.Length == 0 )
                 return;

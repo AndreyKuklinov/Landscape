@@ -43,7 +43,6 @@ namespace MainGame
         {
             for (var i = 0; i < gameManager.Objectives.Length; i++)
             {
-                Debug.Log("Objective "+i+": "+gameManager.Objectives[i].Points);
                 _scoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
             }
         }
