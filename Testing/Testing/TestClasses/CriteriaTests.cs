@@ -285,13 +285,12 @@ namespace ScenesFolders.MainGame.Testing
         {
             var objectives = new[] { new Objective(Criteria.Crossroads) };
             var gm = new GameManager(objectives);
+            gm.MakeTurn(0, 2, TileTypes.Village);
+            gm.MakeTurn(4, 2, TileTypes.Village);
+            gm.MakeTurn(2, 0,TileTypes.Village);
+            gm.MakeTurn(2, 4, TileTypes.Village);
 
-            gm.MakeTurn(0, 0, TileTypes.Village);
-            gm.MakeTurn(0, 3, TileTypes.Village);
-            gm.MakeTurn(4, 0, TileTypes.Village);
-
-
-            Assert.AreEqual(1, gm.Score);
+            Assert.AreEqual(gm.Score, 1);
         }
 
         [Test]

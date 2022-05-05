@@ -181,7 +181,19 @@ namespace ScenesFolders.MainGame
         
         public static int Crossroads(int x, int y, GameManager gm)
         {
-            if (gm.GetTileAt(x, y).RoadDirection == RoadDirection.Crossroad)
+            var bool1 = false;
+            var bool2 = false;
+            if (gm.GetTileAt(x, y).HasRoad)
+                  
+                for (var x1 = 0; x1 < 5; x1++)
+                    if (gm.GetTileAt(x1, y).Type == TileTypes.Village)
+                        if (x1 != x && gm.GetTileAt(x, y).Type == TileTypes.Village)
+                            bool1 = true;
+                for (var y1 = 0; y1 < 5; y1++)
+                    if (gm.GetTileAt(x, y1).Type == TileTypes.Village)
+                        if (y1 != x && gm.GetTileAt(x,y).Type == TileTypes.Village)
+                            bool2 = true;
+                if (bool1 == true && bool2 == true && gm.GetTileAt(x, y).RoadDirection == RoadDirection.Crossroad)
                 return 1;
             return 0;
         }
