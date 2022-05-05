@@ -645,10 +645,10 @@ RectTransform:
   m_Father: {fileID: 2001929068}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -908.7, y: -119.1}
-  m_SizeDelta: {x: 53.57, y: 45.1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 71, y: -124}
+  m_SizeDelta: {x: 53.570007, y: 45.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365154564
 MonoBehaviour:
@@ -2550,10 +2550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1871dafa5424c49a65f4a63252bea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dice1: {fileID: 1269647590}
-  dice2: {fileID: 1212616518}
-  dice3: {fileID: 1423989564}
-  skipButton: {fileID: 1429349641}
   gameManager: {fileID: 1178566553}
   objectiveHolder: {fileID: 1624393626}
   objectiveImagePrefab: {fileID: 1805885161699905252, guid: c15b4c29f8c903d4eabcf0550126b540,
