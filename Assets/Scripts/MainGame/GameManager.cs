@@ -19,6 +19,7 @@ namespace MainGame
         public bool GameOver { get; private set; }
         private int[] _diceRoll;
         private int _skippedTurns = 0;
+        private int _turnCount = 0;
 
         public int Score
         {
@@ -138,25 +139,15 @@ namespace MainGame
         {
             if (GameOver)
                 return;
-            _diceRoll = new int[3];
-            for (var i = 0; i < 3; i++)
-                _diceRoll[i] = Random.Range(1, 7);
+            RollDice();
             var moves = GetAllMoves().ToArray();
-            // foreach (var tile in moves)
-            //     boardRenderer.LightTile(tile.X, tile.Y);
             boardRenderer.DisplayPossibleMoves();
             if (moves.Length == 0)
             {
-                // guiManager.SetSkipButton(true, _skippedTurn ? "End game" : "Skip turn");
                 SkipTurn();
             }
-        }
-
-        private void UpdatePoints()
-        {
-            foreach (var obj in Objectives)
-                obj.UpdatePoints(this);
-            guiManager.DisplayScore(Score);
+            else
+                _turnCount++;
         }
 
         public void EndTurn()
@@ -164,7 +155,6 @@ namespace MainGame
             UpdatePoints();
             boardRenderer.UnlightTiles();
             boardRenderer.UndisplayMoves();
-            //guiManager.SetSkipButton(false);
             guiManager.SwitchCardsOff();
             StartTurn();
         }
@@ -177,6 +167,35 @@ namespace MainGame
             return new[] { (TileTypes)(diceValue) };
         }
 
+        private void RollDice()
+        {
+            _diceRoll = new int[3];
+            if (_turnCount == 0)
+            {
+                for (var i = 0; i < 3; i++)
+                    _diceRoll[i] = Random.Range(1, 6);
+            }
+            else if (_turnCount % 3 == 2)
+            {
+                _diceRoll[0] = 6;
+                for (var i = 1; i < 3; i++)
+                    _diceRoll[i] = Random.Range(1, 7);
+
+            }
+            else
+            {
+                for (var i = 0; i < 3; i++)
+                    _diceRoll[i] = Random.Range(1, 7);
+            }
+        }
+
+        private void UpdatePoints()
+        {
+            foreach (var obj in Objectives)
+                obj.UpdatePoints(this);
+            guiManager.DisplayScore(Score);
+        }
+        
         private void MoveTile(int startX, int startY, int targetX, int targetY)
         {
             //AnimationsController.StartMovingAnimation(startX, startY, targetX, targetY);
