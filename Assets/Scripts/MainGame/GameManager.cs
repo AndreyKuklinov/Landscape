@@ -175,6 +175,13 @@ namespace MainGame
                 for (var i = 0; i < 3; i++)
                     _diceRoll[i] = Random.Range(1, 6);
             }
+            else if (_turnCount % 3 == 2)
+            {
+                _diceRoll[0] = 6;
+                for (var i = 1; i < 3; i++)
+                    _diceRoll[i] = Random.Range(1, 7);
+
+            }
             else
             {
                 for (var i = 0; i < 3; i++)
