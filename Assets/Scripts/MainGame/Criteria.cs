@@ -118,6 +118,7 @@ namespace ScenesFolders.MainGame
         public static int Hollows(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type != TileTypes.Mountain
+                && gm.GetTileAt(x,y).Type != TileTypes.Empty
                 && (gm.GetTileAt(x + 1, y).Type == TileTypes.Mountain &&
                     gm.GetTileAt(x - 1, y).Type == TileTypes.Mountain
                     || gm.GetTileAt(x, y + 1).Type == TileTypes.Mountain &&
