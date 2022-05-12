@@ -14,6 +14,8 @@ namespace MainGame
         public int boardHeight;
         public GUIManager guiManager;
         public List<Objective> possibleObjectives;
+        public Objective testingObjective;
+        public bool CheatMode;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
@@ -51,8 +53,13 @@ namespace MainGame
 
         private Objective[] PickRandomObjectives(int num)
         {
-            var objs = new List<Objective>(possibleObjectives);
             var res = new List<Objective>();
+            if (!(testingObjective is null))
+            {
+                res.Add(testingObjective);
+                num--;
+            }
+            var objs = new List<Objective>(possibleObjectives);
             for (var i = 0; i < num; i++)
             {
                 var chosen = objs[Random.Range(0, objs.Count - 1)];
@@ -167,7 +174,12 @@ namespace MainGame
         private void RollDice()
         {
             _diceRoll = new int[3];
-            if (_turnCount == 0)
+            if (CheatMode)
+            {
+                for (var i = 0; i < _diceRoll.Length; i++)
+                    _diceRoll[i] = 6;
+            }
+            else if (_turnCount == 0)
             {
                 for (var i = 0; i < 3; i++)
                     _diceRoll[i] = Random.Range(1, 6);

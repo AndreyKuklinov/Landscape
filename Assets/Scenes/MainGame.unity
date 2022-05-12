@@ -1556,6 +1556,11 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 73e03bd4e21a6634980253a8a16107bf, type: 3}
   - name: Twins
     sprite: {fileID: 21300000, guid: ba95421d59cb1ab41a0c4081159fd0a6, type: 3}
+  - name: Ponds
+    sprite: {fileID: 21300000, guid: 2a6155ea7abe9f44e9788605db91d160, type: 3}
+  testingObjective:
+    name: Ponds
+    sprite: {fileID: 21300000, guid: 2a6155ea7abe9f44e9788605db91d160, type: 3}
 --- !u!1 &1190917067
 GameObject:
   m_ObjectHideFlags: 0
