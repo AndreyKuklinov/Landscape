@@ -1,65 +1,19 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using ScenesFolders.MainGame;
 
-namespace ScenesFolders.MainGame
+namespace TestProject1;
+
+public class GameBoard
 {
-    public class TwoSidedList<T>
+    private TwoSidedList<TwoSidedList<Tile>> list = new TwoSidedList<TwoSidedList<Tile>>();
+    private int size = 0;
+
+    public void Expand()
     {
-        private List<T> positiveList;
-        private List<T> negativeList;
-
-        public TwoSidedList()
-        {
-            positiveList = new List<T>();
-            negativeList = new List<T>();
-        }
         
-        public int Count => positiveList.Count + negativeList.Count;
-
-        public IEnumerable<T> Values
-        {
-            get
-            {
-                foreach (var element in negativeList)
-                    yield return element;
-                foreach (var element in positiveList)
-                    yield return element;
-            }
-        }
-        
-        public void AddRight(T element) => positiveList.Add(element);
-        public void AddLeft(T element) => negativeList.Add(element);
-        
-        public T this[int index]
-        {
-            get
-            {
-                return index >= 0 ? positiveList[index] : negativeList[-index - 1];
-            }
-            set
-            {
-                if (index >= 0)
-                    positiveList[index] = value;
-                else
-                    negativeList[-index - 1] = value;
-            }
-        }
     }
-    
-    public class GameBoard
+
+    public Tile GetTileAt(int x, int y)
     {
-        private int size = 0;
-        private List<Tile> tilesList;
-
-        public GameBoard()
-        {
-            tilesList = new List<Tile>();
-        }
-
-        public void Expand(int times)
-        {
-            throw new NotImplementedException();
-        }
+        return list[x][y];
     }
 }
