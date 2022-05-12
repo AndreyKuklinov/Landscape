@@ -15,7 +15,7 @@ namespace MainGame
         public GUIManager guiManager;
         public List<Objective> possibleObjectives;
         public Objective testingObjective;
-        public bool CheatMode;
+        public bool cheatMode;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
@@ -54,7 +54,7 @@ namespace MainGame
         private Objective[] PickRandomObjectives(int num)
         {
             var res = new List<Objective>();
-            if (!(testingObjective is null))
+            if (testingObjective.name != String.Empty)
             {
                 res.Add(testingObjective);
                 num--;
@@ -174,7 +174,7 @@ namespace MainGame
         private void RollDice()
         {
             _diceRoll = new int[3];
-            if (CheatMode)
+            if (cheatMode)
             {
                 for (var i = 0; i < _diceRoll.Length; i++)
                     _diceRoll[i] = 6;
