@@ -108,11 +108,19 @@ namespace ScenesFolders.MainGame
         
         public static int Ponds(int x, int y, GameManager gm)
         {
-            if (gm.GetTileAt(x, y).Type == TileTypes.Lake
-                && gm.GetNeighbours(x, y).Distinct().Count() == 1
-                && gm.CountAdjacentOfType(x, y, TileTypes.Empty) == 0)
-                return 1;
-            return 0;
+            var neighbours = gm.GetNeighbours(x, y);
+            TileTypes type = TileTypes.Empty;
+            foreach (var tile in neighbours)
+            {
+                if (tile.Type == TileTypes.Empty)
+                    return 0;
+                if (type == TileTypes.Empty)
+                    type = tile.Type;
+                else if (type != tile.Type)
+                    return 0;
+            }
+
+            return 1;
         }
         
         public static int Hollows(int x, int y, GameManager gm)
