@@ -1,8 +1,6 @@
-﻿using MainGame;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     [System.Serializable]
     public class Objective

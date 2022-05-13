@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ScenesFolders.MainGame;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,17 +9,17 @@ namespace MainGame
     public class GameManager : MonoBehaviour
     {
         public BoardRenderer boardRenderer;
-        public int boardWidth;
-        public int boardHeight;
+        [SerializeField] private int boardWidth;
+        [SerializeField] private int boardHeight;
         public GUIManager guiManager;
-        public List<Objective> possibleObjectives;
-        public Objective testingObjective;
-        public bool cheatMode;
+        [SerializeField] private List<Objective> possibleObjectives;
+        [SerializeField] private Objective testingObjective;
+        [SerializeField] private bool cheatMode;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
         private int[] _diceRoll;
-        private int _turnCount = 0;
+        private int _turnCount;
 
         public int Score
         {
@@ -54,7 +53,7 @@ namespace MainGame
         private Objective[] PickRandomObjectives(int num)
         {
             var res = new List<Objective>();
-            if (testingObjective.name != String.Empty)
+            if (testingObjective.name != string.Empty)
             {
                 res.Add(testingObjective);
                 num--;

@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using MainGame;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     public class BoardRenderer : MonoBehaviour
     {
-        public GameManager gameManager;
-        public GameObject tilePrefab;
-        public GameObject lightModel;
-        public GameObject tileButtonPrefab;
-        public GameObject mainCamera;
-        public List<GameObject> models; 
-        public List<Sprite> moveSprites;
-        public float tileSize;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameObject tilePrefab;
+        [SerializeField] private GameObject lightModel;
+        [SerializeField] private GameObject tileButtonPrefab;
+        [SerializeField] private GameObject mainCamera;
+        [SerializeField] private List<GameObject> models; 
+        [SerializeField] private List<Sprite> moveSprites;
+        [SerializeField] private float tileSize;
         private List<TileObject> _litTiles;
         public TileObject[,] GameBoard { get; private set; }
 
