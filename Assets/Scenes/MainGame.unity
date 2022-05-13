@@ -1296,8 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2702df1f24e182640aa74ae205779345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 0
-  boost: 3.5
+  baseSpeed: 2.5
   positionLerpTime: 0.2
   mouseSensitivityCurve:
     serializedVersion: 2
@@ -1323,8 +1322,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  rotationLerpTime: 0.01
+  rotationLerpTime: 0.392
   invertY: 0
+  shiftBoostSpeed: 6
 --- !u!1 &965014560
 GameObject:
   m_ObjectHideFlags: 0

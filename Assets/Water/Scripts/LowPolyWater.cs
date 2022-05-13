@@ -4,9 +4,9 @@ namespace Water.Scripts
 {
     public class LowPolyWater : MonoBehaviour
     {
-        public float waveHeight = 0.5f;
-        public float waveFrequency = 0.5f;
-        public float waveLength = 0.75f;
+        [SerializeField] private float waveHeight = 0.5f;
+        [SerializeField] private float waveFrequency = 0.5f;
+        [SerializeField] private float waveLength = 0.75f;
 
         public Vector3 waveOriginPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -32,15 +32,15 @@ namespace Water.Scripts
 
             var triangles = mesh.triangles;
 
-            var vertices = new Vector3[triangles.Length];
+            var meshVertices = new Vector3[triangles.Length];
 
             for (var i = 0; i < triangles.Length; i++)
             {
-                vertices[i] = originalVertices[triangles[i]];
+                meshVertices[i] = originalVertices[triangles[i]];
                 triangles[i] = i;
             }
 
-            mesh.vertices = vertices;
+            mesh.vertices = meshVertices;
             mesh.SetTriangles(triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();

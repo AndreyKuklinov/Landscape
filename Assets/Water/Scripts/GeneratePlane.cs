@@ -6,15 +6,15 @@
     {
         public class GeneratePlane : ScriptableWizard
         {
-            public string objectName = "Ocean";
+            [SerializeField] private string objectName = "Ocean";
 
-            public int widthSegments = 254;
-            public int heightSegments = 254;
-            public float planeWidth = 1.0f;
-            public float planeHeight = 1.0f;
+            [SerializeField] private int widthSegments = 254;
+            [SerializeField] private int heightSegments = 254;
+            [SerializeField] private float planeWidth = 1.0f;
+            [SerializeField] private float planeHeight = 1.0f;
 
-            public bool addCollider;
-            public Material material;
+            [SerializeField] private bool addCollider;
+            [SerializeField] private Material material;
             
             private const string AssetSaveLocation = "Assets/Water/Plane Meshes/";
 
