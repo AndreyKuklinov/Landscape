@@ -14,17 +14,13 @@ namespace Water.Scripts
         private Mesh mesh;
         private Vector3[] vertices;
 
-        private void Awake()
-        {
+        private void Awake() =>
             meshFilter = GetComponent<MeshFilter>();
-        }
 
-        private void Start()
-        {
+        private void Start() =>
             CreateMeshLowPoly(meshFilter);
-        }
 
-        private MeshFilter CreateMeshLowPoly(MeshFilter mf)
+        private void CreateMeshLowPoly(MeshFilter mf)
         {
             mesh = mf.sharedMesh;
 
@@ -44,15 +40,11 @@ namespace Water.Scripts
             mesh.SetTriangles(triangles, 0);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
-            this.vertices = mesh.vertices;
-
-            return mf;
+            vertices = mesh.vertices;
         }
 
-        private void Update()
-        {
+        private void Update() =>
             GenerateWaves();
-        }
 
         private void GenerateWaves()
         {
@@ -63,7 +55,7 @@ namespace Water.Scripts
                 v.y = 0.0f;
 
                 var distance = Vector3.Distance(v, waveOriginPosition);
-                
+
                 distance = (distance % waveLength) / waveLength;
 
                 v.y = waveHeight * Mathf.Sin(Time.time * Mathf.PI * 2.0f * waveFrequency
