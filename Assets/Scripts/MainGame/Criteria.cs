@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using MainGame;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     public delegate int ScoringCriterion(int x, int y, GameManager gm);
     

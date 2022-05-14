@@ -1,10 +1,6 @@
-﻿using System;
-using System.Security.Cryptography;
-using MainGame;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
-namespace ScenesFolders.MainGame
+namespace MainGame
 {
     public class TileObject : MonoBehaviour
     {

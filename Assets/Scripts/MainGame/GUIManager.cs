@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ScenesFolders.MainGame;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,25 +6,25 @@ namespace MainGame
 {
     public class GUIManager : MonoBehaviour
     {
-        public GameManager gameManager;
-        public GameObject scoreHolder;
-        public GameObject scoreObjectPrefab;
-        public Image objectiveImage;
+        [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameObject scoreHolder;
+        [SerializeField] private GameObject scoreObjectPrefab;
+        [SerializeField] private Image objectiveImage;
         public bool IsChoosingATile { get; private set; }
         private Tile _clickedTile;
         private List<Text> _scoreTexts;
         
-        public Text score;
-        public Button b1;
-        public Button b2;
-        public Button b3;
-        public Button b4;
-        public Button b5;
-        public Sprite mountain;
-        public Sprite plain;
-        public Sprite lake;
-        public Sprite village;
-        public Sprite forest;
+        [SerializeField] private Text score;
+        [SerializeField] private Button b1;
+        [SerializeField] private Button b2;
+        [SerializeField] private Button b3;
+        [SerializeField] private Button b4;
+        [SerializeField] private Button b5;
+        [SerializeField] private Sprite mountain;
+        [SerializeField] private Sprite plain;
+        [SerializeField] private Sprite lake;
+        [SerializeField] private Sprite village;
+        [SerializeField] private Sprite forest;
 
         public void Start()
         {
