@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 16516895e8a79bf49a6562c3c3b84cbf, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -178,9 +178,9 @@ Material:
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
     - _BaseColor: {r: 0, g: 0.654902, b: 1, a: 1}
-    - _BumpDirection: {r: 30, g: 30, b: 30, a: -50}
+    - _BumpDirection: {r: 57.8, g: 42.76, b: 30, a: -50}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
-    - _BumpTiling: {r: 0.01, g: 0.01, b: 0.01, a: 0.01}
+    - _BumpTiling: {r: 1.33, g: -8.8, b: 0.01, a: 0.01}
     - _Color: {r: 112, g: 12, b: 133, a: 1}
     - _DepthColor: {r: 0.027511697, g: 0.14179105, b: 0.13226777, a: 0.4627451}
     - _DepthColorFade: {r: 0.8880597, g: 0.27834705, b: 0.44463244, a: 0.22352941}
@@ -189,7 +189,7 @@ Material:
     - _DistortParams: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Extinction: {r: 4.5, g: 75, b: 300, a: 1}
-    - _Foam: {r: 1.03, g: 2.68, b: 0, a: 0}
+    - _Foam: {r: -6.74, g: 18.3, b: 8.09, a: 0}
     - _FoamWaveParams: {r: 0, g: 0.24918434, b: 3.3395782, a: 1}
     - _Fresnel_ST: {r: 1, g: 1, b: 0, a: 0}
     - _GAmplitude: {r: 0, g: 0, b: 0, a: 0}
@@ -199,7 +199,7 @@ Material:
     - _GSpeed: {r: -3, g: 2, b: 1, a: 3}
     - _GSteepness: {r: 7, g: 2, b: 6, a: 2}
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
-    - _InvFadeParemeter: {r: 0.67, g: 0.17, b: 27.39, a: 9.18}
+    - _InvFadeParemeter: {r: 3.82, g: 0.54, b: 25.02, a: -18.8}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectionColor: {r: 0.5794164, g: 0.6849238, b: 0.76119405, a: 0.43137255}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
