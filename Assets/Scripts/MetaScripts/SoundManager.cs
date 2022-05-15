@@ -6,6 +6,15 @@ namespace MetaScripts
     {
         [SerializeField] private AudioSource buttonClickSound;
         [SerializeField] private AudioSource[] musics;
+        private int CurrentAudio;
+
+        private void FixedUpdate()
+        {
+            if (musics[CurrentAudio].isPlaying) return;
+            CurrentAudio++;
+            if (CurrentAudio == musics.Length) CurrentAudio = 0;
+            musics[CurrentAudio].Play();
+        }
 
         private void Start()
         {
@@ -30,10 +39,5 @@ namespace MetaScripts
 
         public void PlayButtonClickSound() =>
             buttonClickSound.Play();
-
-        public void PlayMusic()
-        {
-            musics[0].Play();
-        }
     }
 }
