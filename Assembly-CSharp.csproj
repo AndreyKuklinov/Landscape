@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\MainGame\Tile.cs" />
      <Compile Include="Assets\Scripts\MainGame\TileObject.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\SceneChanger.cs" />
+     <Compile Include="Assets\Scripts\MetaScripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Settings\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\StartMenu\GUIManager.cs" />
      <Compile Include="Assets\Water\Scripts\GeneratePlane.cs" />
@@ -76,6 +77,9 @@
      <None Include="Assets\Skybox\Skybox Cubemap Extended.shader" />
      <None Include="Assets\Water\Shaders\WaterShaded.shader" />
      <None Include="Assets\Skybox\Skybox Cubemap Blend.shader" />
+     <None Include="Assets\CoolSkyBox\Polyverse Skies\Core\Shaders\Simple.shader" />
+     <None Include="Assets\CoolSkyBox\Polyverse Skies\Generator\Shaders\Rendering Clouds.shader" />
+     <None Include="Assets\CoolSkyBox\Polyverse Skies\Core\Shaders\Standard.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -625,6 +629,28 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
+      <Project>{E94F81BC-106F-CF91-2309-412B8BE57DDC}</Project>
+      <Name>Boxophobic.Utils.Scripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
+      <Project>{7A84341A-7E5B-5448-3B7B-521DC817D993}</Project>
+      <Name>Boxophobic.PolyverseSkies.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
+      <Project>{14FB2519-5E30-6899-6CA6-86E5687FA73D}</Project>
+      <Name>Boxophobic.PolyverseSkies.Scripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
+      <Project>{62983D9E-6A4A-7BCD-ED58-76A915C2365F}</Project>
+      <Name>Boxophobic.PolyverseSkies.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
+      <Project>{46765F0D-87A3-E16B-2007-4364AD01CB91}</Project>
+      <Name>Boxophobic.Utils.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,25 +1,38 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-namespace ScenesFolders.Settings
+namespace Settings
 {
     public class SettingsManager : MonoBehaviour
     {
+        [SerializeField] private Slider musicSlider;
+        [SerializeField] private Slider interfaceSlider;
+
+
+        private void Start()
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            interfaceSlider.value = PlayerPrefs.GetFloat("InterfaceVolume");
+        }
+
         public string Difficulty
         {
             set => PlayerPrefs.SetString("Difficulty", value);
             get => PlayerPrefs.GetString("Difficulty");
         }
 
-        public int MusicVolume
+        public float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
+
+        public int InterfaceVolume => PlayerPrefs.GetInt("InterfaceVolume");
+
+        public void ChangeMusicVolume()
         {
-            set => PlayerPrefs.SetInt("MusicVolume", value);
-            get => PlayerPrefs.GetInt("MusicVolume");
-        }
-        public int InterfaceVolume
-        {
-            set => PlayerPrefs.SetInt("InterfaceVolume", value);
-            get => PlayerPrefs.GetInt("InterfaceVolume");
+            PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
         }
 
+        public void ChangeInterfaceVolume()
+        {
+            PlayerPrefs.SetFloat("InterfaceVolume", interfaceSlider.value);
+        }
     }
 }

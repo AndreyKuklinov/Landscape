@@ -58,7 +58,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Water\Scripts\Editor\GeneratePlane.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\Constants\Constants.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\SettingsUtils\LoadSettingsData.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\SettingsUtils\SaveSettingsData.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledGUI\DrawInspectorBanner.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledGUI\DrawInspectorCategory.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledGUI\DrawWindowBanner.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledGUI\DrawWindowCategory.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledBannerDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledButtonDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledCategoryDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledEnumDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledIndentDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledInteractiveDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledLayersDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledMaskDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledMessageDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledRangeOptionsDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledSpaceDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledTextDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledInspector\StyledTexturePreviewDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledBannerDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledButtonDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledCategoryDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledDiffusionMaterialDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledEmissiveIntensityDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledEnumDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledIndentDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledInteractiveDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledLayersDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledMaskDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledMessageDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledOptionsSliderDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledRemapSliderDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledSpaceDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledTextDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledTextureDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledTextureSingleLineDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledToggleDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMaterial\StyledVectorDrawer.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMono\StyledMonoBehaviourEditor.cs" />
+     <Compile Include="Assets\BOXOPHOBIC\Utils\Editor\StyledMono\StyledScriptableObjectEditor.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
@@ -643,6 +683,18 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{AA69B50D-7EF9-2553-349B-BDF6DA56B507}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
+      <Project>{7A84341A-7E5B-5448-3B7B-521DC817D993}</Project>
+      <Name>Boxophobic.PolyverseSkies.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
+      <Project>{14FB2519-5E30-6899-6CA6-86E5687FA73D}</Project>
+      <Name>Boxophobic.PolyverseSkies.Scripts</Name>
+    </ProjectReference>
+    <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
+      <Project>{62983D9E-6A4A-7BCD-ED58-76A915C2365F}</Project>
+      <Name>Boxophobic.PolyverseSkies.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
