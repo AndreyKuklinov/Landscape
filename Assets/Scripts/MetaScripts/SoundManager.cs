@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace MetaScripts
 {
@@ -13,6 +12,7 @@ namespace MetaScripts
             buttonClickSound.volume = 1 + PlayerPrefs.GetFloat("InterfaceVolume");
             foreach (var music in musics)
             {
+                Debug.Log(PlayerPrefs.GetFloat("MusicVolume"));
                 music.volume = 1 + PlayerPrefs.GetFloat("MusicVolume");
             }
         }

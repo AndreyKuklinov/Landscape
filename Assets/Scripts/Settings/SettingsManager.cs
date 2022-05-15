@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Settings
@@ -24,11 +23,7 @@ namespace Settings
 
         public float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
 
-        public int InterfaceVolume
-        {
-            set => PlayerPrefs.SetInt("InterfaceVolume", value);
-            get => PlayerPrefs.GetInt("InterfaceVolume");
-        }
+        public int InterfaceVolume => PlayerPrefs.GetInt("InterfaceVolume");
 
         public void ChangeMusicVolume()
         {
