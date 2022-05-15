@@ -504,7 +504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4083a845660d55f4db47413dbb0a7557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 449835748}
+  scoreText: {fileID: 449835748}
+  day: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+  night: {fileID: 2100000, guid: 1cf6f4c6e6e0518419839d3f5448dd99, type: 2}
+  oceanMaterial: {fileID: 2100000, guid: 8538bd626cb3e80478f62e319f75e337, type: 2}
 --- !u!1 &361621277
 GameObject:
   m_ObjectHideFlags: 0
