@@ -9,11 +9,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
   m_Shader: {fileID: 4800000, guid: 6fc9318f5193c094c98c0d450cd61e3b, type: 3}
-  m_ShaderKeywords: _BACKGROUNDMODE_COLORS _BUILTINFOG_ON _CLOUDS_ON _ENABLECLOUDSROTATION_ON
-    _ENABLECLOUDS_ON _ENABLEPATTERN_ON _ENABLESKYPATTERNOVERLAY_ON _ENABLESTARSSUNMASK_ON
-    _ENABLESUNMASK_ON _ENABLESUNMOONMASK_ON _ENABLESUNMOON_ON _ENABLESUN_ON _ENABLETWINKLING_ON
-    _PATTERNOVERLAY_ON _STARS_ON _SUNORMOON_ON _USECUBEMAP_ON _USEENVIRONMENTGRADIENT_ON
-    _USESKYPATTERNOVERLAY_ON _USETEXTURE_ON
+  m_ShaderKeywords: _BACKGROUNDMODE_COLORS _BUILTINFOG_ON _CLOUDSLITBYSUN_ON _CLOUDS_ON
+    _ENABLECLOUDSROTATION_ON _ENABLECLOUDS_ON _ENABLEPATTERN_ON _ENABLESKYPATTERNOVERLAY_ON
+    _ENABLESTARSSUNMASK_ON _ENABLESUNMASK_ON _ENABLESUNMOONMASK_ON _ENABLESUNMOON_ON
+    _ENABLESUN_ON _ENABLETWINKLING_ON _PATTERNOVERLAY_ON _STARS_ON _SUNORMOON_ON
+    _USECUBEMAP_ON _USEENVIRONMENTGRADIENT_ON _USESKYPATTERNOVERLAY_ON _USETEXTURE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -59,7 +59,7 @@ Material:
     - _CloudsCat: 1
     - _CloudsHeight: 0
     - _CloudsIntensity: 1
-    - _CloudsLitbySun: 0
+    - _CloudsLitbySun: 1
     - _CloudsRotation: 360
     - _CloudsRotationSpeed: 0.9
     - _ColorsCat: 1
@@ -97,8 +97,8 @@ Material:
     - _StarsSize: 0.5
     - _StarsSunMask: 0
     - _SunCat: 1
-    - _SunIntensity: 1
-    - _SunSize: 0.5
+    - _SunIntensity: 3.89
+    - _SunSize: 0.656
     - _TITLE: 1
     - _TwinklingContrast: 1
     - _TwinklingSpeed: 0.05
@@ -112,4 +112,4 @@ Material:
     - _SkyColor: {r: 0.11372546, g: 0.28637525, b: 0.8862745, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
-    - _SunColor: {r: 0.92523086, g: 1, b: 0, a: 1}
+    - _SunColor: {r: 0.9716981, g: 0.9219914, b: 0.38501245, a: 1}
