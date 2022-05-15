@@ -17,12 +17,14 @@ namespace StartMenu
         [SerializeField] private GameObject oceanDay;
         [SerializeField] private GameObject oceanNight;
         [SerializeField] private Text[] texts;
+        [SerializeField] private int dayStartTime;
+        [SerializeField] private int dayEndTime;
     
 
         private void Awake()
         {
             var currentDate = DateTime.Now;
-            if (currentDate.Hour > 6 && currentDate.Hour < 20)
+            if (currentDate.Hour > dayStartTime && currentDate.Hour < dayEndTime)
             {
                 RenderSettings.skybox = day;
                 foreach (var text in texts)

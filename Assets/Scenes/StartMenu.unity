@@ -614,6 +614,8 @@ MonoBehaviour:
   - {fileID: 38295342}
   - {fileID: 153939166}
   - {fileID: 1666154819}
+  dayStartTime: 0
+  dayEndTime: 24
 --- !u!1 &361621277
 GameObject:
   m_ObjectHideFlags: 0

@@ -211,6 +211,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 531037255}
+        m_MethodName: ChangeInterfaceVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 447742455}
         m_MethodName: ChangeInterfaceVolume
         m_Mode: 1
@@ -473,8 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157b7ec2af3e8a34985cb4575380db16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolumeScroll: {fileID: 1395092001}
-  interfaceVolumeScroll: {fileID: 20373195}
+  musicSlider: {fileID: 1395092001}
+  interfaceSlider: {fileID: 20373195}
 --- !u!1 &711500266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1250,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 531037255}
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 447742455}
         m_MethodName: ChangeMusicVolume
         m_Mode: 1
         m_Arguments:
