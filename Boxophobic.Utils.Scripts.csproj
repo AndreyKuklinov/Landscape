@@ -58,24 +58,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\SettingsUtils\SettingsData.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledGizmos\StyledLabelGizmo.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledBanner.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledButton.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledCategory.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledEnum.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledIndent.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledInteractive.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledLayers.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledMask.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledMessage.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledRangeOptions.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledSpace.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledText.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledInspector\StyledTexturePreview.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledMono\StyledMonoBehaviour.cs" />
-     <Compile Include="Assets\BOXOPHOBIC\Utils\Scripts\StyledMono\StyledScriptableObject.cs" />
-     <None Include="Assets\BOXOPHOBIC\Utils\Scripts\Boxophobic.Utils.Scripts.asmdef" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\SettingsUtils\SettingsData.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledGizmos\StyledLabelGizmo.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledBanner.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledButton.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledCategory.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledEnum.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledIndent.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledInteractive.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledLayers.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledMask.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledMessage.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledRangeOptions.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledSpace.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledText.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledInspector\StyledTexturePreview.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledMono\StyledMonoBehaviour.cs" />
+     <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledMono\StyledScriptableObject.cs" />
+     <None Include="Assets\CoolSkyBox\Utils\Scripts\Boxophobic.Utils.Scripts.asmdef" />
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>

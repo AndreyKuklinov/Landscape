@@ -13,8 +13,11 @@ namespace StartMenu
         [SerializeField] private Text scoreText;
         [SerializeField] private Material day;
         [SerializeField] private Material night;
-        [SerializeField] private Material oceanMaterial;
-
+        [SerializeField] private GameObject currentOcean;
+        [SerializeField] private GameObject oceanDay;
+        [SerializeField] private GameObject oceanNight;
+        [SerializeField] private Text[] texts;
+    
 
         private void Awake()
         {
@@ -22,12 +25,22 @@ namespace StartMenu
             if (currentDate.Hour > 6 && currentDate.Hour < 20)
             {
                 RenderSettings.skybox = day;
-                oceanMaterial.color = new Color(112, 12, 133);
+                foreach (var text in texts)
+                {
+                    text.color = Color.black;
+                }
+
+                currentOcean = oceanDay;
             }
             else
             {
                 RenderSettings.skybox = night;
-                oceanMaterial.color = new Color(0, 167, 255);
+                foreach (var text in texts)
+                {
+                    text.color = Color.white;
+                }
+
+                currentOcean = oceanNight;
             }
 
         }
