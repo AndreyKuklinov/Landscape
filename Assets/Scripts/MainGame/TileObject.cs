@@ -6,19 +6,21 @@ namespace MainGame
     {
         public Tile Tile { get; private set; }
         private GameObject _model;
-        private GameObject _light;
+        private GameObject _selection;
+        private Material _glowMaterial;
         private GameObject _tileButton;
         private SpriteRenderer _tileButtonSpriteRenderer;
         private GameManager _gameManager;
+        private MaterialHandler _materialHandler;
 
-        private bool _isLit;
-        public bool IsLit
+        private bool _isSelected;
+        public bool IsSelected
         {
-            get => _isLit;
+            get => _isSelected;
             set
             {
-                _light.SetActive(value);
-                _isLit = value;
+                _selection.SetActive(value);
+                _isSelected = value;
             }
         }
 
@@ -28,19 +30,21 @@ namespace MainGame
             set => Tile = new Tile(value, Tile.X, Tile.Y);
         }
 
-        public void Init(Tile tile, GameObject modelPrefab, GameObject lightModelPrefab, GameObject tileButtonPrefab,
+        public void Init(Tile tile, GameObject modelPrefab, GameObject selectionModelPrefab, Material glowMaterial, GameObject tileButtonPrefab,
             GameManager gameManager, Vector3 screenPosition)
         {
             Tile = tile;
             transform.position = screenPosition;
             _gameManager = gameManager;
-            _isLit = false;
-            _light = Instantiate(lightModelPrefab, transform);
-            _light.SetActive(false);
+            _isSelected = false;
+            _selection = Instantiate(selectionModelPrefab, transform);
+            _selection.SetActive(false);
+            _glowMaterial = glowMaterial;
             _tileButton = Instantiate(tileButtonPrefab, transform);
             _tileButton.SetActive(false);
             _tileButton.transform.rotation = Quaternion.Euler(90, 0, 0);
             _tileButtonSpriteRenderer = _tileButton.GetComponentInChildren<SpriteRenderer>();
+            _materialHandler = GetComponentInChildren<MaterialHandler>();
             Draw(modelPrefab);
         }
 
@@ -54,7 +58,7 @@ namespace MainGame
         {
             if (_gameManager.GameOver)
                 return;
-            _gameManager.boardRenderer.UnlightTiles();
+            _gameManager.boardRenderer.UnSelectTiles();
             _gameManager.guiManager.SwitchCardsOff();
             var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
             if(moves.Length == 0 )
@@ -64,7 +68,7 @@ namespace MainGame
             else
             {
                 _gameManager.guiManager.DisplayTileButtons(Tile);
-                _gameManager.boardRenderer.LightTile(Tile.X, Tile.Y);
+                _gameManager.boardRenderer.SelectTile(Tile.X, Tile.Y);
             }
         }
 
@@ -77,6 +81,14 @@ namespace MainGame
         public void UndisplayMove()
         {
             _tileButton.SetActive(false);
+        }
+
+        public void SetGlow(bool active)
+        {
+            if(active)
+                _materialHandler.SetMaterial(_glowMaterial);
+            else
+                _materialHandler.ResetMaterial();
         }
     }
 }

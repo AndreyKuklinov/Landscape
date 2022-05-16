@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MainGame
 {
@@ -7,7 +8,8 @@ namespace MainGame
     {
         [SerializeField] private GameManager gameManager;
         [SerializeField] private GameObject tilePrefab;
-        [SerializeField] private GameObject lightModel;
+        [FormerlySerializedAs("lightModel")] [SerializeField] private GameObject selectionModel;
+        [SerializeField] private Material glowMaterial;
         [SerializeField] private GameObject tileButtonPrefab;
         [SerializeField] private GameObject mainCamera;
         [SerializeField] private List<GameObject> models; 
@@ -25,7 +27,7 @@ namespace MainGame
             {
                 GameBoard[x, y] = Instantiate(tilePrefab, transform).GetComponent<TileObject>();
                 var pos = new Vector3(x * tileSize, 0, y*tileSize);
-                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, tileButtonPrefab, gameManager, pos);
+                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], selectionModel, glowMaterial, tileButtonPrefab, gameManager, pos);
             }
 
             var centerPos = GameBoard[2, 0].transform.position;
@@ -34,11 +36,11 @@ namespace MainGame
         
         
 
-        public void LightTile(int x, int y)
+        public void SelectTile(int x, int y)
         {
             var tile = GameBoard[x, y];
             _litTiles.Add(tile);
-            tile.IsLit = true;
+            tile.IsSelected = true;
         }
 
         public void DisplayPossibleMoves()
@@ -60,10 +62,10 @@ namespace MainGame
                 tile.UndisplayMove();
         }
         
-        public void UnlightTiles()
+        public void UnSelectTiles()
         {
             foreach (var tile in _litTiles)
-                tile.IsLit = false;
+                tile.IsSelected = false;
             _litTiles = new List<TileObject>();
         }
 

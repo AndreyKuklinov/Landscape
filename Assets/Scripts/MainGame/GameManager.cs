@@ -155,7 +155,7 @@ namespace MainGame
         public void EndTurn()
         {
             UpdatePoints();
-            boardRenderer.UnlightTiles();
+            boardRenderer.UnSelectTiles();
             boardRenderer.UndisplayMoves();
             guiManager.SwitchCardsOff();
             guiManager.UpdateScore();
