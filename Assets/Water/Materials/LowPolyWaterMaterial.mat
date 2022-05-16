@@ -156,7 +156,7 @@ Material:
     - _RandomSpeed: 0.5
     - _ReflDistort: 0.9267696
     - _RefrDistort: 1.4393286
-    - _Shininess: 17.1
+    - _Shininess: 57.95
     - _ShoreTiling: 56.862743
     - _SkyBoxReflection: 0.426
     - _SmoothnessTextureChannel: 0
@@ -178,7 +178,7 @@ Material:
     - _AnimationDirection: {r: 0, g: 0, b: 0, a: 0}
     - _AnimationTiling: {r: 0.04582553, g: 0.0182, b: 0.045714468, a: 0.027129691}
     - _BaseColor: {r: 0, g: 0.654902, b: 1, a: 1}
-    - _BumpDirection: {r: 57.8, g: 42.76, b: 30, a: -50}
+    - _BumpDirection: {r: 1, g: 1, b: 30, a: -50}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 1.33, g: -8.8, b: 0.01, a: 0.01}
     - _Color: {r: 112, g: 12, b: 133, a: 1}
@@ -189,7 +189,7 @@ Material:
     - _DistortParams: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Extinction: {r: 4.5, g: 75, b: 300, a: 1}
-    - _Foam: {r: -6.74, g: 18.3, b: 8.09, a: 0}
+    - _Foam: {r: 0, g: 0, b: 0, a: 0}
     - _FoamWaveParams: {r: 0, g: 0.24918434, b: 3.3395782, a: 1}
     - _Fresnel_ST: {r: 1, g: 1, b: 0, a: 0}
     - _GAmplitude: {r: 0, g: 0, b: 0, a: 0}
@@ -199,7 +199,7 @@ Material:
     - _GSpeed: {r: -3, g: 2, b: 1, a: 3}
     - _GSteepness: {r: 7, g: 2, b: 6, a: 2}
     - _HorizonColor: {r: 0.052907113, g: 0.24486735, b: 0.2835821, a: 1}
-    - _InvFadeParemeter: {r: 3.82, g: 0.54, b: 25.02, a: -18.8}
+    - _InvFadeParemeter: {r: 1, g: 1, b: 25.02, a: -18.8}
     - _MainTex_ST: {r: 1, g: 1, b: 0, a: 0}
     - _ReflectionColor: {r: 0.5794164, g: 0.6849238, b: 0.76119405, a: 0.43137255}
     - _ReflectionTex_ST: {r: 1, g: 1, b: 0, a: 0}
