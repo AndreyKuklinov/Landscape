@@ -1,18 +1,28 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - GUIManager
+    - MainGame.BoardRenderer
     - MainGame.GUIManager
     - MainGame.GameManager
     - MainGame.ScoreObject
     - MainGame.SimpleCameraController
-    - ScenesFolders.MainGame.BoardRenderer
-    - ScenesFolders.MainGame.TileObject
+    - MainGame.TileObject
+    - MetaScripts.SoundManager
     - ScenesFolders.MetaScripts.SceneChanger
-    - ScenesFolders.Settings.SettingsManager
+    - Settings.SettingsManager
+    - StartMenu.GUIManager
+    - Water.Scripts.LowPolyWater
+    Boxophobic.PolyverseSkies.Runtime.dll:
+    - PolyverseSkiesAsset.PolyverseSkies
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -27,6 +37,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
@@ -50,21 +61,21 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11414}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 12318}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12840}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 13210}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -104,46 +115,58 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11228}
+      Script: {instanceID: 11246}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11350}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 11414}
+      Script: {instanceID: 11386}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11496}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12328}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12454}
+      Script: {instanceID: 12318}
     - Class: 114
-      Script: {instanceID: 12534}
+      Script: {instanceID: 12418}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12506}
     - Class: 114
-      Script: {instanceID: 13030}
+      Script: {instanceID: 12554}
     - Class: 114
-      Script: {instanceID: 13054}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 12840}
     - Class: 114
-      Script: {instanceID: 13122}
+      Script: {instanceID: 13168}
+    - Class: 114
+      Script: {instanceID: 13192}
+    - Class: 114
+      Script: {instanceID: 13210}
+    - Class: 114
+      Script: {instanceID: 13268}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,30 +200,38 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11414}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11574}
+      Script: {instanceID: 11606}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 12318}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12506}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 12840}
+    - Class: 114
+      Script: {instanceID: 13210}
+    - Class: 114
+      Script: {instanceID: 13240}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -226,34 +257,58 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11252}
+      Script: {instanceID: 11248}
     - Class: 114
-      Script: {instanceID: 11384}
+      Script: {instanceID: 11270}
     - Class: 114
-      Script: {instanceID: 11414}
+      Script: {instanceID: 11410}
     - Class: 114
-      Script: {instanceID: 11454}
+      Script: {instanceID: 11478}
     - Class: 114
-      Script: {instanceID: 11846}
+      Script: {instanceID: 11770}
     - Class: 114
-      Script: {instanceID: 11894}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 11946}
     - Class: 114
-      Script: {instanceID: 12718}
+      Script: {instanceID: 12318}
     - Class: 114
-      Script: {instanceID: 13070}
+      Script: {instanceID: 12506}
+    - Class: 114
+      Script: {instanceID: 12840}
+    - Class: 114
+      Script: {instanceID: 13210}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -302,6 +357,12 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -328,7 +389,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: dad179fe8d97f63035ef88f0f52090db
     assemblyName: Assembly-CSharp.dll
-    namespaceName: ScenesFolders.MainGame
+    namespaceName: MainGame
     className: BoardRenderer
   - hash:
       serializedVersion: 2
@@ -342,6 +403,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 2084a9c6f681927db5396bf39a43cb82
+    assemblyName: Boxophobic.PolyverseSkies.Runtime.dll
+    namespaceName: PolyverseSkiesAsset
+    className: PolyverseSkies
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -360,12 +427,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
-  - hash:
-      serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
@@ -434,9 +495,9 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: de6419311b7c9fcec274a19cacf2393f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: ScenesFolders.Settings
+    namespaceName: Settings
     className: SettingsManager
   - hash:
       serializedVersion: 2
@@ -470,13 +531,19 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 7c5084f22bda962db730d7217e88651b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Water.Scripts
+    className: LowPolyWater
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 803615ab3ff75eba3a4aa5abc4795e69
+      Hash: 5174ddb86606c724e16bba0eab41b682
     assemblyName: Assembly-CSharp.dll
     namespaceName: MainGame
     className: GameManager
@@ -486,6 +553,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Boxophobic.Utils.Scripts.dll
+    namespaceName: 
+    className: StyledScriptableObject
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -506,15 +579,21 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: 48a7f0aa1e09fb60df047423c974aa5d
+    assemblyName: Boxophobic.Utils.Scripts.dll
+    namespaceName: Boxophobic.Utils
+    className: SettingsData
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 5f2088e48c51ede715c0f28006d88d3f
+      Hash: 593107df17d517b83668625e8a3c6e8f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: 
+    namespaceName: StartMenu
     className: GUIManager
   - hash:
       serializedVersion: 2
@@ -540,6 +619,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 54f7cf20366e2f1da624f7e90cf868db
+    assemblyName: Boxophobic.PolyverseSkies.Scripts.dll
+    namespaceName: PolyverseSkiesAsset
+    className: PolyverseSkiesGenerator
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -570,6 +655,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 120bab63b5fdeba71b5cf5ea32736aab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: MetaScripts
+    className: SoundManager
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -624,6 +715,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: c305d1a78d631372416d25fb42086650
+    assemblyName: Boxophobic.Utils.Scripts.dll
+    namespaceName: 
+    className: StyledLabelGizmo
   - hash:
       serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
@@ -686,6 +783,12 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Boxophobic.Utils.Scripts.dll
+    namespaceName: 
+    className: StyledMonoBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -710,7 +813,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 9a19e56c38e8448703295d34ff39e39c
+      Hash: 78305f85dde1a6fe881425d51a53d728
     assemblyName: Assembly-CSharp.dll
     namespaceName: MainGame
     className: SimpleCameraController
@@ -760,7 +863,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
-    namespaceName: ScenesFolders.MainGame
+    namespaceName: MainGame
     className: TileObject
   - hash:
       serializedVersion: 2
@@ -775,5 +878,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Settings.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: "C:/Users/Andrew Kuklinov/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
-    \u0441\u0442\u043E\u043B/Game/Landscape.exe"
+  playerPath: "C:/Users/\u0424\u0438\u043B\u0438\u043F\u043F/Downloads/Game/Landscape.exe"

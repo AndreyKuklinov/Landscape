@@ -1,10 +1,6 @@
 ﻿using System;
-using TreeEditor;
-using UnityEditor.Sprites;
 using UnityEngine;
-using UnityEngine.U2D;
 using UnityEngine.UI;
-using Water.Scripts;
 
 namespace StartMenu
 {
