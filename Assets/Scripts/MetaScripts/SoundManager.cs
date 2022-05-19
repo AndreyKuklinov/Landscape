@@ -20,10 +20,7 @@ namespace MetaScripts
         {
             buttonClickSound.volume = 1 + PlayerPrefs.GetFloat("InterfaceVolume");
             foreach (var music in musics)
-            {
-                Debug.Log(PlayerPrefs.GetFloat("MusicVolume"));
                 music.volume = 1 + PlayerPrefs.GetFloat("MusicVolume");
-            }
         }
 
         public void ChangeInterfaceVolume() =>
@@ -32,9 +29,7 @@ namespace MetaScripts
         public void ChangeMusicVolume()
         {
             foreach (var music in musics)
-            {
                 music.volume = 1 + PlayerPrefs.GetFloat("MusicVolume");
-            }
         }
 
         public void PlayButtonClickSound() =>
