@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace StartMenu
@@ -7,48 +9,37 @@ namespace StartMenu
     public class GUIManager : MonoBehaviour
     {
         [SerializeField] private Text scoreText;
-        [SerializeField] private Material day;
-        [SerializeField] private Material night;
-        [SerializeField] private GameObject currentOcean;
-        [SerializeField] private GameObject oceanDay;
-        [SerializeField] private GameObject oceanNight;
-        [SerializeField] private Text[] texts;
-        [SerializeField] private int dayStartTime;
-        [SerializeField] private int dayEndTime;
-    
+        [SerializeField] private Image slider;
+        [SerializeField] private GameObject loadingScreen;
+        [SerializeField] private float fillSpeed;
+        [SerializeField] private ParticleSystem particleSystem;
 
-        private void Awake()
-        {
-            var currentDate = DateTime.Now;
-            if (currentDate.Hour > dayStartTime && currentDate.Hour < dayEndTime)
-            {
-                RenderSettings.skybox = day;
-                foreach (var text in texts)
-                {
-                    text.color = Color.black;
-                }
+        private float Progress;
 
-                currentOcean = oceanDay;
-            }
-            else
-            {
-                RenderSettings.skybox = night;
-                foreach (var text in texts)
-                {
-                    text.color = Color.white;
-                }
-
-                currentOcean = oceanNight;
-            }
-
-        }
-
-        private void Start()
-        {
+        private void Start() =>
             scoreText.text = PlayerPrefs.GetInt("MaxScore").ToString();
-        
+
+
+        private void Update()
+        {
+            if (slider.fillAmount < Progress)
+                slider.fillAmount += fillSpeed * Time.deltaTime;
         }
-    
-    
+
+        public void StartGameAsync()
+        {
+            loadingScreen.SetActive(true);
+            StartCoroutine(LoadSceneAsync());
+        }
+
+        private IEnumerator LoadSceneAsync()
+        {
+            var sceneLoadingOperation = SceneManager.LoadSceneAsync(1);
+            while (!sceneLoadingOperation.isDone)
+            {
+                Progress = sceneLoadingOperation.progress;
+                yield return null;
+            }
+        }
     }
 }
