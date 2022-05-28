@@ -10,9 +10,8 @@ namespace MainGame
         [SerializeField] private GameObject scoreHolder;
         [SerializeField] private GameObject scoreObjectPrefab;
         [SerializeField] private Image objectiveImage;
-        public bool IsChoosingATile { get; private set; }
-        private Tile _clickedTile;
-        private List<Text> _scoreTexts;
+        private Tile ClickedTile;
+        private List<Text> ScoreTexts;
         
         [SerializeField] private Text score;
         [SerializeField] private Button b1;
@@ -28,22 +27,19 @@ namespace MainGame
 
         public void Start()
         {
-            IsChoosingATile = false;
-            _scoreTexts = new List<Text>();
+            ScoreTexts = new List<Text>();
             foreach (var obj in gameManager.Objectives)
             {
                 var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
                 scoreObject.GetComponent<ScoreObject>().Init(obj.sprite, objectiveImage);
-                _scoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
+                ScoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
             }
         }
 
         public void UpdateScore()
         {
             for (var i = 0; i < gameManager.Objectives.Length; i++)
-            {
-                _scoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
-            }
+                ScoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
         }
         
         public void GameOver()
@@ -55,8 +51,7 @@ namespace MainGame
 
         public void DisplayTileButtons(Tile clickedTile)
         {
-            _clickedTile = clickedTile;
-            IsChoosingATile = true;
+            ClickedTile = clickedTile;
             var buttons = new[] {b1, b2, b3, b4, b5};
             var count = 0;
             var types = gameManager.GetTileFromDice(6);
@@ -104,26 +99,22 @@ namespace MainGame
             var buttons = new[] {b1, b2, b3, b4, b5};
             var buttonPressed = buttons[buttonNumber];
             if (buttonPressed.image.sprite == mountain)
-                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Mountain);
+                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Mountain);
             if (buttonPressed.image.sprite == plain)
-                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Plain);
+                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Plain);
             if (buttonPressed.image.sprite == forest)
-                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Forest);
+                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Forest);
             if (buttonPressed.image.sprite == lake)
-                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Lake);
+                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Lake);
             if (buttonPressed.image.sprite == village)
-                gameManager.MakeTurn(_clickedTile.X, _clickedTile.Y, TileTypes.Village);
+                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Village);
         }
 
         public void SwitchCardsOff()
         {
             var buttons = new[] {b1, b2, b3, b4, b5};
             for (var i = 0; i < 5; i++)
-            {
                 buttons[i].gameObject.SetActive(false);
-            }
-
-            IsChoosingATile = false;
         }
     }
 }

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2123174216}
+  m_SkyboxMaterial: {fileID: 2099431778}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1354,7 +1354,8 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: a311ac17ccaca2d4fa06f8153c7e1609, type: 3}
   - {fileID: 919132149155446097, guid: 24903b37243d7a84ab5eaaf758963c08, type: 3}
   - {fileID: 919132149155446097, guid: cb53b9b39c9aa5d44aa13d59fffedffa, type: 3}
-  modelsWithRoads: []
+  modelsWithRoadsLeftToRight: []
+  modelsWithRoadsUpToDown: []
   modelsWithCrossroads: []
   moveSprites:
   - {fileID: 21300000, guid: a30a8e24d98b63644a248028aae49dd8, type: 3}
@@ -1769,7 +1770,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -2358,7 +2359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardWidth: 5
-  boardHeight: 5
   possibleObjectives:
   - name: Castles
     sprite: {fileID: 21300000, guid: 4faaae11fe11ec34392f5945eff55125, type: 3}
@@ -4054,7 +4054,7 @@ MonoBehaviour:
   lake: {fileID: 21300000, guid: d2e865edd182c544ba970e51bea10333, type: 3}
   village: {fileID: 21300000, guid: 363b88c8f1938d846a11bca80b4ff219, type: 3}
   forest: {fileID: 21300000, guid: ca10dd92050c63d43a2a6e6c75e3f59b, type: 3}
---- !u!21 &2123174216
+--- !u!21 &2099431778
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
