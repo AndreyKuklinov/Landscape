@@ -6,13 +6,19 @@ namespace Settings
     public class SettingsManager : MonoBehaviour
     {
         [SerializeField] private Slider musicSlider;
-        [SerializeField] private Slider interfaceSlider;
+        [SerializeField] private Slider boardSizeSlider;
+        [SerializeField] private GameObject canvas;
 
+
+        public void CloseSettings() =>
+            canvas.SetActive(false);
+
+        public void OpenSettings() =>
+            canvas.SetActive(true);
 
         private void Start()
         {
             musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-            interfaceSlider.value = PlayerPrefs.GetFloat("InterfaceVolume");
         }
 
         public string Difficulty
@@ -23,16 +29,12 @@ namespace Settings
 
         public float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
 
-        public int InterfaceVolume => PlayerPrefs.GetInt("InterfaceVolume");
-
-        public void ChangeMusicVolume()
-        {
+        public void ChangeMusicVolume() =>
             PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-        }
 
-        public void ChangeInterfaceVolume()
-        {
-            PlayerPrefs.SetFloat("InterfaceVolume", interfaceSlider.value);
-        }
+        
+        public void ChangeBoardSize() =>
+            PlayerPrefs.SetFloat("boardWidth", boardSizeSlider.value);
+        
     }
 }

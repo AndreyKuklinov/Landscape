@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 714604878}
   - component: {fileID: 714604877}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: SettingsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1434,8 +1434,8 @@ Camera:
   m_GameObject: {fileID: 1465634299}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.063278764, g: 0.6262827, b: 0.745283, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1684,15 +1684,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def8122478084844dbded82888c5ac19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardRenderer: {fileID: 0}
   boardWidth: 0
-  boardHeight: 0
-  guiManager: {fileID: 0}
   possibleObjectives: []
   testingObjective:
     name: 
     sprite: {fileID: 0}
   cheatMode: 0
+  boardRenderer: {fileID: 0}
+  guiManager: {fileID: 0}
 --- !u!1 &1914256034
 GameObject:
   m_ObjectHideFlags: 0
