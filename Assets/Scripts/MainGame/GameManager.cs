@@ -172,7 +172,7 @@ namespace MainGame
             if (diceValue % 6 == 0 && diceValue != 0)
                 return new[]
                     {TileTypes.Mountain, TileTypes.Forest, TileTypes.Plain, TileTypes.Lake, TileTypes.Village};
-            return new[] {(TileTypes) (diceValue % 5)};
+            return new[] {(TileTypes) (diceValue % 6)};
         }
 
         private void RollDice()
