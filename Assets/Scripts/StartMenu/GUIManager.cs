@@ -11,7 +11,7 @@ namespace StartMenu
         [SerializeField] private Image slider;
         [SerializeField] private GameObject loadingScreen;
         [SerializeField] private float fillSpeed;
-        [SerializeField] private ParticleSystem particleSystem;
+        [SerializeField] private GameObject creditCanvas;
 
         private float Progress;
 
@@ -40,5 +40,8 @@ namespace StartMenu
                 yield return null;
             }
         }
+
+        public void ShowCredits() => creditCanvas.SetActive(true);
+        public void HideCredits() => creditCanvas.SetActive(false);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ScenesFolders.MetaScripts
+namespace MetaScripts
 {
     public class SceneChanger : MonoBehaviour
     {
