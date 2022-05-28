@@ -5,24 +5,22 @@ namespace MainGame
 {
     public class ScoreObject : MonoBehaviour
     {
-        private Sprite _objectiveSprite;
-        private Image _objectiveImage;
+        private Sprite ObjectiveSprite;
+        private Image ObjectiveImage;
 
         public void Init(Sprite objectiveSprite, Image objectiveImage)
         {
-            _objectiveImage = objectiveImage;
-            _objectiveSprite = objectiveSprite;
-        }
-    
-        public void OnPointerEnter()
-        {
-            _objectiveImage.gameObject.SetActive(true);
-            _objectiveImage.sprite = _objectiveSprite;
+            ObjectiveImage = objectiveImage;
+            ObjectiveSprite = objectiveSprite;
         }
 
-        public void OnPointerExit()
+        public void OnPointerEnter()
         {
-            _objectiveImage.gameObject.SetActive(false);
+            ObjectiveImage.gameObject.SetActive(true);
+            ObjectiveImage.sprite = ObjectiveSprite;
         }
+
+        public void OnPointerExit() =>
+            ObjectiveImage.gameObject.SetActive(false);
     }
 }

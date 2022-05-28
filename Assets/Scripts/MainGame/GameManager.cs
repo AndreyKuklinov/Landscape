@@ -9,17 +9,15 @@ namespace MainGame
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private int boardWidth;
-        [SerializeField] private int boardHeight;
         [SerializeField] private List<Objective> possibleObjectives;
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
+
         public BoardRenderer boardRenderer;
         public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
-        private int[] _diceRoll;
-        private int _turnCount;
 
         public int Score
         {
@@ -30,13 +28,16 @@ namespace MainGame
             }
         }
 
+        private int[] DiceRoll;
+        private int TurnCount;
+
         public void Start()
         {
-            GameBoard = new Tile[boardWidth, boardHeight];
+            GameBoard = new Tile[boardWidth, boardWidth];
             for (var x = 0; x < boardWidth; x++)
-            for (var y = 0; y < boardHeight; y++)
+            for (var y = 0; y < boardWidth; y++)
                 GameBoard[x, y] = new Tile(TileTypes.Empty, x, y);
-            boardRenderer.DrawEmptyBoard(boardWidth, boardHeight);
+            boardRenderer.DrawEmptyBoard(boardWidth, boardWidth);
             Objectives = PickRandomObjectives(3);
             GameOver = false;
             StartTurn();
@@ -58,6 +59,7 @@ namespace MainGame
                 res.Add(testingObjective);
                 num--;
             }
+
             var objs = new List<Objective>(possibleObjectives);
             for (var i = 0; i < num; i++)
             {
@@ -71,18 +73,26 @@ namespace MainGame
 
         public TileTypes[] GetMovesAt(int x, int y)
         {
-            var diceValues = new List<int>(_diceRoll);
+            var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
-                || !(diceValues.Remove(x + 1) || diceValues.Remove(6))
-                || !(diceValues.Remove(y + 1) || diceValues.Remove(6)))
+                || !(diceValues.Remove(x + 1) ||
+                     IsThereASix(diceValues))
+                || !(diceValues.Remove(y + 1) ||
+                     IsThereASix(diceValues)))
                 return Array.Empty<TileTypes>();
             return GetTileFromDice(diceValues[0]);
         }
 
+        private bool IsThereASix(IEnumerable<int> diceValues) =>
+            diceValues.Where(item => item != 0 && item % 6 == 0)
+                .Select(item => 6)
+                .ToList()
+                .Remove(6);
+
         public IEnumerable<Tile> GetAllMoves()
         {
             for (var x = 0; x < boardWidth; x++)
-            for (var y = 0; y < boardHeight; y++)
+            for (var y = 0; y < boardWidth; y++)
             {
                 var moves = GetMovesAt(x, y);
                 if (moves.Length > 0)
@@ -115,10 +125,8 @@ namespace MainGame
             }
         }
 
-        public Tile GetTileAt(int x, int y)
-        {
-            return TileExists(x, y) ? GameBoard[x, y] : new Tile();
-        }
+        public Tile GetTileAt(int x, int y) =>
+            TileExists(x, y) ? GameBoard[x, y] : new Tile();
 
         private bool TileExists(int x, int y)
         {
@@ -132,24 +140,21 @@ namespace MainGame
         {
             if (GameOver)
                 return;
-            if (_turnCount == 25)
+            if (TurnCount == 25)
                 EndGame();
             EndTurn();
         }
 
         private void StartTurn()
         {
-            if (GameOver)
-                return;
+            if (GameOver) return;
             RollDice();
             var moves = GetAllMoves().ToArray();
             boardRenderer.DisplayPossibleMoves();
             if (moves.Length == 0)
-            {
                 SkipTurn();
-            }
             else
-                _turnCount++;
+                TurnCount++;
         }
 
         public void EndTurn()
@@ -164,30 +169,25 @@ namespace MainGame
 
         public TileTypes[] GetTileFromDice(int diceValue)
         {
-            if (diceValue == 6)
+            if (diceValue % 6 == 0 && diceValue != 0)
                 return new[]
-                    { TileTypes.Mountain, TileTypes.Forest, TileTypes.Plain, TileTypes.Lake, TileTypes.Village };
-            return new[] { (TileTypes)(diceValue) };
+                    {TileTypes.Mountain, TileTypes.Forest, TileTypes.Plain, TileTypes.Lake, TileTypes.Village};
+            return new[] {(TileTypes) (diceValue % 5)};
         }
 
         private void RollDice()
         {
-            _diceRoll = new int[3];
+            DiceRoll = new int[3];
             if (cheatMode)
-            {
-                for (var i = 0; i < _diceRoll.Length; i++)
-                    _diceRoll[i] = 6;
-            }
-            else if (_turnCount == 0)
-            {
+                for (var i = 0; i < DiceRoll.Length; i++)
+                    DiceRoll[i] = 36;
+
+            else if (TurnCount == 0)
                 for (var i = 0; i < 3; i++)
-                    _diceRoll[i] = Random.Range(1, 6);
-            }
+                    DiceRoll[i] = Random.Range(1, boardWidth + 1);
             else
-            {
                 for (var i = 0; i < 3; i++)
-                    _diceRoll[i] = Random.Range(1, 7);
-            }
+                    DiceRoll[i] = Random.Range(1, boardWidth + 2);
         }
 
         private void UpdatePoints()
@@ -196,7 +196,7 @@ namespace MainGame
                 obj.UpdatePoints(this);
             // TODO
         }
-        
+
         private void MoveTile(int startX, int startY, int targetX, int targetY)
         {
             throw new NotImplementedException();

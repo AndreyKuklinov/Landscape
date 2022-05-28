@@ -11,16 +11,17 @@ namespace MainGame
         [SerializeField] private GameObject tileButtonPrefab;
         [SerializeField] private GameObject mainCamera;
         [SerializeField] private List<GameObject> models;
-        [SerializeField] private GameObject[] modelsWithRoads;
+        [SerializeField] private GameObject[] modelsWithRoadsLeftToRight;
+        [SerializeField] private GameObject[] modelsWithRoadsUpToDown;
         [SerializeField] private GameObject[] modelsWithCrossroads;
-        [SerializeField] private List<Sprite> moveSprites;
+        [SerializeField] private Sprite[] moveSprites;
         [SerializeField] private float tileSize;
-        private List<TileObject> _litTiles;
+        private List<TileObject> LitTiles;
         public TileObject[,] GameBoard { get; private set; }
 
         public void DrawEmptyBoard(int width, int height)
         {
-            _litTiles = new List<TileObject>();
+            LitTiles = new List<TileObject>();
             GameBoard = new TileObject[width, height];
             for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
@@ -39,7 +40,7 @@ namespace MainGame
         public void LightTile(int x, int y)
         {
             var tile = GameBoard[x, y];
-            _litTiles.Add(tile);
+            LitTiles.Add(tile);
             tile.IsLit = true;
         }
 
@@ -49,7 +50,7 @@ namespace MainGame
             {
                 var moves = gameManager.GetMovesAt(tile.X, tile.Y);
                 if (moves.Length == 5)
-                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[5]);
+                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[moveSprites.Length - 1]);
                 else if (moves.Length == 1)
                     GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[(int) moves[0] - 1]);
             }
@@ -63,9 +64,9 @@ namespace MainGame
 
         public void UnlightTiles()
         {
-            foreach (var tile in _litTiles)
+            foreach (var tile in LitTiles)
                 tile.IsLit = false;
-            _litTiles = new List<TileObject>();
+            LitTiles = new List<TileObject>();
         }
 
         public void ChangeTile(int x, int y, TileTypes newType)

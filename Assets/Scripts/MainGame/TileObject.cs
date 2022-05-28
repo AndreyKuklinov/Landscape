@@ -5,19 +5,20 @@ namespace MainGame
     public class TileObject : MonoBehaviour
     {
         public Tile Tile { get; private set; }
-        private GameObject _model;
-        private GameObject _light;
-        private GameObject _tileButton;
-        private SpriteRenderer _tileButtonSpriteRenderer;
-        private GameManager _gameManager;
+        private GameObject Model;
+        private GameObject Light;
+        private GameObject TileButton;
+        private SpriteRenderer TileButtonSpriteRenderer;
+        private GameManager GameManager;
 
         private bool _isLit;
+
         public bool IsLit
         {
             get => _isLit;
             set
             {
-                _light.SetActive(value);
+                Light.SetActive(value);
                 _isLit = value;
             }
         }
@@ -33,50 +34,51 @@ namespace MainGame
         {
             Tile = tile;
             transform.position = screenPosition;
-            _gameManager = gameManager;
+            GameManager = gameManager;
             _isLit = false;
-            _light = Instantiate(lightModelPrefab, transform);
-            _light.SetActive(false);
-            _tileButton = Instantiate(tileButtonPrefab, transform);
-            _tileButton.SetActive(false);
-            _tileButton.transform.rotation = Quaternion.Euler(90, 0, 0);
-            _tileButtonSpriteRenderer = _tileButton.GetComponentInChildren<SpriteRenderer>();
+            Light = Instantiate(lightModelPrefab, transform);
+            Light.SetActive(false);
+            TileButton = Instantiate(tileButtonPrefab, transform);
+            TileButton.SetActive(false);
+            TileButton.transform.rotation = Quaternion.Euler(90, 0, 0);
+            TileButtonSpriteRenderer = TileButton.GetComponentInChildren<SpriteRenderer>();
             Draw(modelPrefab);
         }
 
         public void Draw(GameObject newModel)
         {
-            Destroy(_model);
-            _model = Instantiate(newModel, transform);
+            Destroy(Model);
+            Model = Instantiate(newModel, transform);
         }
 
         public void OnMouseUp()
         {
-            if (_gameManager.GameOver)
+            if (GameManager.GameOver)
                 return;
-            _gameManager.boardRenderer.UnlightTiles();
-            _gameManager.guiManager.SwitchCardsOff();
-            var moves = _gameManager.GetMovesAt(Tile.X, Tile.Y);
-            if(moves.Length == 0 )
-                return;
-            if (moves.Length == 1)
-                _gameManager.MakeTurn(Tile.X, Tile.Y, moves[0]);
-            else
+            GameManager.boardRenderer.UnlightTiles();
+            GameManager.guiManager.SwitchCardsOff();
+            var moves = GameManager.GetMovesAt(Tile.X, Tile.Y);
+            switch (moves.Length)
             {
-                _gameManager.guiManager.DisplayTileButtons(Tile);
-                _gameManager.boardRenderer.LightTile(Tile.X, Tile.Y);
+                case 0:
+                    return;
+                case 1:
+                    GameManager.MakeTurn(Tile.X, Tile.Y, moves[0]);
+                    break;
+                default:
+                    GameManager.guiManager.DisplayTileButtons(Tile);
+                    GameManager.boardRenderer.LightTile(Tile.X, Tile.Y);
+                    break;
             }
         }
 
         public void DisplayMove(Sprite sprite)
         {
-            _tileButtonSpriteRenderer.sprite = sprite;
-            _tileButton.SetActive(true);
+            TileButtonSpriteRenderer.sprite = sprite;
+            TileButton.SetActive(true);
         }
 
-        public void UndisplayMove()
-        {
-            _tileButton.SetActive(false);
-        }
+        public void UndisplayMove() =>
+            TileButton.SetActive(false);
     }
 }
