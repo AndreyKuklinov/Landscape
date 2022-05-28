@@ -8,13 +8,13 @@ namespace MainGame
 {
     public class GameManager : MonoBehaviour
     {
-        public BoardRenderer boardRenderer;
         [SerializeField] private int boardWidth;
         [SerializeField] private int boardHeight;
-        public GUIManager guiManager;
         [SerializeField] private List<Objective> possibleObjectives;
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
+        public BoardRenderer boardRenderer;
+        public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }

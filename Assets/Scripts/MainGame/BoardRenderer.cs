@@ -10,7 +10,9 @@ namespace MainGame
         [SerializeField] private GameObject lightModel;
         [SerializeField] private GameObject tileButtonPrefab;
         [SerializeField] private GameObject mainCamera;
-        [SerializeField] private List<GameObject> models; 
+        [SerializeField] private List<GameObject> models;
+        [SerializeField] private GameObject[] modelsWithRoads;
+        [SerializeField] private GameObject[] modelsWithCrossroads;
         [SerializeField] private List<Sprite> moveSprites;
         [SerializeField] private float tileSize;
         private List<TileObject> _litTiles;
@@ -20,19 +22,19 @@ namespace MainGame
         {
             _litTiles = new List<TileObject>();
             GameBoard = new TileObject[width, height];
-            for(var x = 0; x<width; x++)
+            for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
             {
                 GameBoard[x, y] = Instantiate(tilePrefab, transform).GetComponent<TileObject>();
-                var pos = new Vector3(x * tileSize, 0, y*tileSize);
-                GameBoard[x, y].Init(gameManager.GameBoard[x,y], models[0], lightModel, tileButtonPrefab, gameManager, pos);
+                var pos = new Vector3(x * tileSize, 0, y * tileSize);
+                GameBoard[x, y].Init(gameManager.GameBoard[x, y], models[0], lightModel, tileButtonPrefab, gameManager,
+                    pos);
             }
 
             var centerPos = GameBoard[2, 0].transform.position;
-            mainCamera.transform.position = new Vector3(centerPos.x, 7.5f, centerPos.z-tileSize/4);
+            mainCamera.transform.position = new Vector3(centerPos.x, 7.5f, centerPos.z - tileSize / 4);
         }
-        
-        
+
 
         public void LightTile(int x, int y)
         {
@@ -46,20 +48,19 @@ namespace MainGame
             foreach (var tile in gameManager.GameBoard)
             {
                 var moves = gameManager.GetMovesAt(tile.X, tile.Y);
-                if(moves.Length == 5)
+                if (moves.Length == 5)
                     GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[5]);
-                else if(moves.Length == 1)
-                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[(int)moves[0]-1]);
+                else if (moves.Length == 1)
+                    GameBoard[tile.X, tile.Y].DisplayMove(moveSprites[(int) moves[0] - 1]);
             }
-                
         }
 
         public void UndisplayMoves()
         {
-            foreach(var tile in GameBoard)
+            foreach (var tile in GameBoard)
                 tile.UndisplayMove();
         }
-        
+
         public void UnlightTiles()
         {
             foreach (var tile in _litTiles)
@@ -71,7 +72,7 @@ namespace MainGame
         {
             var tile = GameBoard[x, y];
             tile.Type = newType;
-            tile.Draw(models[(int)newType]);
+            tile.Draw(models[(int) newType]);
         }
     }
 }
