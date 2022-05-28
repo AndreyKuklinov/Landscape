@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 
 namespace MainGame
@@ -10,9 +12,18 @@ namespace MainGame
         [SerializeField] private GameObject scoreHolder;
         [SerializeField] private GameObject scoreObjectPrefab;
         [SerializeField] private Image objectiveImage;
+        [SerializeField] private GameObject postProcessing;
+        [SerializeField] private PostProcessProfile postProcessProfile;
+        [SerializeField] private float bloomingSpeed;
+        [SerializeField] private float debloomingSpeed;
+        [SerializeField] private float bloomingMax;
+        [SerializeField] private float bloomingBase;
         private Tile ClickedTile;
         private List<Text> ScoreTexts;
-        
+        private Bloom Bloom;
+        private bool IsGameOver;
+        private bool IsBloomDescending;
+
         [SerializeField] private Text score;
         [SerializeField] private Button b1;
         [SerializeField] private Button b2;
@@ -27,6 +38,7 @@ namespace MainGame
 
         public void Start()
         {
+            postProcessing.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing")));
             ScoreTexts = new List<Text>();
             foreach (var obj in gameManager.Objectives)
             {
@@ -41,12 +53,24 @@ namespace MainGame
             for (var i = 0; i < gameManager.Objectives.Length; i++)
                 ScoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
         }
-        
+
+        private void Update()
+        {
+            if (!IsGameOver) return;
+            if (Bloom.intensity.value < bloomingMax && !IsBloomDescending)
+                Bloom.intensity.value += bloomingSpeed * Time.deltaTime;
+            if (Bloom.intensity.value > bloomingMax - 1) IsBloomDescending = true;
+            if (Bloom.intensity.value > bloomingBase && IsBloomDescending)
+                Bloom.intensity.value -= debloomingSpeed * Time.deltaTime;
+        }
+
         public void GameOver()
         {
             scoreHolder.SetActive(false);
             score.text = gameManager.Score.ToString();
             score.transform.parent.gameObject.SetActive(true);
+            postProcessProfile.TryGetSettings(out Bloom);
+            IsGameOver = true;
         }
 
         public void DisplayTileButtons(Tile clickedTile)

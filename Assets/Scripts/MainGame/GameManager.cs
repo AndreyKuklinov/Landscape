@@ -33,8 +33,7 @@ namespace MainGame
 
         public void Start()
         {
-            if (PlayerPrefs.GetFloat("boardWidth") != 0)
-                boardWidth = PlayerPrefs.GetInt("boardWidth");
+            boardWidth = PlayerPrefs.GetInt("boardWidth");
             GameBoard = new Tile[boardWidth, boardWidth];
             for (var x = 0; x < boardWidth; x++)
             for (var y = 0; y < boardWidth; y++)

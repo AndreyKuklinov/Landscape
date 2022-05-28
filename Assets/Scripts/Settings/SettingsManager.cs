@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Settings
@@ -8,6 +9,8 @@ namespace Settings
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider boardSizeSlider;
         [SerializeField] private GameObject canvas;
+        [SerializeField] private GameObject postProcessing;
+        [SerializeField] private Toggle postProcessingToggle;
 
 
         public void CloseSettings() =>
@@ -18,23 +21,25 @@ namespace Settings
 
         private void Start()
         {
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            postProcessingToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing"));
+            musicSlider.value = MusicVolume;
+            boardSizeSlider.value = PlayerPrefs.GetInt("boardWidth");
         }
 
-        public string Difficulty
-        {
-            set => PlayerPrefs.SetString("Difficulty", value);
-            get => PlayerPrefs.GetString("Difficulty");
-        }
-
-        public float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
+        private float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
 
         public void ChangeMusicVolume() =>
             PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
 
-        
+
         public void ChangeBoardSize() =>
-            PlayerPrefs.SetFloat("boardWidth", boardSizeSlider.value);
-        
+            PlayerPrefs.SetInt("boardWidth", (int) boardSizeSlider.value);
+
+        public void ChangePostProcessing()
+        {
+            var isActive = postProcessingToggle.isOn;
+            PlayerPrefs.SetInt("postProcessing", isActive ? 1 : 0);
+            postProcessing.SetActive(isActive);
+        }
     }
 }
