@@ -181,7 +181,7 @@ namespace MainGame
             DiceRoll = new int[3];
             if (cheatMode)
                 for (var i = 0; i < DiceRoll.Length; i++)
-                    DiceRoll[i] = 36;
+                    DiceRoll[i] = 6;
 
             else if (TurnCount == 0)
                 for (var i = 0; i < 3; i++)
