@@ -19,8 +19,9 @@ public class TutorialManager : MonoBehaviour
         IsTutorialActive = true;
         _stage = 0;
         _popupText = PopUp.GetComponent<Text>();
-        
-        
+
+        gameManager.TilePlaced += ProceedToNextStage;
+        _popupText.text = "Нажмите на иконку с деревьями в центре игрового поля, чтобы поставить лес";
     }
 
     private void ProceedToNextStage(object sender, EventArgs e)
