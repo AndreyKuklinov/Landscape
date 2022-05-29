@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2085882144}
+  m_SkyboxMaterial: {fileID: 2026405841}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   models:
   - {fileID: 919132149155446097, guid: 82921a29b8bee2b41983c60793ad36bc, type: 3}
   - {fileID: 919132149155446097, guid: 5c9ae7cb56199a4408735caef7ec7f9b, type: 3}
-  - {fileID: 919132149155446097, guid: 1ef6d5d6ad451c0449ef673e834f6683, type: 3}
+  - {fileID: 1004532063474758665, guid: f5c5ed5424438d14681217c760411d77, type: 3}
   - {fileID: 919132149155446097, guid: 8566172c6940cbf43879e8a79bc38ac3, type: 3}
   - {fileID: 919132149155446097, guid: 24903b37243d7a84ab5eaaf758963c08, type: 3}
   - {fileID: 919132149155446097, guid: cb53b9b39c9aa5d44aa13d59fffedffa, type: 3}
@@ -3907,7 +3907,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009739378}
   m_CullTransparentMesh: 0
---- !u!21 &2085882144
+--- !u!21 &2026405841
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
