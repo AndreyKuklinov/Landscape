@@ -8,17 +8,31 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     public bool IsTutorialActive { get; private set; }
-    public TileTypes[,] Moves { get; private set; }
-    public Objective[,] Objectives { get; private set; }
     public GameObject PopUp;
 
     private int _stage;
     private Text _popupText;
 
-    public void Begin()
+    public void Begin(GameManager gameManager)
     {
         IsTutorialActive = true;
         _stage = 0;
         _popupText = PopUp.GetComponent<Text>();
+        gameManager.OnTilePlaced += OnTilePlaced;
+    }
+
+    private void OnTilePlaced(object sender, EventArgs e)
+    {
+        //TODO
+    }
+
+    private void OnObjectiveSeen(object sender, EventArgs e)
+    {
+        //TODO
+    }
+
+    private void OnCameraMoved(object sender, EventArgs e)
+    {
+        //TODO
     }
 }

@@ -18,6 +18,7 @@ namespace MainGame
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }
         public bool GameOver { get; private set; }
+        public event EventHandler OnTilePlaced;
 
         public int Score
         {
@@ -104,11 +105,11 @@ namespace MainGame
         public void MakeTurn(int x, int y, TileTypes tileType)
         {
             if (tileType == TileTypes.Empty) Debug.LogError("Tile to place can't be empty");
-
             GameBoard[x, y].Type = tileType;
             boardRenderer.ChangeTile(x, y, tileType);
             if (tileType == TileTypes.Village)
                 CreateRoads();
+            OnTilePlaced?.Invoke(this, EventArgs.Empty);
             EndTurn();
         }
 
