@@ -76,19 +76,11 @@ namespace MainGame
         {
             var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
-                || !(diceValues.Remove(x + 1) ||
-                     IsThereASix(diceValues))
-                || !(diceValues.Remove(y + 1) ||
-                     IsThereASix(diceValues)))
+                || !(diceValues.Remove(x + 1) || diceValues.Remove(6))
+                || !(diceValues.Remove(y + 1) || diceValues.Remove(6)))
                 return Array.Empty<TileTypes>();
             return GetTileFromDice(diceValues[0]);
         }
-
-        private bool IsThereASix(IEnumerable<int> diceValues) =>
-            diceValues.Where(item => item != 0 && item % 6 == 0)
-                .Select(item => 6)
-                .ToList()
-                .Remove(6);
 
         public IEnumerable<Tile> GetAllMoves()
         {
