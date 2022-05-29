@@ -1,0 +1,3 @@
+370080478647882de41c08e5ca4b4ec26032d9c7
+
+Repository: https://github.cds.internal.unity3d.com/unity/burst

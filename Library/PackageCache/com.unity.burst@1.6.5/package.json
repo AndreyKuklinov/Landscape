@@ -1,0 +1,21 @@
+{
+  "name": "com.unity.burst",
+  "displayName": "Burst",
+  "version": "1.6.5",
+  "unity": "2019.4",
+  "description": "Burst is a compiler that translates from IL/.NET bytecode to highly optimized native code using LLVM.",
+  "dependencies": {
+    "com.unity.mathematics": "1.2.1"
+  },
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/burst.git",
+    "type": "git",
+    "revision": "370080478647882de41c08e5ca4b4ec26032d9c7"
+  },
+  "upm": {
+    "changelog": "### Fixed,- Improved UWP linker error message to clarify which VS components need to be installed for UWP,- Fixed a bug that meant Burst was accidentally enabled in secondary Unity processes, including the asset import worker and out-of-process profiler (see changelog entry for 1.6.0-pre.1 for more context around this),- Fixed access violation error that could occur when reading from a static readonly variable,- Made `--burst-force-sync-compilation` command-line option actually work,- Fix a bug where codegen differences could occur when using a local vector variable that was being captured by reference and passed to a called function, versus when it wasn't.,- Fixed an exception that could occur if you had the Burst AOT Settings menu docked in the Editor, and then did a player build. Trying to change any of the Burst AOT Settings would throw an exception (unless you closed and reopened the Burst AOT Settings).,- Fix the Burst `link.xml` output to preserve C# methods we rely on, alongside the static constructors that we preserved previously.,- Fixed errors when working with paths containing special characters,- Fixed a bug where if you had two generic structs overlapping at the same `FieldOffset` in an explicitly laid out struct, a codegen error would occur.,- Fixed a bug where if you used `FloatMode.Fast` with `math.pow`, where the `y` argument to `math.pow` was actually sourced from an integer, illegal codegen would be generated (LLVM would try and call out to `powf` from the cstdlib).,- Fixed another rare case of the file-is-locked bug where the Burst IL Post Processor could incorrectly hold a file lock on a pdb.,- Fixed a bug when calling profiling `CreateMarker` on iOS, Burst could fail at runtime saying it was unable to find `CreateMarker__Unmanaged`."
+  },
+  "upmCi": {
+    "footprint": "cc95e1e15b1229b3515e1931a18d0976d783d34e"
+  }
+}

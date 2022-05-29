@@ -18,6 +18,7 @@ namespace StartMenu
         public void StartGame()
         {
             loadingScreen.SetActive(true);
+            System.Threading.Thread.Sleep(1);
             SceneManager.LoadScene(1);
         }
 
