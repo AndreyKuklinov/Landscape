@@ -18,21 +18,10 @@ public class TutorialManager : MonoBehaviour
         IsTutorialActive = true;
         _stage = 0;
         _popupText = PopUp.GetComponent<Text>();
-        gameManager.OnTilePlaced += OnTilePlaced;
     }
 
-    private void OnTilePlaced(object sender, EventArgs e)
+    private void ProceedToNextStage(object sender, EventArgs e)
     {
-        //TODO
-    }
-
-    private void OnObjectiveSeen(object sender, EventArgs e)
-    {
-        //TODO
-    }
-
-    private void OnCameraMoved(object sender, EventArgs e)
-    {
-        //TODO
+        
     }
 }
