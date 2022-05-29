@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace MainGame
 {
     public class SimpleCameraController : MonoBehaviour
     {
         private bool isGameDone;
+        public event EventHandler CameraMoved;
 
         public void ChangeEndGameFlag() => isGameDone = !isGameDone;
 
@@ -88,21 +91,25 @@ namespace MainGame
             if (Input.GetKey(KeyCode.W))
             {
                 direction += Vector3.forward;
+                CameraMoved?.Invoke(this, EventArgs.Empty);
             }
 
             if (Input.GetKey(KeyCode.S))
             {
                 direction += Vector3.back;
+                CameraMoved?.Invoke(this, EventArgs.Empty);
             }
 
             if (Input.GetKey(KeyCode.A))
             {
                 direction += Vector3.left;
+                CameraMoved?.Invoke(this, EventArgs.Empty);
             }
 
             if (Input.GetKey(KeyCode.D))
             {
                 direction += Vector3.right;
+                CameraMoved?.Invoke(this, EventArgs.Empty);
             }
 
             if (Input.GetKey(KeyCode.Q))

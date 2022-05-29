@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace MainGame
@@ -7,6 +8,7 @@ namespace MainGame
     {
         private Sprite ObjectiveSprite;
         private Image ObjectiveImage;
+        public event EventHandler PointerExited;
 
         public void Init(Sprite objectiveSprite, Image objectiveImage)
         {
@@ -20,7 +22,11 @@ namespace MainGame
             ObjectiveImage.sprite = ObjectiveSprite;
         }
 
-        public void OnPointerExit() =>
+        public void OnPointerExit()
+        {
             ObjectiveImage.gameObject.SetActive(false);
+            PointerExited?.Invoke(this, EventArgs.Empty);
+        }
+            
     }
 }

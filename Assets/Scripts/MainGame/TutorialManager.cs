@@ -12,12 +12,15 @@ public class TutorialManager : MonoBehaviour
 
     private int _stage;
     private Text _popupText;
+    private GameManager _gameManager;
 
     public void Begin(GameManager gameManager)
     {
         IsTutorialActive = true;
         _stage = 0;
         _popupText = PopUp.GetComponent<Text>();
+        
+        
     }
 
     private void ProceedToNextStage(object sender, EventArgs e)
