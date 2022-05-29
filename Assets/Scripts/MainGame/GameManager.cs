@@ -46,7 +46,7 @@ namespace MainGame
 
         public void EndGame()
         {
-            if (PlayerPrefs.GetInt("MaxScore") < Score)
+            if (PlayerPrefs.GetInt("MaxScore") < Score && PlayerPrefs.GetInt("boardWidth") <= 5)
                 PlayerPrefs.SetInt("MaxScore", Score);
             GameOver = true;
             guiManager.GameOver();
@@ -198,9 +198,19 @@ namespace MainGame
             // TODO
         }
 
-        private void MoveTile(int startX, int startY, int targetX, int targetY)
+        private void MoveTile(int startX, int startY, int targetX, int targetY, out bool isSuccessful)
         {
-            throw new NotImplementedException();
+            if (GameBoard[targetX, targetY].Type == TileTypes.Empty ||
+                GameBoard[startX, startY].Type == TileTypes.Empty)
+            {
+                isSuccessful = false;
+                return;
+            }
+
+            boardRenderer.ChangeTile(targetX, targetY, GameBoard[startX, startY].Type);
+            boardRenderer.ChangeTile(startX, startY, TileTypes.Empty);
+            CreateRoads();
+            isSuccessful = true;
         }
 
         private void CreateRoads()
