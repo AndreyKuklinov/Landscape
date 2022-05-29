@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MainGame
@@ -74,6 +75,17 @@ namespace MainGame
             var tile = GameBoard[x, y];
             tile.Type = newType;
             tile.Draw(models[(int) newType]);
+        }
+
+        public void DisplayRoad(int x, int y)
+        {
+            var tile = GameBoard[x, y];
+            if (!tile.Tile.HasRoad) return;
+            if (tile.Tile.RoadDirection == RoadDirection.LeftToRight) tile.Draw(modelsWithRoadsLeftToRight[(int) tile.Type]);
+            if (tile.Tile.RoadDirection == RoadDirection.UpToDown) tile.Draw(modelsWithRoadsUpToDown[(int) tile.Type]);
+            if (tile.Tile.RoadDirection == RoadDirection.Crossroad) 
+                tile.Draw(modelsWithCrossroads[(int) tile.Type]);
+            else throw new Exception("Tile has road without direction!");
         }
     }
 }

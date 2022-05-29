@@ -228,6 +228,7 @@ namespace MainGame
                             var direction = RoadDirection.LeftToRight;
                             if (GameBoard[x2, y].HasRoad) direction = RoadDirection.Crossroad;
                             GameBoard[x2, y].RoadDirection = direction;
+                            boardRenderer.DisplayRoad(x2, y);
                         }
                     }
 
@@ -239,6 +240,7 @@ namespace MainGame
                             var direction = RoadDirection.UpToDown;
                             if (GameBoard[x, y2].HasRoad) direction = RoadDirection.Crossroad;
                             GameBoard[x, y2].RoadDirection = direction;
+                            boardRenderer.DisplayRoad(x, y2);
                         }
                     }
                 }
