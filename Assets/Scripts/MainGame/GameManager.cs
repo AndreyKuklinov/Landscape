@@ -9,6 +9,7 @@ namespace MainGame
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private int boardWidth;
+        [SerializeField] private int creativeBoardWidth;
         [SerializeField] private List<Objective> possibleObjectives;
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
@@ -33,7 +34,13 @@ namespace MainGame
 
         public void Start()
         {
-            boardWidth = PlayerPrefs.GetInt("boardWidth");
+            if (Convert.ToBoolean(PlayerPrefs.GetInt("creativeMode")))
+            {
+                boardWidth = creativeBoardWidth;
+                cheatMode = true;
+            }
+            else cheatMode = false;
+            
             GameBoard = new Tile[boardWidth, boardWidth];
             for (var x = 0; x < boardWidth; x++)
             for (var y = 0; y < boardWidth; y++)

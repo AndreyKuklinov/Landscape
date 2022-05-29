@@ -7,7 +7,7 @@ namespace Settings
     public class SettingsManager : MonoBehaviour
     {
         [SerializeField] private Slider musicSlider;
-        [SerializeField] private Slider boardSizeSlider;
+        [SerializeField] private Toggle creativeModeToggle;
         [SerializeField] private GameObject canvas;
         [SerializeField] private GameObject postProcessing;
         [SerializeField] private Toggle postProcessingToggle;
@@ -23,7 +23,7 @@ namespace Settings
         {
             postProcessingToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing"));
             musicSlider.value = MusicVolume;
-            boardSizeSlider.value = PlayerPrefs.GetInt("boardWidth");
+            creativeModeToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("creativeMode"));
         }
 
         private float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
@@ -32,8 +32,11 @@ namespace Settings
             PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
 
 
-        public void ChangeBoardSize() =>
-            PlayerPrefs.SetInt("boardWidth", (int) boardSizeSlider.value);
+        public void SetCreativeMode()
+        {
+            var isActive = creativeModeToggle.isOn;
+            PlayerPrefs.SetInt("creativeMode", isActive ? 1 : 0);
+        }
 
         public void ChangePostProcessing()
         {
