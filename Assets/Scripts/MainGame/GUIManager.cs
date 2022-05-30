@@ -18,6 +18,7 @@ namespace MainGame
         [SerializeField] private float debloomingSpeed;
         [SerializeField] private float bloomingMax;
         [SerializeField] private float bloomingBase;
+        [SerializeField] private float tileLightMaxValue; 
         private Tile ClickedTile;
         private List<Text> ScoreTexts;
         private Bloom Bloom;
@@ -139,6 +140,11 @@ namespace MainGame
             var buttons = new[] {b1, b2, b3, b4, b5};
             for (var i = 0; i < 5; i++)
                 buttons[i].gameObject.SetActive(false);
+        }
+
+        public void ChangeLight(GameObject tileToLight, bool isLightOn)
+        {
+            tileToLight.GetComponent<Light>().intensity = isLightOn ? tileLightMaxValue : 0;
         }
     }
 }
