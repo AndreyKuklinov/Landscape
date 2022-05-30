@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace MainGame
 {
@@ -18,7 +21,21 @@ namespace MainGame
             ReadObjective,
             FulfillObjective,
         }
-    
+
+        private readonly KeyCode[] cameraKeys = new KeyCode[]
+        {
+            KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.E
+        };
+        private readonly Dictionary<KeyCode, bool> pressedCameraKeys = new Dictionary<KeyCode, bool>()
+        {
+            { KeyCode.W, false },
+            { KeyCode.A, false },
+            { KeyCode.S, false },
+            { KeyCode.D, false },
+            { KeyCode.Q, false },
+            { KeyCode.E, false },
+        };
+
         [SerializeField]
         [FormerlySerializedAs("PopUp")] private GameObject popUp;
         [SerializeField]
@@ -51,7 +68,6 @@ namespace MainGame
             {
                 case TutorialStages.MoveCameraWithKeys:
                     PopupText.text = "Подвигайте камеру с помощью клавиш W, A, S, D, а также Q и E";
-                    CameraController.CameraMoved += OnCameraMoved;
                     break;
                 case TutorialStages.PlaceTile:
                     PopupText.text = "В Landscape вы размещаете клетки, чтобы зарабатывать очки. " +
@@ -99,10 +115,20 @@ namespace MainGame
             ProceedToNextStage();
         }
 
-        private void OnCameraMoved(object sender, EventArgs e)
+        private void Update()
         {
-            CameraController.CameraMoved -= OnCameraMoved;
-            ProceedToNextStage();
+            if (!IsTutorialActive || (TutorialStages)Stage != TutorialStages.MoveCameraWithKeys)
+                return;
+            bool nextStage = true;
+            foreach (var key in cameraKeys)
+            {
+                if (Input.GetKeyDown(key))
+                    pressedCameraKeys[key] = true;
+                else if (!pressedCameraKeys[key])
+                    nextStage = false;
+            }
+            if(nextStage)
+                ProceedToNextStage();
         }
     }
 }
