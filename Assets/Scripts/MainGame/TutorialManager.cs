@@ -45,9 +45,9 @@ namespace MainGame
         private void ProceedToNextStage()
         {
             Stage++;
-            var current_stage = (TutorialStages)Stage;
+            var currentStage = (TutorialStages)Stage;
             Moves = new int[gameManager.boardWidth, gameManager.boardWidth];
-            switch (current_stage)
+            switch (currentStage)
             {
                 case TutorialStages.MoveCameraWithKeys:
                     PopupText.text = "Подвигайте камеру с помощью клавиш W, A, S, D, а также Q и E";
