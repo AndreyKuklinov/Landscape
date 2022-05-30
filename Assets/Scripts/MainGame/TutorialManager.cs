@@ -11,7 +11,9 @@ public class TutorialManager : MonoBehaviour
     private static readonly string[] _stages = new string[]
     {
         "placeTile",
-        "pickOutOfSeveralTiles",
+        "pickOutOfSeveralTiles1",
+        "pickOutOfSeveralTiles2",
+        "pickOutOfSeveralTiles3",
         "placeQuestion",
         "readObjective",
         "fulfillObjective",
@@ -47,20 +49,37 @@ public class TutorialManager : MonoBehaviour
         switch (stageName)
         {
             case "placeTile":
-                _popupText.text = "В Landscape ваша задача -- размещать клетки и получать очки. " +
-                                  "Нажмите на клетку с деревьями, чтобы поставить лес.";
+                _popupText.text = "В Landscape вы размещаете клетки, чтобы зарабатывать очки. " +
+                                  "Нажмите на клетку с домом, чтобы поставить деревню.";
                 gameManager.TilePlaced += OnTilePlaced;
-                Moves[2, 2] = 2;
+                Moves[2, 2] = 5;
                 break;
-            case "pickOutOfSeveralTiles":
+            case "pickOutOfSeveralTiles1":
                 _popupText.text = "Есть 5 видов клеток: Гора, Лес, Равнина, Озеро и Деревня. " +
-                                  "Каждый ход вам предлагается выбрать один из нескольких вариантов."
-                                  +"Поставьте любую клетку, чтобы продолжить.";
+                                  "Каждый ход вам предлагается выбрать один из нескольких вариантов. "
+                                  +"Сделайте несколько ходов, чтобы продолжить.";
                 gameManager.TilePlaced += OnTilePlaced;
                 Moves[0, 0] = 1;
-                Moves[0, 4] = 3;
-                Moves[4, 4] = 4;
-                Moves[4, 0] = 5;
+                Moves[0, 4] = 2;
+                Moves[4, 4] = 3;
+                Moves[4, 0] = 4;
+                break;
+            case "pickOutOfSeveralTiles2":
+                gameManager.TilePlaced += OnTilePlaced;
+                Moves[0, 1] = 2;
+                Moves[2, 0] = 4;
+                break;
+            case "pickOutOfSeveralTiles3":
+                gameManager.TilePlaced += OnTilePlaced;
+                Moves[2, 4] = 1;
+                Moves[4, 2] = 3;
+                break;
+            case "placeQuestion":
+                _popupText.text = "Иногда на поле будет появляться вопросительный знак. " +
+                                  "Он означает возможность поставить любую клетку. " +
+                                  "Нажмите на него и выберите тип.";
+                gameManager.TilePlaced += OnTilePlaced;
+                Moves[1, 0] = 6;
                 break;
             default:
                 _popupText.text = "Туториал сломался :(";
