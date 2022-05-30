@@ -13,7 +13,7 @@ namespace MainGame
             private float X;
             private float Y;
             private float Z;
-            private float minYPosition = 0.5f;
+            private float minYPosition = 0.4f;
 
             public void SetFromTransform(Transform t)
             {
