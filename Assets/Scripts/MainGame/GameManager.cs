@@ -8,13 +8,13 @@ namespace MainGame
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private int boardWidth;
         [SerializeField] private int creativeBoardWidth;
         [SerializeField] private List<Objective> possibleObjectives;
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
 
         public event EventHandler TilePlaced;
+        public int boardWidth;
         public BoardRenderer boardRenderer;
         public TutorialManager tutorialManager;
         public GUIManager guiManager;
@@ -50,6 +50,10 @@ namespace MainGame
             boardRenderer.DrawEmptyBoard(boardWidth, boardWidth);
             Objectives = PickRandomObjectives(3);
             GameOver = false;
+            
+            //TODO: Добавить условие, при котором запускается туториал
+            tutorialManager.Begin();
+            
             StartTurn();
         }
 
@@ -83,6 +87,11 @@ namespace MainGame
 
         public TileTypes[] GetMovesAt(int x, int y)
         {
+            if (tutorialManager.IsTutorialActive)
+            {
+                var move = tutorialManager.Moves[x, y];
+                return move == TileTypes.Empty ? Array.Empty<TileTypes>() : new[] { move };
+            }
             var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
                 || !(diceValues.Remove(x + 1) || diceValues.Remove(6))

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MainGame;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
@@ -17,19 +18,22 @@ public class TutorialManager : MonoBehaviour
         "moveCamera"
     };
     
-    public bool IsTutorialActive { get; private set; }
-    public GameObject PopUp;
-    public GameManager GameManager;
+    [SerializeField]
+    [FormerlySerializedAs("PopUp")] private GameObject popUp;
+    [SerializeField]
+    [FormerlySerializedAs("GameManager")] private GameManager gameManager;
     
+    public bool IsTutorialActive { get; private set; }
+    public TileTypes[,] Moves { get; private set; }
     
     private int _stage;
     private Text _popupText;
 
-    public void Start()
+    public void Begin()
     {
         IsTutorialActive = true;
-        _popupText = PopUp.GetComponentInChildren<Text>();
-        PopUp.SetActive(true);
+        _popupText = popUp.GetComponentInChildren<Text>();
+        popUp.SetActive(true);
         _stage = -1;
         ProceedToNextStage();
     }
@@ -38,12 +42,14 @@ public class TutorialManager : MonoBehaviour
     {
         _stage++;
         var stageName = _stages[_stage];
+        Moves = new TileTypes[gameManager.boardWidth,gameManager.boardWidth];
 
         switch (stageName)
         {
             case "placeTile":
-                _popupText.text = "Нажми на кнопку с деревьями, чтобы поставить лес";
-                GameManager.TilePlaced += OnTilePlaced;
+                _popupText.text = "В Landscape ваша задача -- размещать клетки и получать очки. Нажмите на клетку с деревьями, чтобы поставить лес.";
+                gameManager.TilePlaced += OnTilePlaced;
+                Moves[2, 2] = TileTypes.Forest;
                 break;
             default:
                 _popupText.text = "Туториал сломался :(";
@@ -53,7 +59,7 @@ public class TutorialManager : MonoBehaviour
 
     private void OnTilePlaced(object sender, EventArgs e)
     {
-        GameManager.TilePlaced -= OnTilePlaced;
+        gameManager.TilePlaced -= OnTilePlaced;
         ProceedToNextStage();
     }
 }
