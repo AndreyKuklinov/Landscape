@@ -20,10 +20,13 @@ namespace MainGame
         {
             ObjectiveImage.gameObject.SetActive(true);
             ObjectiveImage.sprite = ObjectiveSprite;
-            PointerExited?.Invoke(this, EventArgs.Empty);
+            
         }
 
-        public void OnPointerExit() =>
+        public void OnPointerExit()
+        {
             ObjectiveImage.gameObject.SetActive(false);
+            PointerExited?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

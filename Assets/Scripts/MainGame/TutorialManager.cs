@@ -20,6 +20,7 @@ namespace MainGame
             PlaceQuestion,
             ReadObjective,
             FulfillObjective,
+            MoreObjectives
         }
 
         private readonly KeyCode[] cameraKeys = new KeyCode[]
@@ -75,7 +76,7 @@ namespace MainGame
                     gameManager.boardRenderer.DisplayPossibleMoves();
                     break;
                 case TutorialStages.PickOutOfSeveralTiles1:
-                    PopupText.text = "Есть 5 видов клеток: Гора, Лес, Равнина, Озеро и Деревня. " +
+                    PopupText.text = "Есть 5 видов клеток: Гора, Лес, Степь, Озеро и Деревня. " +
                                      "Каждый ход вам предлагается выбрать один из нескольких вариантов. "
                                      +"Сделайте несколько ходов, чтобы продолжить.";
                     gameManager.TilePlaced += OnTilePlaced;
@@ -107,6 +108,12 @@ namespace MainGame
                     gameManager.Objectives = new[] { tutorialObjectives[0] };
                     gameManager.guiManager.Start();
                     break;
+                case TutorialStages.FulfillObjective:
+                    PopupText.text = "Поставьте Степь, чтобы выполнить цель.";
+                    gameManager.TilePlaced += OnTilePlaced;
+                    Moves[1, 2] = 3;
+                    gameManager.boardRenderer.DisplayPossibleMoves();
+                    break;
                 default:
                     PopupText.text = "Туториал сломался :(";
                     break;
@@ -137,7 +144,9 @@ namespace MainGame
 
         public void OnObjectiveRead(object sender, EventArgs e)
         {
-            
+            if (!IsTutorialActive || (TutorialStages)Stage != TutorialStages.ReadObjective)
+                return;
+            ProceedToNextStage();
         }
     }
 }
