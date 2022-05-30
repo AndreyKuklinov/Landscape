@@ -47,9 +47,20 @@ public class TutorialManager : MonoBehaviour
         switch (stageName)
         {
             case "placeTile":
-                _popupText.text = "В Landscape ваша задача -- размещать клетки и получать очки. Нажмите на клетку с деревьями, чтобы поставить лес.";
+                _popupText.text = "В Landscape ваша задача -- размещать клетки и получать очки. " +
+                                  "Нажмите на клетку с деревьями, чтобы поставить лес.";
                 gameManager.TilePlaced += OnTilePlaced;
                 Moves[2, 2] = 2;
+                break;
+            case "pickOutOfSeveralTiles":
+                _popupText.text = "Есть 5 видов клеток: Гора, Лес, Равнина, Озеро и Деревня. " +
+                                  "Каждый ход вам предлагается выбрать один из нескольких вариантов."
+                                  +"Поставьте любую клетку, чтобы продолжить.";
+                gameManager.TilePlaced += OnTilePlaced;
+                Moves[0, 0] = 1;
+                Moves[0, 4] = 3;
+                Moves[4, 4] = 4;
+                Moves[4, 0] = 5;
                 break;
             default:
                 _popupText.text = "Туториал сломался :(";
