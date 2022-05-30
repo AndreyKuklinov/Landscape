@@ -56,7 +56,6 @@ namespace MainGame
             if (GameManager.GameOver)
                 return;
             GameManager.boardRenderer.UnlightTiles();
-            GameManager.guiManager.SwitchCardsOff();
             var moves = GameManager.GetMovesAt(Tile.X, Tile.Y);
             switch (moves.Length)
             {

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 namespace MainGame
 {
     public class GUIManager : MonoBehaviour
     {
+        public bool IsMouseOverUI { get; set; }
         [SerializeField] private GameManager gameManager;
         [SerializeField] private GameObject scoreHolder;
         [SerializeField] private GameObject scoreObjectPrefab;
@@ -76,6 +79,8 @@ namespace MainGame
 
         public void DisplayTileButtons(Tile clickedTile)
         {
+            if (IsMouseOverUI)
+                return;
             ClickedTile = clickedTile;
             var buttons = new[] {b1, b2, b3, b4, b5};
             var count = 0;
@@ -133,6 +138,7 @@ namespace MainGame
                 gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Lake);
             if (buttonPressed.image.sprite == village)
                 gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Village);
+            SwitchCardsOff();
         }
 
         public void SwitchCardsOff()
@@ -140,6 +146,7 @@ namespace MainGame
             var buttons = new[] {b1, b2, b3, b4, b5};
             for (var i = 0; i < 5; i++)
                 buttons[i].gameObject.SetActive(false);
+            IsMouseOverUI = false;
         }
 
         public void ChangeLight(GameObject tileToLight, bool isLightOn)
