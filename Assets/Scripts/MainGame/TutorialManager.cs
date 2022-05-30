@@ -61,6 +61,7 @@ public class TutorialManager : MonoBehaviour
                                   "Нажмите на клетку с домом, чтобы поставить деревню.";
                 gameManager.TilePlaced += OnTilePlaced;
                 Moves[2, 2] = 5;
+                gameManager.boardRenderer.DisplayPossibleMoves();
                 break;
             case "pickOutOfSeveralTiles1":
                 _popupText.text = "Есть 5 видов клеток: Гора, Лес, Равнина, Озеро и Деревня. " +
