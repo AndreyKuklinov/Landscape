@@ -16,6 +16,7 @@ namespace MainGame
 
         public event EventHandler TilePlaced;
         public BoardRenderer boardRenderer;
+        public TutorialManager tutorialManager;
         public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
         public Objective[] Objectives { get; private set; }

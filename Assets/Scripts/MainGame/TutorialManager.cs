@@ -9,18 +9,19 @@ public class TutorialManager : MonoBehaviour
 {
     public bool IsTutorialActive { get; private set; }
     public GameObject PopUp;
+    public GameManager GameManager;
 
     private int _stage;
     private Text _popupText;
-    private GameManager _gameManager;
 
-    public void Begin(GameManager gameManager)
+    public void Start()
     {
         IsTutorialActive = true;
         _stage = 0;
-        _popupText = PopUp.GetComponent<Text>();
+        _popupText = PopUp.GetComponentInChildren<Text>();
+        PopUp.SetActive(true);
 
-        gameManager.TilePlaced += ProceedToNextStage;
+        GameManager.TilePlaced += ProceedToNextStage;
         _popupText.text = "Нажми на кнопку с деревьями, чтобы поставить лес";
     }
 
