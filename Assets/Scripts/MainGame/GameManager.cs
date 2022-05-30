@@ -163,7 +163,7 @@ namespace MainGame
             RollDice();
             var moves = GetAllMoves().ToArray();
             boardRenderer.DisplayPossibleMoves();
-            if (moves.Length == 0)
+            if (moves.Length == 0 && !tutorialManager.IsTutorialActive)
                 SkipTurn();
             else
                 TurnCount++;
