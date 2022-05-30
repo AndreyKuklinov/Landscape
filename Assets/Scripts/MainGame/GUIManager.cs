@@ -47,7 +47,9 @@ namespace MainGame
             foreach (var obj in gameManager.Objectives)
             {
                 var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
-                scoreObject.GetComponent<ScoreObject>().Init(obj.sprite, objectiveImage);
+                var scoreObjectScript = scoreObject.GetComponent<ScoreObject>();
+                scoreObjectScript.PointerExited += gameManager.tutorialManager.OnObjectiveRead;
+                scoreObjectScript.Init(obj.sprite, objectiveImage);
                 ScoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
             }
         }

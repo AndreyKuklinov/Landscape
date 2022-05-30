@@ -19,7 +19,7 @@ namespace MainGame
         public TutorialManager tutorialManager;
         public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
-        public Objective[] Objectives { get; private set; }
+        public Objective[] Objectives { get; set; }
         public bool GameOver { get; private set; }
 
         public int Score
@@ -36,6 +36,8 @@ namespace MainGame
 
         public void Start()
         {
+            var isTutorialActivated = !Convert.ToBoolean(PlayerPrefs.GetInt("dontDisplayTutorial"));
+            
             if (Convert.ToBoolean(PlayerPrefs.GetInt("creativeMode")))
             {
                 boardWidth = creativeBoardWidth;
@@ -48,10 +50,10 @@ namespace MainGame
             for (var y = 0; y < boardWidth; y++)
                 GameBoard[x, y] = new Tile(TileTypes.Empty, x, y);
             boardRenderer.DrawEmptyBoard(boardWidth, boardWidth);
-            Objectives = PickRandomObjectives(3);
+            Objectives = !isTutorialActivated ? PickRandomObjectives(3) : Array.Empty<Objective>();
             GameOver = false;
             
-            if (!Convert.ToBoolean(PlayerPrefs.GetInt("dontDisplayTutorial")))
+            if (isTutorialActivated)
                 tutorialManager.Begin();
             PlayerPrefs.SetInt("dontDisplayTutorial", 1);
             StartTurn();

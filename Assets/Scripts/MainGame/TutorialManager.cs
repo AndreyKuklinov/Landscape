@@ -40,20 +40,18 @@ namespace MainGame
         [FormerlySerializedAs("PopUp")] private GameObject popUp;
         [SerializeField]
         [FormerlySerializedAs("GameManager")] private GameManager gameManager;
-        [SerializeField] private Camera mainCamera;
-    
+        [SerializeField] private List<Objective> tutorialObjectives;
+
         public bool IsTutorialActive { get; private set; }
         public int[,] Moves { get; private set; }
     
         private int Stage;
         private Text PopupText;
-        private SimpleCameraController CameraController;
 
         public void Begin()
         {
             IsTutorialActive = true;
             PopupText = popUp.GetComponentInChildren<Text>();
-            CameraController = mainCamera.GetComponent<SimpleCameraController>();
             popUp.SetActive(true);
             Stage = -1;
             ProceedToNextStage();
@@ -103,6 +101,12 @@ namespace MainGame
                     gameManager.TilePlaced += OnTilePlaced;
                     Moves[1, 0] = 6;
                     break;
+                case TutorialStages.ReadObjective:
+                    PopupText.text = "Вы получаете очки за выполнение целей. " +
+                                     "Наведите курсор на счётчик в левом верхнем углу, чтобы прочитать вашу цель.";
+                    gameManager.Objectives = new[] { tutorialObjectives[0] };
+                    gameManager.guiManager.Start();
+                    break;
                 default:
                     PopupText.text = "Туториал сломался :(";
                     break;
@@ -129,6 +133,11 @@ namespace MainGame
             }
             if(nextStage)
                 ProceedToNextStage();
+        }
+
+        public void OnObjectiveRead(object sender, EventArgs e)
+        {
+            
         }
     }
 }
