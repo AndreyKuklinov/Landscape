@@ -295,6 +295,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38295340}
   m_CullTransparentMesh: 0
+--- !u!1 &48715603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1004532063474758665, guid: aa3f8c80411465b4fa020980f477594f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1697262454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &48715604
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48715603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e8e7d0e55cf6024c8577d4a1f46f020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &70607843
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,8 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveHeight: 1.81
-  waveFrequency: 0.4
+  waveHeight: 0.3
+  waveFrequency: 0.12
   waveLength: 0.75
   waveOriginPosition: {x: 0, y: 0, z: 0}
 --- !u!23 &194466087
@@ -805,7 +830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194466085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3717,6 +3742,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666154817}
   m_CullTransparentMesh: 0
+--- !u!1001 &1697262454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484981635898896051, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004532063474758665, guid: aa3f8c80411465b4fa020980f477594f,
+        type: 3}
+      propertyPath: m_Name
+      value: forest1Swim
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2448773591006308075, guid: aa3f8c80411465b4fa020980f477594f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: aa3f8c80411465b4fa020980f477594f, type: 3}
 --- !u!1 &1742205184
 GameObject:
   m_ObjectHideFlags: 0
