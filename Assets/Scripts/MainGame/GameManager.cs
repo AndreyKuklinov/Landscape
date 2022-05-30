@@ -88,10 +88,7 @@ namespace MainGame
         public TileTypes[] GetMovesAt(int x, int y)
         {
             if (tutorialManager.IsTutorialActive)
-            {
-                var move = tutorialManager.Moves[x, y];
-                return move == TileTypes.Empty ? Array.Empty<TileTypes>() : new[] { move };
-            }
+                return GetTileFromDice(tutorialManager.Moves[x, y]);
             var diceValues = new List<int>(DiceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
                 || !(diceValues.Remove(x + 1) || diceValues.Remove(6))
@@ -184,6 +181,8 @@ namespace MainGame
             if (diceValue % 6 == 0 && diceValue != 0)
                 return new[]
                     {TileTypes.Mountain, TileTypes.Forest, TileTypes.Plain, TileTypes.Lake, TileTypes.Village};
+            if(diceValue == 0)
+                return Array.Empty<TileTypes>();
             return new[] {(TileTypes) (diceValue % 6)};
         }
 

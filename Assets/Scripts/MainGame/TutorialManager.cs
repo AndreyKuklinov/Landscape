@@ -24,7 +24,7 @@ public class TutorialManager : MonoBehaviour
     [FormerlySerializedAs("GameManager")] private GameManager gameManager;
     
     public bool IsTutorialActive { get; private set; }
-    public TileTypes[,] Moves { get; private set; }
+    public int[,] Moves { get; private set; }
     
     private int _stage;
     private Text _popupText;
@@ -42,14 +42,14 @@ public class TutorialManager : MonoBehaviour
     {
         _stage++;
         var stageName = _stages[_stage];
-        Moves = new TileTypes[gameManager.boardWidth,gameManager.boardWidth];
+        Moves = new int[gameManager.boardWidth, gameManager.boardWidth];
 
         switch (stageName)
         {
             case "placeTile":
                 _popupText.text = "В Landscape ваша задача -- размещать клетки и получать очки. Нажмите на клетку с деревьями, чтобы поставить лес.";
                 gameManager.TilePlaced += OnTilePlaced;
-                Moves[2, 2] = TileTypes.Forest;
+                Moves[2, 2] = 2;
                 break;
             default:
                 _popupText.text = "Туториал сломался :(";
