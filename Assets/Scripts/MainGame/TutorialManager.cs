@@ -10,6 +10,7 @@ public class TutorialManager : MonoBehaviour
 {
     private static readonly string[] _stages = new string[]
     {
+        "moveCameraWithKeys",
         "placeTile",
         "pickOutOfSeveralTiles1",
         "pickOutOfSeveralTiles2",
@@ -24,17 +25,20 @@ public class TutorialManager : MonoBehaviour
     [FormerlySerializedAs("PopUp")] private GameObject popUp;
     [SerializeField]
     [FormerlySerializedAs("GameManager")] private GameManager gameManager;
+    [SerializeField] private Camera mainCamera;
     
     public bool IsTutorialActive { get; private set; }
     public int[,] Moves { get; private set; }
     
     private int _stage;
     private Text _popupText;
+    private SimpleCameraController _cameraController;
 
     public void Begin()
     {
         IsTutorialActive = true;
         _popupText = popUp.GetComponentInChildren<Text>();
+        _cameraController = mainCamera.GetComponent<SimpleCameraController>();
         popUp.SetActive(true);
         _stage = -1;
         ProceedToNextStage();
@@ -48,6 +52,10 @@ public class TutorialManager : MonoBehaviour
 
         switch (stageName)
         {
+            case "moveCameraWithKeys":
+                _popupText.text = "Подвигайте камеру с помощью клавиш W, A, S, D, а также Q и E";
+                _cameraController.CameraMoved += OnCameraMoved;
+                break;
             case "placeTile":
                 _popupText.text = "В Landscape вы размещаете клетки, чтобы зарабатывать очки. " +
                                   "Нажмите на клетку с домом, чтобы поставить деревню.";
@@ -90,6 +98,12 @@ public class TutorialManager : MonoBehaviour
     private void OnTilePlaced(object sender, EventArgs e)
     {
         gameManager.TilePlaced -= OnTilePlaced;
+        ProceedToNextStage();
+    }
+
+    private void OnCameraMoved(object sender, EventArgs e)
+    {
+        _cameraController.CameraMoved -= OnCameraMoved;
         ProceedToNextStage();
     }
 }

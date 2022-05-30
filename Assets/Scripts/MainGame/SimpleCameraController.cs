@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace MainGame
 {
@@ -52,6 +53,8 @@ namespace MainGame
             }
         }
 
+        public event EventHandler CameraMoved;
+        
         readonly CameraState m_TargetCameraState = new CameraState();
         readonly CameraState m_InterpolatingCameraState = new CameraState();
 
@@ -89,23 +92,41 @@ namespace MainGame
         {
             var direction = new Vector3();
             if (Input.GetKey(KeyCode.W))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.forward;
+            }
 
             if (Input.GetKey(KeyCode.S))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.back;
+            }
 
             if (Input.GetKey(KeyCode.A))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.left;
+            }
 
             if (Input.GetKey(KeyCode.D))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.right;
+            }
 
             if (Input.GetKey(KeyCode.Q))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.down;
+            }
 
             if (Input.GetKey(KeyCode.E))
+            {
+                CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.up;
-
+            }
+            
             return direction;
         }
 
