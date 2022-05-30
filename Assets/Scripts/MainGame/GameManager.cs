@@ -14,6 +14,7 @@ namespace MainGame
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
 
+        public event EventHandler TilePlaced;
         public BoardRenderer boardRenderer;
         public GUIManager guiManager;
         public Tile[,] GameBoard { get; private set; }
@@ -108,6 +109,7 @@ namespace MainGame
             boardRenderer.ChangeTile(x, y, tileType);
             if (tileType == TileTypes.Village)
                 CreateRoads();
+            TilePlaced?.Invoke(this, EventArgs.Empty);
             EndTurn();
         }
 
