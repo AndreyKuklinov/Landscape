@@ -20,6 +20,13 @@ namespace StartMenu
             loadingScreen.SetActive(true);
             SceneManager.LoadScene(1);
         }
+        
+        public void StartTutorial()
+        {
+            PlayerPrefs.SetInt("dontDisplayTutorial", 0);
+            loadingScreen.SetActive(true);
+            SceneManager.LoadScene(1);
+        }
 
         public void ShowCredits() => creditCanvas.SetActive(true);
         public void HideCredits() => creditCanvas.SetActive(false);

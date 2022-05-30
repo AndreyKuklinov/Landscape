@@ -51,9 +51,9 @@ namespace MainGame
             Objectives = PickRandomObjectives(3);
             GameOver = false;
             
-            //TODO: Добавить условие, при котором запускается туториал
-            tutorialManager.Begin();
-            
+            if (!Convert.ToBoolean(PlayerPrefs.GetInt("dontDisplayTutorial")))
+                tutorialManager.Begin();
+            PlayerPrefs.SetInt("dontDisplayTutorial", 1);
             StartTurn();
         }
 
