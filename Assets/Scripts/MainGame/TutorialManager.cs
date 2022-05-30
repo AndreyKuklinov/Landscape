@@ -7,18 +7,17 @@ namespace MainGame
 {
     public class TutorialManager : MonoBehaviour
     {
-        private static readonly string[] Stages = new string[]
+        private enum TutorialStages
         {
-            "moveCameraWithKeys",
-            "placeTile",
-            "pickOutOfSeveralTiles1",
-            "pickOutOfSeveralTiles2",
-            "pickOutOfSeveralTiles3",
-            "placeQuestion",
-            "readObjective",
-            "fulfillObjective",
-            "moveCamera"
-        };
+            MoveCameraWithKeys,
+            PlaceTile,
+            PickOutOfSeveralTiles1,
+            PickOutOfSeveralTiles2,
+            PickOutOfSeveralTiles3,
+            PlaceQuestion,
+            ReadObjective,
+            FulfillObjective,
+        }
     
         [SerializeField]
         [FormerlySerializedAs("PopUp")] private GameObject popUp;
@@ -46,23 +45,22 @@ namespace MainGame
         private void ProceedToNextStage()
         {
             Stage++;
-            var stageName = Stages[Stage];
+            var current_stage = (TutorialStages)Stage;
             Moves = new int[gameManager.boardWidth, gameManager.boardWidth];
-
-            switch (stageName)
+            switch (current_stage)
             {
-                case "moveCameraWithKeys":
+                case TutorialStages.MoveCameraWithKeys:
                     PopupText.text = "Подвигайте камеру с помощью клавиш W, A, S, D, а также Q и E";
                     CameraController.CameraMoved += OnCameraMoved;
                     break;
-                case "placeTile":
+                case TutorialStages.PlaceTile:
                     PopupText.text = "В Landscape вы размещаете клетки, чтобы зарабатывать очки. " +
                                      "Нажмите на клетку с домом, чтобы поставить деревню.";
                     gameManager.TilePlaced += OnTilePlaced;
                     Moves[2, 2] = 5;
                     gameManager.boardRenderer.DisplayPossibleMoves();
                     break;
-                case "pickOutOfSeveralTiles1":
+                case TutorialStages.PickOutOfSeveralTiles1:
                     PopupText.text = "Есть 5 видов клеток: Гора, Лес, Равнина, Озеро и Деревня. " +
                                      "Каждый ход вам предлагается выбрать один из нескольких вариантов. "
                                      +"Сделайте несколько ходов, чтобы продолжить.";
@@ -72,17 +70,17 @@ namespace MainGame
                     Moves[4, 4] = 3;
                     Moves[4, 0] = 4;
                     break;
-                case "pickOutOfSeveralTiles2":
+                case TutorialStages.PickOutOfSeveralTiles2:
                     gameManager.TilePlaced += OnTilePlaced;
                     Moves[0, 1] = 2;
                     Moves[2, 0] = 4;
                     break;
-                case "pickOutOfSeveralTiles3":
+                case TutorialStages.PickOutOfSeveralTiles3:
                     gameManager.TilePlaced += OnTilePlaced;
                     Moves[2, 4] = 1;
                     Moves[4, 2] = 3;
                     break;
-                case "placeQuestion":
+                case TutorialStages.PlaceQuestion:
                     PopupText.text = "Иногда на поле будет появляться вопросительный знак. " +
                                      "Он означает возможность поставить любую клетку. " +
                                      "Нажмите на него и выберите тип.";
