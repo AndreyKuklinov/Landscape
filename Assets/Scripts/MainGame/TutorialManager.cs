@@ -37,6 +37,9 @@ namespace MainGame
             { KeyCode.E, false },
         };
 
+        private HashSet<ScoreObject> seenObjectives = new HashSet<ScoreObject>();
+        private ScoreObject firstObjective;
+
         [SerializeField]
         [FormerlySerializedAs("PopUp")] private GameObject popUp;
         [SerializeField]
@@ -109,13 +112,24 @@ namespace MainGame
                     gameManager.guiManager.Start();
                     break;
                 case TutorialStages.FulfillObjective:
-                    PopupText.text = "Поставьте Степь, чтобы выполнить цель.";
+                    PopupText.text = "Поставьте Степь, чтобы выполнить условие и получить очки.";
                     gameManager.TilePlaced += OnTilePlaced;
                     Moves[1, 2] = 3;
                     gameManager.boardRenderer.DisplayPossibleMoves();
                     break;
+                case TutorialStages.MoreObjectives:
+                    PopupText.text = "На игру вам даются 3 цели. Прочитайте их условия.";
+                    gameManager.Objectives = new[] { 
+                        tutorialObjectives[0], 
+                        tutorialObjectives[1], 
+                        tutorialObjectives[2] };
+                    Destroy(firstObjective.gameObject);
+                    gameManager.guiManager.Start();
+                    break;
                 default:
-                    PopupText.text = "Туториал сломался :(";
+                    popUp.SetActive(false);
+                    IsTutorialActive = false;
+                    gameManager.boardRenderer.DisplayPossibleMoves();
                     break;
             }
         }
@@ -144,9 +158,24 @@ namespace MainGame
 
         public void OnObjectiveRead(object sender, EventArgs e)
         {
-            if (!IsTutorialActive || (TutorialStages)Stage != TutorialStages.ReadObjective)
+            if (!IsTutorialActive)
                 return;
-            ProceedToNextStage();
+            var obj = (ScoreObject)sender;
+            var stage = (TutorialStages)Stage;
+            switch (stage)
+            {
+                case TutorialStages.ReadObjective:
+                    ProceedToNextStage();
+                    firstObjective = obj;
+                    break;
+                case TutorialStages.MoreObjectives:
+                {
+                    seenObjectives.Add(obj);
+                    if(seenObjectives.Count == 3)
+                        ProceedToNextStage();
+                    break;
+                }
+            }
         }
     }
 }
