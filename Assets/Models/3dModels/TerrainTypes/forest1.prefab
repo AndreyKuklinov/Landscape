@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 216210504408700815}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 19f117f69a428ca408de5b82f446e6ce, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484981635898896051}
-  - component: {fileID: 4582706766444035036}
+  - component: {fileID: -8979625164835687239}
   m_Layer: 0
   m_Name: forest1
   m_TagString: Untagged
@@ -170,7 +170,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4582706766444035036
+--- !u!95 &-8979625164835687239
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ Animator:
   m_GameObject: {fileID: 1004532063474758665}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 407e58f59ba43b54196d49b90d27cfdc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e8e7d0e55cf6024c8577d4a1f46f020, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

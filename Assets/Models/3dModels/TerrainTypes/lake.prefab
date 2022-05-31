@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6804453853227872168}
-  - component: {fileID: -3487208029429193701}
+  - component: {fileID: -491137886179371864}
   m_Layer: 0
   m_Name: lake
   m_TagString: Untagged
@@ -207,7 +207,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &-3487208029429193701
+--- !u!95 &-491137886179371864
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ Animator:
   m_GameObject: {fileID: 6135475091927938322}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 21750178a0b79b240b2605024e3a6516, type: 2}
+  m_Controller: {fileID: 9100000, guid: 83a44318bbe4cf14691f112733f88ac1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
