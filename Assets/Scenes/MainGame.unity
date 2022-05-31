@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2114,7 +2114,7 @@ MonoBehaviour:
   exitConfirmationCanvas: {fileID: 2118629391}
   postProcessing: {fileID: 11400000, guid: 7536feae1303c22418a3ad875991f926, type: 2}
   baseFocusDistance: 1.9
-  mainCanvas: {fileID: 0}
+  mainCanvas: {fileID: 2001929064}
 --- !u!4 &943383141
 Transform:
   m_ObjectHideFlags: 0
