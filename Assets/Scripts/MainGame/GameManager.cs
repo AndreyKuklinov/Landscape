@@ -44,7 +44,8 @@ namespace MainGame
                 cheatMode = true;
             }
             else cheatMode = false;
-            
+
+            PlayerPrefs.SetInt("creativeMode", 0);
             GameBoard = new Tile[boardWidth, boardWidth];
             for (var x = 0; x < boardWidth; x++)
             for (var y = 0; y < boardWidth; y++)

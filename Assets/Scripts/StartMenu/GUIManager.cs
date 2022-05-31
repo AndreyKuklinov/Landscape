@@ -30,5 +30,11 @@ namespace StartMenu
 
         public void ShowCredits() => creditCanvas.SetActive(true);
         public void HideCredits() => creditCanvas.SetActive(false);
+
+        public void StartCreative()
+        {
+            PlayerPrefs.SetInt("creativeMode", 1);
+            StartGame();
+        }
     }
 }

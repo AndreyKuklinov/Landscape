@@ -7,7 +7,6 @@ namespace Settings
     public class SettingsManager : MonoBehaviour
     {
         [SerializeField] private Slider musicSlider;
-        [SerializeField] private Toggle creativeModeToggle;
         [SerializeField] private GameObject canvas;
         [SerializeField] private GameObject postProcessing;
         [SerializeField] private Toggle postProcessingToggle;
@@ -25,20 +24,13 @@ namespace Settings
         {
             postProcessingToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing"));
             musicSlider.value = MusicVolume;
-            creativeModeToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("creativeMode"));
+            fxToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FX"));
         }
 
         private float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
 
         public void ChangeMusicVolume() =>
             PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
-
-
-        public void SetCreativeMode()
-        {
-            var isActive = creativeModeToggle.isOn;
-            PlayerPrefs.SetInt("creativeMode", isActive ? 1 : 0);
-        }
 
         public void ChangePostProcessing()
         {
@@ -50,16 +42,11 @@ namespace Settings
         public void SwitchFX()
         {
             var isFXOn = fxToggle.isOn;
+            PlayerPrefs.SetInt("FX", isFXOn ? 1 : 0);
             foreach (var tile in tilePrefabs)
-            {
                 for (var i = 0; i < tile.transform.childCount; i++)
-                {
                     if (tile.transform.GetChild(i).gameObject.GetComponent<ParticleSystem>())
-                    {
                         tile.transform.GetChild(i).gameObject.SetActive(isFXOn);
-                    }
-                }
-            }
         }
     }
 }
