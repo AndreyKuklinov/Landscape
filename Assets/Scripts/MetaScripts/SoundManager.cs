@@ -5,14 +5,14 @@ namespace MetaScripts
     public class SoundManager : MonoBehaviour
     {
         [SerializeField] private AudioSource[] musics;
-        private int CurrentAudio;
+        private int currentAudio;
 
         private void FixedUpdate()
         {
-            if (musics[CurrentAudio].isPlaying) return;
-            CurrentAudio++;
-            if (CurrentAudio == musics.Length) CurrentAudio = 0;
-            musics[CurrentAudio].Play();
+            if (musics[currentAudio].isPlaying) return;
+            currentAudio++;
+            if (currentAudio == musics.Length) currentAudio = 0;
+            musics[currentAudio].Play();
         }
 
         private void Start()

@@ -7,7 +7,7 @@ namespace MainGame
     
     public static class Criteria
     {
-        public static readonly Dictionary<string, ScoringCriterion> Dict = new Dictionary<string, ScoringCriterion>()
+        public static readonly Dictionary<string, ScoringCriterion> dict = new Dictionary<string, ScoringCriterion>()
         {
             {"Twins", Twins},
             {"Groves", Groves},

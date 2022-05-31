@@ -31,8 +31,8 @@ namespace MainGame
             }
         }
 
-        private int[] DiceRoll;
-        private int TurnCount;
+        private int[] diceRoll;
+        private int turnCount;
 
         public void Start()
         {
@@ -92,7 +92,7 @@ namespace MainGame
         {
             if (tutorialManager.IsTutorialActive)
                 return GetTileFromDice(tutorialManager.Moves[x, y]);
-            var diceValues = new List<int>(DiceRoll);
+            var diceValues = new List<int>(diceRoll);
             if (GameBoard[x, y].Type != TileTypes.Empty
                 || !(diceValues.Remove(x + 1) || diceValues.Remove(6))
                 || !(diceValues.Remove(y + 1) || diceValues.Remove(6)))
@@ -152,7 +152,7 @@ namespace MainGame
         {
             if (GameOver)
                 return;
-            if (TurnCount == 25)
+            if (turnCount == 25)
                 EndGame();
             EndTurn();
         }
@@ -166,7 +166,7 @@ namespace MainGame
             if (moves.Length == 0 && !tutorialManager.IsTutorialActive)
                 SkipTurn();
             else
-                TurnCount++;
+                turnCount++;
         }
 
         public void EndTurn()
@@ -191,17 +191,17 @@ namespace MainGame
 
         private void RollDice()
         {
-            DiceRoll = new int[3];
+            diceRoll = new int[3];
             if (cheatMode)
-                for (var i = 0; i < DiceRoll.Length; i++)
-                    DiceRoll[i] = 6;
+                for (var i = 0; i < diceRoll.Length; i++)
+                    diceRoll[i] = 6;
 
-            else if (TurnCount == 0)
+            else if (turnCount == 0)
                 for (var i = 0; i < 3; i++)
-                    DiceRoll[i] = Random.Range(1, boardWidth + 1);
+                    diceRoll[i] = Random.Range(1, boardWidth + 1);
             else
                 for (var i = 0; i < 3; i++)
-                    DiceRoll[i] = Random.Range(1, boardWidth + 2);
+                    diceRoll[i] = Random.Range(1, boardWidth + 2);
         }
 
         private void UpdatePoints()

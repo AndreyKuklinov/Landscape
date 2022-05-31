@@ -8,7 +8,7 @@ namespace MainGame
         public string name;
         public Sprite sprite;
         public int Points { get; private set; }
-        public ScoringCriterion Criterion => Criteria.Dict[name];
+        public ScoringCriterion Criterion => Criteria.dict[name];
 
         public void UpdatePoints(GameManager gm)
         {

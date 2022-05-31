@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 namespace MetaScripts
 {
-    public class SceneChanger : MonoBehaviour
+    public static class SceneChanger
     {
-        public void ChangeScene(int id)
+        public static void ChangeScene(int id)
         {
             if (id >= 0 && id <= SceneManager.sceneCountInBuildSettings)
                 SceneManager.LoadScene(id);

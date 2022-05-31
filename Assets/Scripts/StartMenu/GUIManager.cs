@@ -18,14 +18,14 @@ namespace StartMenu
         public void StartGame()
         {
             loadingScreen.SetActive(true);
-            SceneManager.LoadScene(1);
+            SceneChanger.ChangeScene(1);
         }
         
         public void StartTutorial()
         {
             PlayerPrefs.SetInt("dontDisplayTutorial", 0);
             loadingScreen.SetActive(true);
-            SceneManager.LoadScene(1);
+            SceneChanger.ChangeScene(1);
         }
 
         public void ShowCredits() => creditCanvas.SetActive(true);

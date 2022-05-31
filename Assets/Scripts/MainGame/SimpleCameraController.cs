@@ -10,9 +10,9 @@ namespace MainGame
             public float Yaw;
             public float Pitch;
             public float Roll;
-            private float X;
-            private float Y;
-            private float Z;
+            private float x;
+            private float y;
+            private float z;
             private float minYPosition = 0.4f;
 
             public void SetFromTransform(Transform t)
@@ -20,19 +20,19 @@ namespace MainGame
                 Pitch = t.eulerAngles.x;
                 Yaw = t.eulerAngles.y;
                 Roll = t.eulerAngles.z;
-                X = t.position.x;
-                Y = t.position.y;
-                Z = t.position.z;
+                x = t.position.x;
+                y = t.position.y;
+                z = t.position.z;
             }
 
             public void Translate(Vector3 translation)
             {
                 var rotatedTranslation = Quaternion.Euler(Pitch, Yaw, Roll) * translation;
 
-                X += rotatedTranslation.x;
-                if (Y + rotatedTranslation.y > minYPosition || rotatedTranslation.y > 0)
-                    Y += rotatedTranslation.y;
-                Z += rotatedTranslation.z;
+                x += rotatedTranslation.x;
+                if (y + rotatedTranslation.y > minYPosition || rotatedTranslation.y > 0)
+                    y += rotatedTranslation.y;
+                z += rotatedTranslation.z;
             }
 
             public void LerpTowards(CameraState target, float positionLerpPct, float rotationLerpPct)
@@ -41,15 +41,15 @@ namespace MainGame
                 Pitch = Mathf.Lerp(Pitch, target.Pitch, rotationLerpPct);
                 Roll = Mathf.Lerp(Roll, target.Roll, rotationLerpPct);
 
-                X = Mathf.Lerp(X, target.X, positionLerpPct);
-                Y = Mathf.Lerp(Y, target.Y, positionLerpPct);
-                Z = Mathf.Lerp(Z, target.Z, positionLerpPct);
+                x = Mathf.Lerp(x, target.x, positionLerpPct);
+                y = Mathf.Lerp(y, target.y, positionLerpPct);
+                z = Mathf.Lerp(z, target.z, positionLerpPct);
             }
 
             public void UpdateTransform(Transform t)
             {
                 t.eulerAngles = new Vector3(Pitch, Yaw, Roll);
-                t.position = new Vector3(X, Y, Z);
+                t.position = new Vector3(x, y, z);
             }
         }
 

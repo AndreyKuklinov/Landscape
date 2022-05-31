@@ -17,12 +17,12 @@ namespace MainGame
         [SerializeField] private GameObject[] modelsWithCrossroads;
         [SerializeField] private Sprite[] moveSprites;
         [SerializeField] private float tileSize;
-        private List<TileObject> LitTiles;
+        private List<TileObject> litTiles;
         public TileObject[,] GameBoard { get; private set; }
 
         public void DrawEmptyBoard(int width, int height)
         {
-            LitTiles = new List<TileObject>();
+            litTiles = new List<TileObject>();
             GameBoard = new TileObject[width, height];
             for (var x = 0; x < width; x++)
             for (var y = 0; y < height; y++)
@@ -41,7 +41,7 @@ namespace MainGame
         public void LightTile(int x, int y)
         {
             var tile = GameBoard[x, y];
-            LitTiles.Add(tile);
+            litTiles.Add(tile);
             tile.IsLit = true;
         }
 
@@ -65,9 +65,9 @@ namespace MainGame
 
         public void UnlightTiles()
         {
-            foreach (var tile in LitTiles)
+            foreach (var tile in litTiles)
                 tile.IsLit = false;
-            LitTiles = new List<TileObject>();
+            litTiles = new List<TileObject>();
         }
 
         public void ChangeTile(int x, int y, TileTypes newType)

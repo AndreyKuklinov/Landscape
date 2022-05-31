@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 namespace MainGame
 {
@@ -150,7 +148,7 @@ namespace MainGame
         {
             if (!IsTutorialActive || (TutorialStages)Stage != TutorialStages.MoveCameraWithKeys)
                 return;
-            bool nextStage = true;
+            var nextStage = true;
             foreach (var key in cameraKeys)
             {
                 if (Input.GetKeyDown(key))

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MetaScripts;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
@@ -22,11 +23,11 @@ namespace MainGame
         [SerializeField] private float bloomingMax;
         [SerializeField] private float bloomingBase;
         [SerializeField] private float tileLightMaxValue; 
-        private Tile ClickedTile;
-        private List<Text> ScoreTexts;
-        private Bloom Bloom;
-        private bool IsGameOver;
-        private bool IsBloomDescending;
+        private Tile clickedTile;
+        private List<Text> scoreTexts;
+        private Bloom bloom;
+        private bool isGameOver;
+        private bool isBloomDescending;
 
         [SerializeField] private Text score;
         [SerializeField] private Button b1;
@@ -43,31 +44,33 @@ namespace MainGame
         public void Start()
         {
             postProcessing.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing")));
-            ScoreTexts = new List<Text>();
+            scoreTexts = new List<Text>();
             foreach (var obj in gameManager.Objectives)
             {
                 var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
                 var scoreObjectScript = scoreObject.GetComponent<ScoreObject>();
                 scoreObjectScript.PointerExited += gameManager.tutorialManager.OnObjectiveRead;
                 scoreObjectScript.Init(obj.sprite, objectiveImage);
-                ScoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
+                scoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
             }
         }
 
         public void UpdateScore()
         {
             for (var i = 0; i < gameManager.Objectives.Length; i++)
-                ScoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
+                scoreTexts[i].text = gameManager.Objectives[i].Points.ToString();
         }
+
+        public void BackToTheMenu() => SceneChanger.ChangeScene(0);
 
         private void Update()
         {
-            if (!IsGameOver) return;
-            if (Bloom.intensity.value < bloomingMax && !IsBloomDescending)
-                Bloom.intensity.value += bloomingSpeed * Time.deltaTime;
-            if (Bloom.intensity.value > bloomingMax - 1) IsBloomDescending = true;
-            if (Bloom.intensity.value > bloomingBase && IsBloomDescending)
-                Bloom.intensity.value -= debloomingSpeed * Time.deltaTime;
+            if (!isGameOver) return;
+            if (bloom.intensity.value < bloomingMax && !isBloomDescending)
+                bloom.intensity.value += bloomingSpeed * Time.deltaTime;
+            if (bloom.intensity.value > bloomingMax - 1) isBloomDescending = true;
+            if (bloom.intensity.value > bloomingBase && isBloomDescending)
+                bloom.intensity.value -= debloomingSpeed * Time.deltaTime;
         }
 
         public void GameOver()
@@ -75,15 +78,15 @@ namespace MainGame
             scoreHolder.SetActive(false);
             score.text = gameManager.Score.ToString();
             score.transform.parent.gameObject.SetActive(true);
-            postProcessProfile.TryGetSettings(out Bloom);
-            IsGameOver = true;
+            postProcessProfile.TryGetSettings(out bloom);
+            isGameOver = true;
         }
 
         public void DisplayTileButtons(Tile clickedTile)
         {
             if (IsMouseOverUI)
                 return;
-            ClickedTile = clickedTile;
+            this.clickedTile = clickedTile;
             var buttons = new[] {b1, b2, b3, b4, b5};
             var count = 0;
             var types = gameManager.GetTileFromDice(6);
@@ -131,15 +134,15 @@ namespace MainGame
             var buttons = new[] {b1, b2, b3, b4, b5};
             var buttonPressed = buttons[buttonNumber];
             if (buttonPressed.image.sprite == mountain)
-                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Mountain);
+                gameManager.MakeTurn(clickedTile.X, clickedTile.Y, TileTypes.Mountain);
             if (buttonPressed.image.sprite == plain)
-                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Plain);
+                gameManager.MakeTurn(clickedTile.X, clickedTile.Y, TileTypes.Plain);
             if (buttonPressed.image.sprite == forest)
-                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Forest);
+                gameManager.MakeTurn(clickedTile.X, clickedTile.Y, TileTypes.Forest);
             if (buttonPressed.image.sprite == lake)
-                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Lake);
+                gameManager.MakeTurn(clickedTile.X, clickedTile.Y, TileTypes.Lake);
             if (buttonPressed.image.sprite == village)
-                gameManager.MakeTurn(ClickedTile.X, ClickedTile.Y, TileTypes.Village);
+                gameManager.MakeTurn(clickedTile.X, clickedTile.Y, TileTypes.Village);
             SwitchCardsOff();
         }
 
