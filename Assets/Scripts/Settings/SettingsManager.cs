@@ -11,6 +11,8 @@ namespace Settings
         [SerializeField] private GameObject canvas;
         [SerializeField] private GameObject postProcessing;
         [SerializeField] private Toggle postProcessingToggle;
+        [SerializeField] private Toggle fxToggle;
+        [SerializeField] private GameObject[] tilePrefabs;
 
 
         public void CloseSettings() =>
@@ -43,6 +45,21 @@ namespace Settings
             var isActive = postProcessingToggle.isOn;
             PlayerPrefs.SetInt("postProcessing", isActive ? 1 : 0);
             postProcessing.SetActive(isActive);
+        }
+
+        public void SwitchFX()
+        {
+            var isFXOn = fxToggle.isOn;
+            foreach (var tile in tilePrefabs)
+            {
+                for (var i = 0; i < tile.transform.childCount; i++)
+                {
+                    if (tile.transform.GetChild(i).gameObject.GetComponent<ParticleSystem>())
+                    {
+                        tile.transform.GetChild(i).gameObject.SetActive(isFXOn);
+                    }
+                }
+            }
         }
     }
 }

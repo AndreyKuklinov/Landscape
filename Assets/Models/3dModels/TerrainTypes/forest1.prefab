@@ -660,6 +660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaves_Green_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1809113622707476, guid: 1b09a7fc50f421946b2eda7e5f09e698, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4100926488305314, guid: 1b09a7fc50f421946b2eda7e5f09e698, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.479
@@ -1269,6 +1273,10 @@ PrefabInstance:
     - target: {fileID: 1777957728757660, guid: 0f8982e7a09431147a4a9b72a57ef449, type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777957728757660, guid: 0f8982e7a09431147a4a9b72a57ef449, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4751636421142972, guid: 0f8982e7a09431147a4a9b72a57ef449, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2250,6 +2258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Butterlies_Particle_01_Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 1408139398904384, guid: 5085f126b86c13f46937a2143b8935a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4600982223704374, guid: 5085f126b86c13f46937a2143b8935a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.305
@@ -2715,6 +2727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Water_Ripple_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1497628649277390, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4556773208972270, guid: 5d5da19b06b71d74baef1d8c22f634e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.271
@@ -2869,6 +2885,10 @@ PrefabInstance:
     - target: {fileID: 1357630425699122, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
       propertyPath: m_Name
       value: SunBeams_Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357630425699122, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
       propertyPath: m_LocalPosition.x

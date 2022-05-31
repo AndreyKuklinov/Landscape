@@ -225,6 +225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX_Snow
       objectReference: {fileID: 0}
+    - target: {fileID: 1778290520729940, guid: 3758ed06cdf471640b0fdccdc74e21df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4882518836412242, guid: 3758ed06cdf471640b0fdccdc74e21df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.09

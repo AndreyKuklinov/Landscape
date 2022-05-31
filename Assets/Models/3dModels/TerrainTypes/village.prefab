@@ -1255,6 +1255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke_Light_FX
       objectReference: {fileID: 0}
+    - target: {fileID: 1870936552084014, guid: 48a6284f3d3366c44ba57611df4afe5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4146785144945498, guid: 48a6284f3d3366c44ba57611df4afe5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.441
@@ -1359,6 +1363,10 @@ PrefabInstance:
     - target: {fileID: 1107510805740122, guid: eabd393839c5f634e98cc906257d93dc, type: 3}
       propertyPath: m_Name
       value: Flies_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107510805740122, guid: eabd393839c5f634e98cc906257d93dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4701160648954646, guid: eabd393839c5f634e98cc906257d93dc, type: 3}
       propertyPath: m_LocalPosition.x
