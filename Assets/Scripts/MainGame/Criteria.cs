@@ -145,6 +145,7 @@ namespace MainGame
         public static int Islands(int x, int y, GameManager gm)
         {
             if (gm.GetTileAt(x, y).Type != TileTypes.Empty
+                && gm.GetTileAt(x,y).Type != TileTypes.Lake
                 && gm.CountAdjacentOfType(x, y, TileTypes.Lake) == gm.GetNeighbours(x,y).Count())
                 return 1;
             return 0;
