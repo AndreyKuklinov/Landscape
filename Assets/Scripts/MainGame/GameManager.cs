@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MetaScripts;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ namespace MainGame
         [SerializeField] private List<Objective> possibleObjectives;
         [SerializeField] private Objective testingObjective;
         [SerializeField] private bool cheatMode;
+        [SerializeField] private SoundManager soundManager;
 
         public event EventHandler TilePlaced;
         public int boardWidth;
@@ -117,6 +119,7 @@ namespace MainGame
 
             GameBoard[x, y].Type = tileType;
             boardRenderer.ChangeTile(x, y, tileType);
+            soundManager.PlayTilePlacementSound();
             if (tileType == TileTypes.Village)
                 CreateRoads();
             TilePlaced?.Invoke(this, EventArgs.Empty);
