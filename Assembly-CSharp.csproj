@@ -74,9 +74,7 @@
      <Compile Include="Assets\Scripts\MetaScripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Settings\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\StartMenu\GUIManager.cs" />
-     <None Include="Assets\Skybox\Skybox Cubemap Extended.shader" />
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_LOD.shader" />
-     <None Include="Assets\Skybox\Skybox Cubemap Blend.shader" />
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_Vines.shader" />
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_Water.shader" />
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_Trees.shader" />
