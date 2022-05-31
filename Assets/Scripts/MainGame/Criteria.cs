@@ -28,7 +28,7 @@ namespace MainGame
             {"Towns", Towns},
             {"Castles", Castles},
             {"Stations", Stations},
-            //{"Crossroads", Crossroads},
+            {"Crossroads", Crossroads},
         };
 
         public static int Twins(int x, int y, GameManager gm)
@@ -106,6 +106,8 @@ namespace MainGame
         
         public static int Ponds(int x, int y, GameManager gm)
         {
+            if (gm.GetTileAt(x, y).Type != TileTypes.Lake)
+                return 0;
             var neighbours = gm.GetNeighbours(x, y);
             TileTypes type = TileTypes.Empty;
             foreach (var tile in neighbours)
@@ -117,7 +119,6 @@ namespace MainGame
                 else if (type != tile.Type)
                     return 0;
             }
-
             return 1;
         }
         
