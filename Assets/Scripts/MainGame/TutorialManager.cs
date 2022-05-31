@@ -20,7 +20,8 @@ namespace MainGame
             PlaceQuestion,
             ReadObjective,
             FulfillObjective,
-            MoreObjectives
+            MoreObjectives,
+            Finale
         }
 
         private readonly KeyCode[] cameraKeys = new KeyCode[]
@@ -126,10 +127,15 @@ namespace MainGame
                     Destroy(firstObjective.gameObject);
                     gameManager.guiManager.Start();
                     break;
-                default:
-                    popUp.SetActive(false);
+                case TutorialStages.Finale:
+                    PopupText.text = "Выполняйте цели, чтобы заработать очки. Подсказка: не фокусируйтесь лишь на одной цели," +
+                                     "а старайтесь выполнять их равномерно. Так вы получите больше очков. Удачи!";
+                    gameManager.TilePlaced += OnTilePlaced;
                     IsTutorialActive = false;
                     gameManager.boardRenderer.DisplayPossibleMoves();
+                    break;
+                default:
+                    popUp.SetActive(false);
                     break;
             }
         }
