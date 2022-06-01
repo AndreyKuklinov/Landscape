@@ -72,8 +72,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -152,47 +154,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11680}
+      Script: {instanceID: 11678}
     - Class: 114
-      Script: {instanceID: 11906}
+      Script: {instanceID: 11904}
     - Class: 114
-      Script: {instanceID: 11910}
+      Script: {instanceID: 11908}
     - Class: 114
-      Script: {instanceID: 11948}
+      Script: {instanceID: 11946}
     - Class: 114
-      Script: {instanceID: 12018}
+      Script: {instanceID: 12016}
     - Class: 114
-      Script: {instanceID: 12146}
+      Script: {instanceID: 12144}
     - Class: 114
-      Script: {instanceID: 12180}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12226}
     - Class: 114
-      Script: {instanceID: 12356}
+      Script: {instanceID: 12354}
     - Class: 114
-      Script: {instanceID: 12410}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12676}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12680}
+    - Class: 114
+      Script: {instanceID: 12734}
     - Class: 114
       Script: {instanceID: 12736}
     - Class: 114
-      Script: {instanceID: 12738}
+      Script: {instanceID: 12912}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 13516}
     - Class: 114
-      Script: {instanceID: 13518}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 13750}
+      Script: {instanceID: 14054}
     - Class: 114
-      Script: {instanceID: 14056}
+      Script: {instanceID: 14138}
     - Class: 114
-      Script: {instanceID: 14140}
-    - Class: 114
-      Script: {instanceID: 14282}
+      Script: {instanceID: 14280}
     - Class: 114
       Script: {instanceID: 14852}
     - Class: 114
@@ -293,71 +295,71 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11464}
     - Class: 114
-      Script: {instanceID: 11680}
+      Script: {instanceID: 11678}
     - Class: 114
-      Script: {instanceID: 11832}
+      Script: {instanceID: 11830}
     - Class: 114
-      Script: {instanceID: 11910}
+      Script: {instanceID: 11908}
     - Class: 114
-      Script: {instanceID: 11944}
+      Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 11968}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12146}
+      Script: {instanceID: 12144}
     - Class: 114
-      Script: {instanceID: 12180}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 12190}
     - Class: 114
-      Script: {instanceID: 12356}
+      Script: {instanceID: 12354}
     - Class: 114
-      Script: {instanceID: 12378}
+      Script: {instanceID: 12376}
     - Class: 114
-      Script: {instanceID: 12410}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12676}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12682}
+      Script: {instanceID: 12680}
     - Class: 114
-      Script: {instanceID: 12726}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 12736}
+      Script: {instanceID: 12734}
     - Class: 114
-      Script: {instanceID: 12792}
+      Script: {instanceID: 12790}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 12912}
     - Class: 114
-      Script: {instanceID: 13016}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13030}
     - Class: 114
-      Script: {instanceID: 13254}
+      Script: {instanceID: 13252}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 13300}
     - Class: 114
-      Script: {instanceID: 13360}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13478}
+      Script: {instanceID: 13476}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13750}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 13776}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 14056}
+      Script: {instanceID: 14054}
     - Class: 114
-      Script: {instanceID: 14074}
+      Script: {instanceID: 14072}
     - Class: 114
-      Script: {instanceID: 14140}
+      Script: {instanceID: 14138}
     - Class: 114
-      Script: {instanceID: 14162}
+      Script: {instanceID: 14160}
     - Class: 114
-      Script: {instanceID: 14296}
+      Script: {instanceID: 14294}
     - Class: 114
-      Script: {instanceID: 14326}
+      Script: {instanceID: 14324}
     - Class: 114
-      Script: {instanceID: 14334}
+      Script: {instanceID: 14332}
     - Class: 114
       Script: {instanceID: 14652}
     - Class: 114
@@ -577,7 +579,7 @@ ScriptsOnlyBuild:
     className: Bloom
   - hash:
       serializedVersion: 2
-      Hash: a82042729c2267eac131f211e2245ece
+      Hash: 8c60c2a1b73055dd0a1a707ede95bcde
     assemblyName: Assembly-CSharp.dll
     namespaceName: MainGame
     className: TutorialManager
@@ -1437,5 +1439,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/MainGame.unity
-  playerPath: "C:/Users/Andrew Kuklinov/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
-    \u0441\u0442\u043E\u043B/Game/Landscape.exe"
+  playerPath: "C:/Users/\u0424\u0438\u043B\u0438\u043F\u043F/Downloads/Game/Landscape.exe"
