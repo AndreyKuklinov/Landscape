@@ -2532,7 +2532,7 @@ MonoBehaviour:
   exitConfirmationCanvas: {fileID: 1568974113}
   postProcessing: {fileID: 11400000, guid: 7536feae1303c22418a3ad875991f926, type: 2}
   baseFocusDistance: 1.9
-  mainCanvas: {fileID: 0}
+  mainCanvas: {fileID: 2001929064}
 --- !u!4 &861962885
 Transform:
   m_ObjectHideFlags: 0
