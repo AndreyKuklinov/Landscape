@@ -132,15 +132,6 @@ namespace MainGame
 
         private void FixedUpdate()
         {
-            if (Input.GetMouseButtonDown(1))
-                Cursor.lockState = CursorLockMode.Locked;
-
-            if (Input.GetMouseButtonUp(1))
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-
             if (Input.GetMouseButton(1))
             {
                 var mouseMovement =
