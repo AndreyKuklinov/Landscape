@@ -122,14 +122,16 @@ namespace MainGame
                     break;
                 case TutorialStages.MoreObjectives:
                     PopupText.text = "На игру вам даются 3 цели. Прочитайте их условия.";
-                    gameManager.Objectives = new[] { 
-                        tutorialObjectives[0], 
+                    gameManager.Objectives = new[] {
                         tutorialObjectives[1], 
                         tutorialObjectives[2] };
-                    Destroy(firstObjective.gameObject);
                     gameManager.guiManager.Start();
                     break;
                 case TutorialStages.Finale:
+                    gameManager.Objectives = new[] {
+                        tutorialObjectives[0],
+                        tutorialObjectives[1], 
+                        tutorialObjectives[2] };
                     PopupText.text = "Выполняйте цели, чтобы заработать очки. Подсказка: не фокусируйтесь лишь на одной цели," +
                                      "а старайтесь выполнять их равномерно. Так вы получите больше очков. Удачи!";
                     gameManager.TilePlaced += OnTilePlaced;
@@ -176,15 +178,14 @@ namespace MainGame
                 return;
             var obj = (ScoreObject)sender;
             var stage = (TutorialStages)Stage;
+            seenObjectives.Add(obj);
             switch (stage)
             {
                 case TutorialStages.ReadObjective:
                     ProceedToNextStage();
-                    firstObjective = obj;
                     break;
                 case TutorialStages.MoreObjectives:
                 {
-                    seenObjectives.Add(obj);
                     if(seenObjectives.Count == 3)
                         ProceedToNextStage();
                     break;
