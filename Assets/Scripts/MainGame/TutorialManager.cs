@@ -130,7 +130,7 @@ namespace MainGame
                     gameManager.guiManager.Start();
                     break;
                 case TutorialStages.Finale:
-                    PopupText.text = "Выполняйте цели, чтобы заработать очки. Подсказка: не фокусируйтесь лишь на одной цели," +
+                    PopupText.text = "Выполняйте цели, чтобы заработать очки. Подсказка: не фокусируйтесь лишь на одной цели, " +
                                      "а старайтесь выполнять их равномерно. Так вы получите больше очков. Удачи!";
                     gameManager.TilePlaced += OnTilePlaced;
                     IsTutorialActive = false;
