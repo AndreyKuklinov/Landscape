@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MetaScripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MainGame
 {
@@ -75,18 +76,42 @@ namespace MainGame
         {
             var tile = GameBoard[x, y];
             tile.Type = newType;
-            tile.Draw(models[(int) newType]);
+            var tileToPlace = models[(int) newType];
+            VaryTile(tileToPlace);
+            tile.Draw(tileToPlace);
+            ReActivateTileParts(tileToPlace);
         }
 
         public void DisplayRoad(int x, int y)
         {
             var tile = GameBoard[x, y];
             if (!tile.Tile.HasRoad) return;
-            if (tile.Tile.RoadDirection == RoadDirection.LeftToRight) tile.Draw(modelsWithRoadsLeftToRight[(int) tile.Type]);
+            if (tile.Tile.RoadDirection == RoadDirection.LeftToRight)
+                tile.Draw(modelsWithRoadsLeftToRight[(int) tile.Type]);
             if (tile.Tile.RoadDirection == RoadDirection.UpToDown) tile.Draw(modelsWithRoadsUpToDown[(int) tile.Type]);
-            if (tile.Tile.RoadDirection == RoadDirection.Crossroad) 
+            if (tile.Tile.RoadDirection == RoadDirection.Crossroad)
                 tile.Draw(modelsWithCrossroads[(int) tile.Type]);
             else throw new Exception("Tile has road without direction!");
+        }
+
+        private void VaryTile(GameObject tile)
+        {
+            for (var i = 0; i < tile.transform.childCount; i++)
+            {
+                var deactivable = tile.transform.GetChild(i).gameObject.GetComponent<IDeactivable>();
+                if (deactivable == null) continue;
+                if (Random.Range(0, 10) > deactivable.GetAppearanceFrequency())
+                    deactivable.Deactivate();
+            }
+        }
+
+        private void ReActivateTileParts(GameObject tile)
+        {
+            for (var i = 0; i < tile.transform.childCount; i++)
+            {
+                var deactivable = tile.transform.GetChild(i).gameObject.GetComponent<IDeactivable>();
+                deactivable?.Activate();
+            }
         }
     }
 }

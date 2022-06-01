@@ -69,9 +69,11 @@
      <Compile Include="Assets\Scripts\MainGame\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\MainGame\Tile.cs" />
      <Compile Include="Assets\Scripts\MainGame\TileObject.cs" />
+     <Compile Include="Assets\Scripts\MainGame\TilePartController.cs" />
      <Compile Include="Assets\Scripts\MainGame\TutorialManager.cs" />
      <Compile Include="Assets\Scripts\MainGame\WeatherManager.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\ExitGameScript.cs" />
+     <Compile Include="Assets\Scripts\MetaScripts\IDeactivable.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\SceneChanger.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\Settings\SettingsManager.cs" />
