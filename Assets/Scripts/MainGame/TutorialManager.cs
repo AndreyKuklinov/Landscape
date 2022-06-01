@@ -11,6 +11,7 @@ namespace MainGame
         private enum TutorialStages
         {
             MoveCameraWithKeys,
+            MoveCameraWithMouse,
             PlaceTile,
             PickOutOfSeveralTiles1,
             PickOutOfSeveralTiles2,
@@ -69,6 +70,9 @@ namespace MainGame
             {
                 case TutorialStages.MoveCameraWithKeys:
                     PopupText.text = "Подвигайте камеру с помощью клавиш W, A, S, D, а также Q и E";
+                    break;
+                case TutorialStages.MoveCameraWithMouse:
+                    PopupText.text = "Повращайте камеру, зажав правую кнопку мыши";
                     break;
                 case TutorialStages.PlaceTile:
                     PopupText.text = "В Landscape вы размещаете клетки, чтобы зарабатывать очки. " +
@@ -146,18 +150,24 @@ namespace MainGame
 
         private void Update()
         {
-            if (!IsTutorialActive || (TutorialStages)Stage != TutorialStages.MoveCameraWithKeys)
-                return;
-            var nextStage = true;
-            foreach (var key in cameraKeys)
+            if((TutorialStages)Stage == TutorialStages.MoveCameraWithKeys)
             {
-                if (Input.GetKeyDown(key))
-                    pressedCameraKeys[key] = true;
-                else if (!pressedCameraKeys[key])
-                    nextStage = false;
+                var nextStage = true;
+                foreach (var key in cameraKeys)
+                {
+                    if (Input.GetKeyDown(key))
+                        pressedCameraKeys[key] = true;
+                    else if (!pressedCameraKeys[key])
+                        nextStage = false;
+                }
+
+                if (nextStage)
+                    ProceedToNextStage();
             }
-            if(nextStage)
+            else if ((TutorialStages)Stage == TutorialStages.MoveCameraWithMouse && Input.GetMouseButtonUp(1))
+            {
                 ProceedToNextStage();
+            }
         }
 
         public void OnObjectiveRead(object sender, EventArgs e)
