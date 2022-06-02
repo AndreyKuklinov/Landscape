@@ -61,7 +61,7 @@ namespace MainGame
             IsTutorialActive = true;
             tutorialCanvas.gameObject.SetActive(true);
             popupText = popUp.GetComponentInChildren<Text>();
-            stage = -1;
+            stage = 1;
             ProceedToNextStage();
         }
 

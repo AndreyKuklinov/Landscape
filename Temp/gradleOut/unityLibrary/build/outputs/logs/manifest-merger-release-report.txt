@@ -28,13 +28,13 @@ ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidMa
 activity#com.unity3d.player.UnityPlayerActivity
 ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:5-12:16
 	android:screenOrientation
-		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:111-155
+		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:111-148
 	android:launchMode
-		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:156-187
+		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:149-180
 	android:hardwareAccelerated
-		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:370-405
+		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:363-398
 	android:configChanges
-		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:188-369
+		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:181-362
 	android:theme
 		ADDED from D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\src\main\AndroidManifest.xml:5:69-110
 	android:name

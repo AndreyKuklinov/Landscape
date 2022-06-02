@@ -93,7 +93,7 @@ ADDED from [:unityLibrary] D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\bu
 activity#com.unity3d.player.UnityPlayerActivity
 ADDED from [:unityLibrary] D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:28:9-47:20
 	android:screenOrientation
-		ADDED from [:unityLibrary] D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:13-57
+		ADDED from [:unityLibrary] D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:33:13-50
 	android:launchMode
 		ADDED from [:unityLibrary] D:\UnityGame\Landscape\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:32:13-44
 	android:hardwareAccelerated
