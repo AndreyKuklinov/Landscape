@@ -40,6 +40,7 @@ namespace MainGame
         [SerializeField] private Sprite lake;
         [SerializeField] private Sprite village;
         [SerializeField] private Sprite forest;
+        [SerializeField] private Canvas mainCanvas;
 
         public void Start()
         {
@@ -65,6 +66,8 @@ namespace MainGame
 
         private void Update()
         {
+            if(Input.GetKeyUp(KeyCode.F))
+                mainCanvas.gameObject.SetActive(!mainCanvas.gameObject.activeSelf);
             if (!isGameOver) return;
             if (bloom.intensity.value < bloomingMax && !isBloomDescending)
                 bloom.intensity.value += bloomingSpeed * Time.deltaTime;

@@ -12,11 +12,16 @@ namespace MetaScripts
 
         private void Update()
         {
-            if (!Input.GetKey(KeyCode.Escape)) return;
+            if (!Input.GetKeyUp(KeyCode.Escape)) return;
             postProcessing.TryGetSettings(out DepthOfField depthOfField);
-            depthOfField.focusDistance.value = 0.1f;
-            mainCanvas.SetActive(false);
-            exitConfirmationCanvas.SetActive(true);
+            if (exitConfirmationCanvas.activeSelf)
+                CancelQuit();
+            else
+            {
+                depthOfField.focusDistance.value = 0.1f;
+                mainCanvas.SetActive(false);
+                exitConfirmationCanvas.SetActive(true);
+            }
         }
 
         public void QuitGame() => Application.Quit();

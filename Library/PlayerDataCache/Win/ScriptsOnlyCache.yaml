@@ -1439,4 +1439,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/StartMenu.unity
   - Assets/Scenes/MainGame.unity
-  playerPath: "C:/Users/\u0424\u0438\u043B\u0438\u043F\u043F/Downloads/Game/Landscape.exe"
+  playerPath: "C:/Users/\u0424\u0438\u043B\u0438\u043F\u043F/Downloads/GameF/Landscape.exe"
