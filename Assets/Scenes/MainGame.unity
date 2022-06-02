@@ -4648,7 +4648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraAxes: 1
   perspectiveZoomMode: 1
-  camZoomMin: 2
+  camZoomMin: 1
   camZoomMax: 40
   camOverzoomMargin: 2
   camOverdragMargin: 5
@@ -4691,7 +4691,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   groundLevelOffset: 0
-  enableRotation: 1
+  enableRotation: 0
   enableTilt: 1
   tiltAngleMin: 40
   tiltAngleMax: 90
@@ -4818,13 +4818,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540674892}
-  m_LocalRotation: {x: 0.55174446, y: 0.0008720863, z: -0.0005769323, w: 0.83401257}
-  m_LocalPosition: {x: 2.5009105, y: 9.525684, z: -0.9197453}
+  m_LocalRotation: {x: 0.4352308, y: 0.0009428273, z: -0.00045578048, w: 0.90031826}
+  m_LocalPosition: {x: 2.5995312, y: 3.9, z: -1.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44, y: 0.17, z: 0}
+  m_LocalEulerAnglesHint: {x: 51.6, y: 0.120000005, z: 0}
 --- !u!1 &1568974113
 GameObject:
   m_ObjectHideFlags: 0

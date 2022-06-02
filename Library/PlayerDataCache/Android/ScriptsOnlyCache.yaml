@@ -8,7 +8,6 @@ ScriptsOnlyBuild:
     - MainGame.GUIManager
     - MainGame.GameManager
     - MainGame.ScoreObject
-    - MainGame.SimpleCameraController
     - MainGame.TileObject
     - MainGame.TilePartController
     - MainGame.TutorialManager
@@ -204,8 +203,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15016}
     - Class: 114
       Script: {instanceID: 15144}
-    - Class: 114
-      Script: {instanceID: 15184}
     - Class: 114
       Script: {instanceID: 15228}
     - Class: 114
