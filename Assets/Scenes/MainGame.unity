@@ -4648,49 +4648,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraAxes: 1
   perspectiveZoomMode: 1
-  camZoomMin: 1
+  camZoomMin: 2
   camZoomMax: 40
   camOverzoomMargin: 2
   camOverdragMargin: 5
   boundaryMin: {x: -50, y: -50}
   boundaryMax: {x: 50, y: 50}
-  camFollowFactor: 15
-  autoScrollDampMode: 0
-  autoScrollDamp: 300
+  camFollowFactor: 20
+  autoScrollDampMode: 1
+  autoScrollDamp: 150
   autoScrollDampCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1
+      outSlope: -1
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.7
-      value: 0.9
-      inSlope: -0.5
-      outSlope: -0.5
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0.01
-      inSlope: -0.85
-      outSlope: -0.85
+      inSlope: -1
+      outSlope: -1
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  groundLevelOffset: 0
+  groundLevelOffset: 0.4
   enableRotation: 0
   enableTilt: 1
   tiltAngleMin: 40
