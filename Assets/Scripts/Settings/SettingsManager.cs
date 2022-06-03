@@ -25,6 +25,8 @@ namespace Settings
             postProcessingToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing"));
             musicSlider.value = MusicVolume;
             fxToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FX"));
+            SwitchFX();
+            ChangePostProcessing();
         }
 
         private float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
