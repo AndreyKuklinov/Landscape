@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{14FB2519-5E30-6899-6CA6-86E5687FA73D}</ProjectGuid>
+    <ProjectGuid>{9D9F0BC7-10D7-D824-4637-DD3DF8E04CD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Boxophobic.PolyverseSkies.Scripts</AssemblyName>
@@ -61,10 +61,10 @@
      <Compile Include="Assets\CoolSkyBox\Polyverse Skies\Generator\Scripts\PolyverseSkiesGenerator.cs" />
      <None Include="Assets\CoolSkyBox\Polyverse Skies\Generator\Scripts\Boxophobic.PolyverseSkies.Scripts.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -256,7 +256,7 @@
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -606,11 +606,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
-      <Project>{46765F0D-87A3-E16B-2007-4364AD01CB91}</Project>
+      <Project>{BB95076F-EC38-FF16-2E17-C969AFFFB500}</Project>
       <Name>Boxophobic.Utils.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{E94F81BC-106F-CF91-2309-412B8BE57DDC}</Project>
+      <Project>{D7B8A9ED-1FE5-8D4C-CA29-AC11001B50EC}</Project>
       <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
   </ItemGroup>
