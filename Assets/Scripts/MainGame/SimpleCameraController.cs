@@ -14,6 +14,8 @@ namespace MainGame
             private float y;
             private float z;
             private float minYPosition = 0.4f;
+            private float maxXDeviation = 50f;
+            private float maxZDeviation = 50f;
 
             public void SetFromTransform(Transform t)
             {
@@ -29,10 +31,14 @@ namespace MainGame
             {
                 var rotatedTranslation = Quaternion.Euler(Pitch, Yaw, Roll) * translation;
 
-                x += rotatedTranslation.x;
+                if (Math.Abs(x + rotatedTranslation.x) < maxXDeviation ||
+                    Math.Sign(x + rotatedTranslation.x) * rotatedTranslation.x < 0)
+                    x += rotatedTranslation.x;
                 if (y + rotatedTranslation.y > minYPosition || rotatedTranslation.y > 0)
                     y += rotatedTranslation.y;
-                z += rotatedTranslation.z;
+                if (Math.Abs(z + rotatedTranslation.z) < maxXDeviation ||
+                    Math.Sign(z + rotatedTranslation.z) * rotatedTranslation.z < 0)
+                    z += rotatedTranslation.z;
             }
 
             public void LerpTowards(CameraState target, float positionLerpPct, float rotationLerpPct)
@@ -54,7 +60,7 @@ namespace MainGame
         }
 
         public event EventHandler CameraMoved;
-        
+
         readonly CameraState m_TargetCameraState = new CameraState();
         readonly CameraState m_InterpolatingCameraState = new CameraState();
 
@@ -68,6 +74,7 @@ namespace MainGame
         private float positionLerpTime = 0.2f;
 
         public float mouseRotationMaxSpeed;
+
         [Header("Rotation Settings")]
         [Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
         [SerializeField]
@@ -128,7 +135,7 @@ namespace MainGame
                 CameraMoved?.Invoke(this, EventArgs.Empty);
                 direction += Vector3.up;
             }
-            
+
             return direction;
         }
 
@@ -139,7 +146,8 @@ namespace MainGame
                 var mouseMovement =
                     new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
 
-                var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude) + mouseRotationMaxSpeed;
+                var mouseSensitivityFactor =
+                    mouseSensitivityCurve.Evaluate(mouseMovement.magnitude) + mouseRotationMaxSpeed;
 
                 m_TargetCameraState.Yaw += mouseMovement.x * mouseSensitivityFactor;
                 m_TargetCameraState.Pitch += mouseMovement.y * mouseSensitivityFactor;
