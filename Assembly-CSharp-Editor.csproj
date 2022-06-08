@@ -59,6 +59,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\LowPolyWater_Pack\Scripts\Editor\GeneratePlane.cs" />
+     <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\ChunksMasterCore\Editor\ChunksMaster.cs" />
+     <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\ChunksMasterCore\Editor\ChunksMasterEditorWindow.cs" />
+     <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\DynamicCullingCore\Editor\DynamicCullingEditor.cs" />
+     <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\Editor\StaticCullingEditorWindow.cs" />
+     <Compile Include="Assets\Performance Tools\AdvancedCullingSystem\Core\StaticCullingCore\Editor\StaticCullingMaster.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
@@ -110,11 +115,17 @@
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Mathematics">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
@@ -124,6 +135,15 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Editor">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Collections">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -316,6 +336,15 @@
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Burst.Unsafe">
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.burst@1.3.9/Unity.Burst.Unsafe.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Runtime.CompilerServices.Unsafe">
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.collections@0.9.0-preview.6/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0-preview/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
