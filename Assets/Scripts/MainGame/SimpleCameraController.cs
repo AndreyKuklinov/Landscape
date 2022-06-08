@@ -67,6 +67,7 @@ namespace MainGame
         [SerializeField]
         private float positionLerpTime = 0.2f;
 
+        public float mouseRotationMaxSpeed;
         [Header("Rotation Settings")]
         [Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
         [SerializeField]
@@ -84,6 +85,7 @@ namespace MainGame
 
         private void OnEnable()
         {
+            mouseRotationMaxSpeed = PlayerPrefs.GetFloat("SensitivityMouse");
             m_TargetCameraState.SetFromTransform(transform);
             m_InterpolatingCameraState.SetFromTransform(transform);
         }
@@ -137,7 +139,7 @@ namespace MainGame
                 var mouseMovement =
                     new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
 
-                var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
+                var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude) + mouseRotationMaxSpeed;
 
                 m_TargetCameraState.Yaw += mouseMovement.x * mouseSensitivityFactor;
                 m_TargetCameraState.Pitch += mouseMovement.y * mouseSensitivityFactor;

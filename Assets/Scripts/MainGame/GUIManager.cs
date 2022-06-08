@@ -44,7 +44,7 @@ namespace MainGame
 
         public void Start()
         {
-            postProcessing.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing")));
+            postProcessing.SetActive(!Convert.ToBoolean(PlayerPrefs.GetInt("NOTpostProcessing")));
             scoreTexts = new List<Text>();
             foreach (var obj in gameManager.Objectives)
             {
