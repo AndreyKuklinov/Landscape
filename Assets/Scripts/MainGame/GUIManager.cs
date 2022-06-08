@@ -161,5 +161,11 @@ namespace MainGame
         {
             tileToLight.GetComponent<Light>().intensity = isLightOn ? tileLightMaxValue : 0;
         }
+
+        private void OnDestroy()
+        {
+            postProcessProfile.TryGetSettings(out bloom);
+            bloom.intensity.value = bloomingBase;
+        }
     }
 }
