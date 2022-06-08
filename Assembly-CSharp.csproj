@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\MetaScripts\IDeactivable.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\SceneChanger.cs" />
      <Compile Include="Assets\Scripts\MetaScripts\SoundManager.cs" />
+     <Compile Include="Assets\Scripts\Settings\CameraSettingsManager.cs" />
      <Compile Include="Assets\Scripts\Settings\SettingsManager.cs" />
      <Compile Include="Assets\Scripts\StartMenu\GUIManager.cs" />
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_LOD.shader" />
