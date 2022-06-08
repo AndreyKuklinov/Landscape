@@ -22,11 +22,9 @@ namespace Settings
 
         private void Start()
         {
-            postProcessingToggle.isOn = !Convert.ToBoolean(PlayerPrefs.GetInt("NOTpostProcessing"));
+            postProcessingToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("postProcessing"));
             musicSlider.value = MusicVolume;
-            fxToggle.isOn = !Convert.ToBoolean(PlayerPrefs.GetInt("NOTFX"));
-            SwitchFX();
-            ChangePostProcessing();
+            fxToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("FX"));
         }
 
         private float MusicVolume => PlayerPrefs.GetFloat("MusicVolume");
@@ -37,14 +35,14 @@ namespace Settings
         public void ChangePostProcessing()
         {
             var isActive = postProcessingToggle.isOn;
-            PlayerPrefs.SetInt("NOTpostProcessing", isActive ? 0 : 1);
+            PlayerPrefs.SetInt("postProcessing", isActive ? 1 : 0);
             postProcessing.SetActive(isActive);
         }
 
         public void SwitchFX()
         {
             var isFXOn = fxToggle.isOn;
-            PlayerPrefs.SetInt("NOTFX", isFXOn ? 0 : 1);
+            PlayerPrefs.SetInt("FX", isFXOn ? 1 : 0);
             foreach (var tile in tilePrefabs)
                 for (var i = 0; i < tile.transform.childCount; i++)
                     if (tile.transform.GetChild(i).gameObject.GetComponent<ParticleSystem>())

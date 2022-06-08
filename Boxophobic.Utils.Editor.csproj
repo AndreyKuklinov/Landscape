@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BB95076F-EC38-FF16-2E17-C969AFFFB500}</ProjectGuid>
+    <ProjectGuid>{46765F0D-87A3-E16B-2007-4364AD01CB91}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Boxophobic.Utils.Editor</AssemblyName>
@@ -101,16 +101,16 @@
      <Compile Include="Assets\CoolSkyBox\Utils\Editor\StyledMono\StyledScriptableObjectEditor.cs" />
      <None Include="Assets\CoolSkyBox\Utils\Editor\Boxophobic.Utils.Editor.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -302,10 +302,10 @@
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -664,7 +664,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{D7B8A9ED-1FE5-8D4C-CA29-AC11001B50EC}</Project>
+      <Project>{E94F81BC-106F-CF91-2309-412B8BE57DDC}</Project>
       <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
   </ItemGroup>

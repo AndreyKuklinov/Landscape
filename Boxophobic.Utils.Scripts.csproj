@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D7B8A9ED-1FE5-8D4C-CA29-AC11001B50EC}</ProjectGuid>
+    <ProjectGuid>{E94F81BC-106F-CF91-2309-412B8BE57DDC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Boxophobic.Utils.Scripts</AssemblyName>
@@ -77,10 +77,10 @@
      <Compile Include="Assets\CoolSkyBox\Utils\Scripts\StyledMono\StyledScriptableObject.cs" />
      <None Include="Assets\CoolSkyBox\Utils\Scripts\Boxophobic.Utils.Scripts.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -272,7 +272,7 @@
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.NRefactory">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

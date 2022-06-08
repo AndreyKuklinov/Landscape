@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7244B1C5-3B5F-EF3D-4FE8-2E6DF7CA97EE}</ProjectGuid>
+    <ProjectGuid>{AA69B50D-7EF9-2553-349B-BDF6DA56B507}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -89,64 +89,64 @@
      <None Include="Assets\PolygonNature\Shaders\SyntyStudios_SkyGradient.shader" />
      <None Include="Assets\CoolSkyBox\Polyverse Skies\Core\Shaders\Standard.shader" />
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Филипп/Documents/LandscapePC/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -682,23 +682,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Boxophobic.Utils.Scripts.csproj">
-      <Project>{D7B8A9ED-1FE5-8D4C-CA29-AC11001B50EC}</Project>
+      <Project>{E94F81BC-106F-CF91-2309-412B8BE57DDC}</Project>
       <Name>Boxophobic.Utils.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
-      <Project>{C1EEDDB5-10C8-559C-61F1-136862959BEB}</Project>
+      <Project>{7A84341A-7E5B-5448-3B7B-521DC817D993}</Project>
       <Name>Boxophobic.PolyverseSkies.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
-      <Project>{9D9F0BC7-10D7-D824-4637-DD3DF8E04CD4}</Project>
+      <Project>{14FB2519-5E30-6899-6CA6-86E5687FA73D}</Project>
       <Name>Boxophobic.PolyverseSkies.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
-      <Project>{4F3F7C30-42D6-0986-5A40-32F724857EBF}</Project>
+      <Project>{62983D9E-6A4A-7BCD-ED58-76A915C2365F}</Project>
       <Name>Boxophobic.PolyverseSkies.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.Utils.Editor.csproj">
-      <Project>{BB95076F-EC38-FF16-2E17-C969AFFFB500}</Project>
+      <Project>{46765F0D-87A3-E16B-2007-4364AD01CB91}</Project>
       <Name>Boxophobic.Utils.Editor</Name>
     </ProjectReference>
   </ItemGroup>
