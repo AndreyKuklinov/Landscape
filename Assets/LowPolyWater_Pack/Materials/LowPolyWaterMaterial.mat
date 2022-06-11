@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LowPolyWaterMaterial
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -168,7 +168,7 @@ Material:
     - _QueueOffset: 0
     - _RandomHeight: 0.5
     - _RandomSpeed: 0.5
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _ReflDistort: 0.9267696
     - _RefrDistort: 1.4393286
     - _Shininess: 17.1
