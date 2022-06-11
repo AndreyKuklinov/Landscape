@@ -322,9 +322,6 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="Boxophobic.PolyverseSkies.Scripts">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Boxophobic.PolyverseSkies.Scripts.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.VR">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
  </Reference>

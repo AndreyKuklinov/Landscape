@@ -350,9 +350,6 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="Boxophobic.PolyverseSkies.Scripts">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Boxophobic.PolyverseSkies.Scripts.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.burst@1.3.9/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
