@@ -4,13 +4,26 @@
         "GUID:10f1dd4cfd6afb54da274d7d818bd8f6",
         "GUID:825ad574da7360d4e8aea558f272972e"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
-    "excludePlatforms": [],
+    "excludePlatforms": [
+        "CloudRendering",
+        "Editor",
+        "iOS",
+        "LinuxStandalone64",
+        "Lumin",
+        "macOSStandalone",
+        "PS4",
+        "Stadia",
+        "Switch",
+        "tvOS",
+        "WebGL",
+        "XboxOne"
+    ],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

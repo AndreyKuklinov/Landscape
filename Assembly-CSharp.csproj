@@ -107,11 +107,20 @@
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Burst">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Burst.Editor">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Collections">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -163,15 +172,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Burst">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Burst.Editor">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Collections">
- <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -349,6 +349,9 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="Boxophobic.PolyverseSkies.Scripts">
+ <HintPath>D:/UnityGame/Landscape/Library/ScriptAssemblies/Boxophobic.PolyverseSkies.Scripts.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.burst@1.3.9/Unity.Burst.Unsafe.dll</HintPath>
@@ -722,10 +725,6 @@
     <ProjectReference Include="Boxophobic.PolyverseSkies.Runtime.csproj">
       <Project>{7A84341A-7E5B-5448-3B7B-521DC817D993}</Project>
       <Name>Boxophobic.PolyverseSkies.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Boxophobic.PolyverseSkies.Scripts.csproj">
-      <Project>{14FB2519-5E30-6899-6CA6-86E5687FA73D}</Project>
-      <Name>Boxophobic.PolyverseSkies.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Boxophobic.PolyverseSkies.Editor.csproj">
       <Project>{62983D9E-6A4A-7BCD-ED58-76A915C2365F}</Project>

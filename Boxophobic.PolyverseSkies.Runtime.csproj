@@ -255,9 +255,6 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="ICSharpCode.NRefactory">
- <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Burst.Unsafe">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.burst@1.3.9/Unity.Burst.Unsafe.dll</HintPath>
  </Reference>
@@ -266,6 +263,9 @@
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0-preview/Runtime/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.NRefactory">
+ <HintPath>D:/UnityGame/Landscape/Library/PackageCache/com.unity.render-pipelines.core@7.5.3/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>D:/program files/2019.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
