@@ -20,7 +20,7 @@ namespace Settings
         public void OpenSettings() =>
             canvas.SetActive(true);
 
-        private void Start()
+        private void Awake()
         {
             postProcessingToggle.isOn = !Convert.ToBoolean(PlayerPrefs.GetInt("NOTpostProcessing"));
             musicSlider.value = MusicVolume;

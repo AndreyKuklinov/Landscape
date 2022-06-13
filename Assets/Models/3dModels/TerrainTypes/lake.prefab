@@ -1459,7 +1459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 4358820364207982, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1509,6 +1509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: scalingMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467656160158677681, guid: 29d06c673ff3f1948abb2e144ac73d66,
+        type: 3}
+      propertyPath: appearanceFrequency
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d06c673ff3f1948abb2e144ac73d66, type: 3}
