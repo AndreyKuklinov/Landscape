@@ -38,8 +38,8 @@ namespace MainGame
             {KeyCode.E, false},
         };
 
-        private HashSet<ScoreObject> seenObjectives = new HashSet<ScoreObject>();
-        private ScoreObject firstObjective;
+        // private HashSet<ScoreObject> seenObjectives = new HashSet<ScoreObject>();
+        // private ScoreObject firstObjective;
 
         [SerializeField] [FormerlySerializedAs("PopUp")]
         private GameObject popUp;
@@ -124,17 +124,17 @@ namespace MainGame
                     Moves[1, 2] = 3;
                     gameManager.boardRenderer.DisplayPossibleMoves();
                     break;
-                case TutorialStages.MoreObjectives:
-                    popupText.text = "На игру вам даются 3 цели. Прочитайте их условия.";
-                    gameManager.Objectives = new[]
-                    {
-                        tutorialObjectives[0],
-                        tutorialObjectives[1],
-                        tutorialObjectives[2]
-                    };
-                    Destroy(firstObjective.gameObject);
-                    gameManager.guiManager.Start();
-                    break;
+                // case TutorialStages.MoreObjectives:
+                //     popupText.text = "На игру вам даются 3 цели. Прочитайте их условия.";
+                //     gameManager.Objectives = new[]
+                //     {
+                //         tutorialObjectives[0],
+                //         tutorialObjectives[1],
+                //         tutorialObjectives[2]
+                //     };
+                //     Destroy(firstObjective.gameObject);
+                //     gameManager.guiManager.Start();
+                //     break;
                 case TutorialStages.Finale:
                     popupText.text =
                         "Выполняйте цели, чтобы заработать очки. Подсказка: не фокусируйтесь лишь на одной цели, " +
@@ -173,28 +173,6 @@ namespace MainGame
             }
             else if ((TutorialStages) stage == TutorialStages.MoveCameraWithMouse && Input.GetMouseButtonUp(1))
                 ProceedToNextStage();
-        }
-
-        public void OnObjectiveRead(object sender, EventArgs e)
-        {
-            if (!IsTutorialActive)
-                return;
-            var obj = (ScoreObject) sender;
-            var stage = (TutorialStages) this.stage;
-            switch (stage)
-            {
-                case TutorialStages.ReadObjective:
-                    firstObjective = obj;
-                    ProceedToNextStage();
-                    break;
-                case TutorialStages.MoreObjectives:
-                {
-                    seenObjectives.Add(obj);
-                    if (seenObjectives.Count == 2)
-                        ProceedToNextStage();
-                    break;
-                }
-            }
         }
     }
 }

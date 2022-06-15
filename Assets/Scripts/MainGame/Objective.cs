@@ -6,7 +6,7 @@ namespace MainGame
     public class Objective
     {
         public string name;
-        public Sprite sprite;
+        public string text;
         public int Points { get; private set; }
         public ScoringCriterion Criterion => Criteria.dict[name];
 
