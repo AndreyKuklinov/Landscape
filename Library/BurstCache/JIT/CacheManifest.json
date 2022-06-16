@@ -3,7 +3,7 @@
   "Assemblies": [
     {
       "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-06-14T11:56:05.8791986Z"
+      "LastWriteTime": "1601-01-01T00:00:00Z"
     },
     {
       "FullName": "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
@@ -11,38 +11,6 @@
     },
     {
       "FullName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2020-11-05T02:48:16Z"
-    },
-    {
-      "FullName": "UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2020-11-05T02:53:18Z"
-    },
-    {
-      "FullName": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-06-14T11:56:17.9370371Z"
-    },
-    {
-      "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2020-11-05T02:48:16Z"
-    },
-    {
-      "FullName": "Unity.Collections, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-06-14T11:56:12.7191978Z"
-    },
-    {
-      "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-06-14T11:56:09.886153Z"
-    },
-    {
-      "FullName": "UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2020-11-05T02:53:22Z"
-    },
-    {
-      "FullName": "Unity.Burst.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2020-10-08T19:35:42Z"
-    },
-    {
-      "FullName": "System.Runtime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
       "LastWriteTime": "2020-11-05T02:48:16Z"
     }
   ],
@@ -67,53 +35,6 @@
         0,
         1,
         2
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<AdvancedCullingSystem.DynamicCullingCore.UpdateTimersJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "0816f9f30050a08a2f204db99b7c07ed",
-      "LinkName": "C1728F00DF9F9039",
-      "AssemblyDependencyIndices": [
-        3,
-        4,
-        5,
-        2,
-        6,
-        1
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobParallelForExtensions/ParallelForJobStruct`1<AdvancedCullingSystem.DynamicCullingCore.CreateRayCommandsJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "6c89ef345a8b841c4b28b690ef28d2e1",
-      "LinkName": "883071AD1EC4ED17",
-      "AssemblyDependencyIndices": [
-        3,
-        4,
-        5,
-        7,
-        1,
-        2,
-        8
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<AdvancedCullingSystem.DynamicCullingCore.ComputeResultsJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 8794384452606821980,
-      "ModuleHash": "deb097edd5a438fefd3fa1245d053fd8",
-      "LinkName": "560EF296AE792ABD",
-      "AssemblyDependencyIndices": [
-        3,
-        4,
-        5,
-        2,
-        6,
-        1,
-        7,
-        0,
-        9,
-        10
       ]
     }
   ]

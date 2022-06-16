@@ -1,2 +1,248 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: preprocess
+  insize=1579 outsize=233 ok=1
+Cmd: preprocess
+  insize=1380 outsize=265 ok=1
+Cmd: preprocessCompute
+  insize=18709 outsize=18731 ok=1
+Cmd: preprocess
+  insize=1219 outsize=420 ok=1
+Cmd: preprocess
+  insize=5700 outsize=1964 ok=1
+Cmd: preprocessCompute
+  insize=1220 outsize=1226 ok=1
+Cmd: preprocess
+  insize=1867 outsize=322 ok=1
+Cmd: preprocess
+  insize=6257 outsize=384 ok=1
+Cmd: preprocess
+  insize=2507 outsize=1111 ok=1
+Cmd: preprocess
+  insize=3958 outsize=719 ok=1
+Cmd: preprocess
+  insize=4241 outsize=439 ok=1
+Cmd: preprocess
+  insize=2146 outsize=351 ok=1
+Cmd: preprocess
+  insize=6462 outsize=1315 ok=1
+Cmd: preprocessCompute
+  insize=1499 outsize=1505 ok=1
+Cmd: preprocess
+  insize=1689 outsize=613 ok=1
+Cmd: preprocess
+  insize=2453 outsize=662 ok=1
+Cmd: preprocessCompute
+  insize=5024 outsize=5032 ok=1
+Cmd: preprocessCompute
+  insize=1858 outsize=1864 ok=1
+Cmd: preprocess
+  insize=7279 outsize=1440 ok=1
+Cmd: preprocess
+  insize=27166 outsize=8189 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (75): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=8960 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=18053 outsize=2592 ok=1
+Cmd: preprocess
+  insize=1676 outsize=1080 ok=1
+Cmd: preprocess
+  insize=9273 outsize=4437 ok=1
+Cmd: preprocess
+  insize=3682 outsize=237 ok=1
+Cmd: preprocess
+  insize=4816 outsize=845 ok=1
+Cmd: preprocess
+  insize=5245 outsize=488 ok=1
+Cmd: preprocess
+  insize=2302 outsize=468 ok=1
+Cmd: preprocess
+  insize=4768 outsize=3342 ok=1
+Cmd: preprocessCompute
+  insize=3152 outsize=3158 ok=1
+Cmd: preprocessCompute
+  insize=11166 outsize=11176 ok=1
+Cmd: preprocess
+  insize=1231 outsize=322 ok=1
+Cmd: preprocess
+  insize=5539 outsize=353 ok=1
+Cmd: preprocessCompute
+  insize=2114 outsize=2120 ok=1
+Cmd: preprocess
+  insize=5452 outsize=1945 ok=1
+Cmd: preprocess
+  insize=6524 outsize=361 ok=1
+Cmd: preprocess
+  insize=6896 outsize=4305 ok=1
+Cmd: preprocess
+  insize=3275 outsize=394 ok=1
+Cmd: preprocess
+  insize=3155 outsize=996 ok=1
+Cmd: preprocess
+  insize=742 outsize=346 ok=1
+Cmd: preprocess
+  insize=1183 outsize=286 ok=1
+Cmd: preprocess
+  insize=6807 outsize=880 ok=1
+Cmd: preprocess
+  insize=3320 outsize=826 ok=1
+Cmd: preprocess
+  insize=3836 outsize=374 ok=1
+Cmd: preprocess
+  insize=1665 outsize=236 ok=1
+Cmd: preprocess
+  insize=6547 outsize=4089 ok=1
+Cmd: preprocess
+  insize=5621 outsize=340 ok=1
+Cmd: preprocess
+  insize=762 outsize=258 ok=1
+Cmd: preprocess
+  insize=3197 outsize=1434 ok=1
+Cmd: preprocess
+  insize=3770 outsize=487 ok=1
+Cmd: preprocess
+  insize=9347 outsize=351 ok=1
+Cmd: preprocess
+  insize=4922 outsize=733 ok=1
+Cmd: preprocess
+  insize=2706 outsize=232 ok=1
+Cmd: preprocessCompute
+  insize=2128 outsize=2134 ok=1
+Cmd: preprocess
+  insize=12668 outsize=566 ok=1
+Cmd: preprocess
+  insize=2371 outsize=667 ok=1
+Cmd: preprocess
+  insize=3181 outsize=1014 ok=1
+Cmd: preprocess
+  insize=7538 outsize=3821 ok=1
+Cmd: preprocess
+  insize=29436 outsize=9398 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (76): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=8961 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=5860 outsize=2426 ok=1
+Cmd: preprocess
+  insize=12338 outsize=1048 ok=1
+Cmd: preprocess
+  insize=2070 outsize=769 ok=1
+Cmd: preprocess
+  insize=4356 outsize=2602 ok=1
+Cmd: preprocess
+  insize=33231 outsize=13610 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (83): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=10020 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=12662 outsize=1878 ok=1
+Cmd: preprocess
+  insize=628 outsize=231 ok=1
+Cmd: preprocess
+  insize=7382 outsize=421 ok=1
+Cmd: preprocess
+  insize=1052 outsize=174 ok=1
+Cmd: preprocess
+  insize=36259 outsize=13098 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (82): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=9848 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=2581 outsize=863 ok=1
+Cmd: preprocess
+  insize=1719 outsize=372 ok=1
+Cmd: preprocess
+  insize=49382 outsize=38734 ok=1
+Cmd: preprocess
+  insize=8209 outsize=2050 ok=1
+Cmd: preprocess
+  insize=11823 outsize=980 ok=1
+Cmd: preprocessCompute
+  insize=3526 outsize=3532 ok=1
+Cmd: preprocess
+  insize=945 outsize=218 ok=1
+Cmd: preprocessCompute
+  insize=3168 outsize=3174 ok=1
+Cmd: preprocess
+  insize=2414 outsize=2035 ok=1
+Cmd: preprocess
+  insize=8448 outsize=361 ok=1
+Cmd: preprocess
+  insize=3219 outsize=322 ok=1
+Cmd: preprocess
+  insize=1709 outsize=368 ok=1
+Cmd: preprocess
+  insize=408 outsize=408 ok=1
+Cmd: preprocess
+  insize=4039 outsize=1895 ok=1
+Cmd: preprocessCompute
+  insize=5587 outsize=5591 ok=1
+Cmd: preprocess
+  insize=8118 outsize=3650 ok=1
+Cmd: preprocess
+  insize=1188 outsize=411 ok=1
+Cmd: preprocess
+  insize=27812 outsize=7463 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (76): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=9898 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=6801 outsize=3266 ok=1
+Cmd: preprocess
+  insize=5045 outsize=744 ok=1
+Cmd: preprocess
+  insize=8730 outsize=1015 ok=1
+Cmd: preprocess
+  insize=2895 outsize=1294 ok=1
+Cmd: preprocess
+  insize=2991 outsize=340 ok=1
+Cmd: preprocess
+  insize=3750 outsize=384 ok=1
+Cmd: preprocess
+  insize=1409 outsize=310 ok=1
+Cmd: preprocess
+  insize=24101 outsize=7340 ok=1
+Cmd: compileSnippet
+  error: 2 plat 4 at (73): failed to open source file: 'Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl'\nCompiling Vertex program
+Platform defines: UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR
+  api=4 type=0 insize=8209 outsize=0 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_LIGHTMAP_FULL_HDR ok=0
+Cmd: preprocess
+  insize=4427 outsize=1759 ok=1
+Cmd: preprocess
+  insize=3524 outsize=386 ok=1
+Cmd: preprocess
+  insize=7174 outsize=814 ok=1
+Cmd: preprocess
+  insize=82442 outsize=64553 ok=1
+Cmd: preprocess
+  insize=8982 outsize=2407 ok=1
+Cmd: preprocess
+  insize=64782 outsize=3161 ok=1
+Cmd: preprocess
+  insize=64456 outsize=3182 ok=1
+Cmd: preprocess
+  insize=56964 outsize=2939 ok=1
+Cmd: preprocess
+  insize=62564 outsize=3308 ok=1
+Cmd: preprocess
+  insize=59051 outsize=2879 ok=1
+Cmd: preprocess
+  insize=93837 outsize=2629 ok=1
+Cmd: preprocess
+  insize=68696 outsize=3473 ok=1
+Cmd: preprocess
+  insize=56499 outsize=2278 ok=1
+Cmd: preprocess
+  insize=61245 outsize=3261 ok=1
+Cmd: preprocess
+  insize=55157 outsize=2706 ok=1
+Cmd: preprocess
+  insize=56960 outsize=3106 ok=1
+Cmd: preprocess
+  insize=24366 outsize=1486 ok=1

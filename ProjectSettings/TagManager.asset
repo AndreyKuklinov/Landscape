@@ -16,7 +16,7 @@ TagManager:
   - Post-Processing
   - CanvasTop
   - ACSCulling
-  - 
+  - Bonuses
   - 
   - 
   - 
@@ -38,9 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Sprites
     uniqueID: 917398645
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
