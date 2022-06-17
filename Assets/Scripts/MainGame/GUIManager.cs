@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using MetaScripts;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 
 namespace MainGame
@@ -15,7 +13,7 @@ namespace MainGame
     {
         public bool IsMouseOverUI { get; set; }
         [SerializeField] private GameManager gameManager;
-        [FormerlySerializedAs("scoreHolder")] [SerializeField] private GameObject scoreObjectHolder;
+        [SerializeField] private GameObject scoreHolder;
         [SerializeField] private GameObject scoreObjectPrefab;
         [SerializeField] private Image objectiveImage;
         [SerializeField] private GameObject postProcessing;
@@ -50,11 +48,11 @@ namespace MainGame
             scoreTexts = new List<Text>();
             foreach (var obj in gameManager.Objectives)
             {
-                var scoreObject = Instantiate(scoreObjectPrefab, scoreObjectHolder.transform);
-                var scoreText = scoreObject.transform.Find("ScoreHolder").GetComponentInChildren<Text>();
-                var objectiveText = scoreObject.transform.Find("ObjectiveHolder").GetComponentInChildren<Text>();
-                scoreTexts.Add(scoreText);
-                objectiveText.text = obj.text;
+                var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
+                var scoreObjectScript = scoreObject.GetComponent<ScoreObject>();
+                scoreObjectScript.PointerExited += gameManager.tutorialManager.OnObjectiveRead;
+                scoreObjectScript.Init(obj.sprite, objectiveImage);
+                scoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
             }
         }
 
@@ -80,7 +78,7 @@ namespace MainGame
 
         public void GameOver()
         {
-            scoreObjectHolder.SetActive(false);
+            scoreHolder.SetActive(false);
             score.text = gameManager.Score.ToString();
             score.transform.parent.gameObject.SetActive(true);
             postProcessProfile.TryGetSettings(out bloom);
