@@ -171,15 +171,13 @@ namespace MainGame
         private void OnCursorEnterScoreObject(object sender, EventArgs e)
         {
             var scoreObject = (ScoreObject)sender;
-            foreach (var tile in gameManager.boardRenderer.GameBoard)
-                tile.SetPointMarkerVisible(
-                    scoreObject.Objective.Criterion(tile.Tile.X, tile.Tile.Y, gameManager) == 1);
+            Debug.Log(scoreObject.Objective.name+" entered");
         }
         
         private void OnCursorExitScoreObject(object sender, EventArgs e)
         {
-            foreach (var tile in gameManager.boardRenderer.GameBoard)
-                tile.SetPointMarkerVisible(false);
+            var scoreObject = (ScoreObject)sender;
+            Debug.Log(scoreObject.Objective.name+" left");
         }
         
         private void OnDestroy()

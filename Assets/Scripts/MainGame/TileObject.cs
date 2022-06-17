@@ -7,11 +7,10 @@ namespace MainGame
         public Tile Tile { get; private set; }
         private GameObject model;
         private GameObject Light;
-        private GameObject pointMarker;
         private GameObject tileButton;
         private SpriteRenderer tileButtonSpriteRenderer;
         private GameManager gameManager;
-        
+
         private bool isLit;
 
         public bool IsLit
@@ -43,7 +42,6 @@ namespace MainGame
             tileButton.SetActive(false);
             tileButton.transform.rotation = Quaternion.Euler(90, 0, 0);
             tileButtonSpriteRenderer = tileButton.GetComponentInChildren<SpriteRenderer>();
-            pointMarker = transform.Find("PointMarker").gameObject;
             Draw(modelPrefab);
         }
 
@@ -81,8 +79,5 @@ namespace MainGame
 
         public void UndisplayMove() =>
             tileButton.SetActive(false);
-
-        public void SetPointMarkerVisible(bool value)
-            => pointMarker.SetActive(value);
     }
 }
