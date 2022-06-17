@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4135,112 +4135,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &720291788
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 720291792}
-  - component: {fileID: 720291791}
-  - component: {fileID: 720291789}
-  m_Layer: 0
-  m_Name: BonusCamera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &720291789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720291788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 0
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 0
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
---- !u!20 &720291791
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720291788}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 50
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  m_RenderingPath: 3
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &720291792
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720291788}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 963194228}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 44, y: 0.17, z: 0}
 --- !u!1 &737867636
 GameObject:
   m_ObjectHideFlags: 0
@@ -5030,7 +4924,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1847
+    m_Bits: 4294967295
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5052,8 +4946,7 @@ Transform:
   m_LocalRotation: {x: 0.55174446, y: 0.0008720863, z: -0.0005769323, w: 0.83401257}
   m_LocalPosition: {x: 2.5009105, y: 9.525684, z: -0.9197453}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 720291792}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 44, y: 0.17, z: 0}
@@ -7017,82 +6910,38 @@ MonoBehaviour:
   creativeBoardWidth: 20
   possibleObjectives:
   - name: Castles
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0434\u0435\u0440\u0435\u0432\u043D\u044E,
-      \u043D\u0435 \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0434\u0435\u0440\u0435\u0432\u043D\u044F\u043C\u0438"
+    sprite: {fileID: 21300000, guid: 4faaae11fe11ec34392f5945eff55125, type: 3}
   - name: Cliffs
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0433\u043E\u0440\u0443,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u0442\u0440\u0435\u043C\u044F
-      \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u043C\u0438 \u043F\u043E \u0442\u0438\u043F\u0443
-      \u043D\u0435 \u0433\u043E\u0440\u043D\u044B\u043C\u0438 \u0443\u0447\u0430\u0441\u0442\u043A\u0430\u043C\u0438"
+    sprite: {fileID: 21300000, guid: 35a35b1d20bc91544b49d719dba52acd, type: 3}
   - name: Deserts
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0441\u0442\u0435\u043F\u044C,
-      \u043D\u0435 \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0441 \u043B\u0435\u0441\u0430\u043C\u0438 \u0438 \u043E\u0437\u0451\u0440\u0430\u043C\u0438"
+    sprite: {fileID: 21300000, guid: a997ce2390f9f0f428d264c0a54cad51, type: 3}
   - name: Expanses
-    text: "+1  \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0435 \u0441\u0442\u0435\u043F\u043D\u043E\u0439
-      \u0443\u0447\u0430\u0441\u0442\u043E\u043A, \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u0434\u0432\u0443\u043C\u044F
-      \u0441\u0442\u0435\u043F\u044F\u043C\u0438"
+    sprite: {fileID: 21300000, guid: fdf27841d332ca14a8b343f70e7a9baa, type: 3}
   - name: Farmlands
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0441\u0442\u0435\u043F\u044C,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u043E\u0434\u043D\u043E\u0439
-      \u0434\u0435\u0440\u0435\u0432\u043D\u0435\u0439"
+    sprite: {fileID: 21300000, guid: 44870f386ffdbf74b8c73f2ebc17b6cb, type: 3}
   - name: Fields
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0441\u0442\u0435\u043F\u044C,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0443\u0449\u044E
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u043E\u0434\u043D\u043E\u0439
-      \u0434\u0440\u0443\u0433\u043E\u0439 \u0441\u0442\u0435\u043F\u044C\u044E"
+    sprite: {fileID: 21300000, guid: 1596a471b2c522b4c9e0258111bc2709, type: 3}
   - name: Foothills
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0433\u043E\u0440\u0443,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u0434\u0432\u0443\u043C\u044F
-      \u043D\u0435 \u0433\u043E\u0440\u043D\u044B\u043C\u0438 \u0443\u0447\u0430\u0441\u0442\u043A\u0430\u043C\u0438
-      \u043E\u0434\u043D\u043E\u0433\u043E \u0442\u0438\u043F\u0430"
+    sprite: {fileID: 21300000, guid: 914aff8433d6fbb4aac66ac990bc7341, type: 3}
   - name: Groves
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043B\u0435\u0441,
-      \u043D\u0435 \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439
-      \u0441 \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u043B\u0435\u0441\u0430\u043C\u0438"
+    sprite: {fileID: 21300000, guid: 599e10e9cad30f747b20246185839427, type: 3}
   - name: Hollows
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0435 \u0433\u043E\u0440\u043D\u044B\u0439
-      \u0443\u0447\u0430\u0441\u0442\u043E\u043A, \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439
-      \u0441 \u0433\u043E\u0440\u0430\u043C\u0438 \u0445\u043E\u0442\u044F \u0431\u044B
-      \u0441 \u0434\u0432\u0443\u0445 \u043F\u0440\u043E\u0442\u0438\u0432\u043E\u043F\u043E\u043B\u043E\u0436\u043D\u044B\u0445
-      \u0441\u0442\u043E\u0440\u043E\u043D"
+    sprite: {fileID: 21300000, guid: 9822d8982e2de6f4f92b15dad4155b77, type: 3}
   - name: Islands
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043D\u0435 \u043E\u0437\u0451\u0440\u043D\u044B\u0439
-      \u0443\u0447\u0430\u0441\u0442\u043E\u043A, \u0441\u043E \u0432\u0441\u0435\u0445
-      \u0441\u0442\u043E\u0440\u043E\u043D \u043E\u043A\u0440\u0443\u0436\u0451\u043D\u043D\u044B\u0439
-      \u043E\u0437\u0451\u0440\u0430\u043C\u0438"
+    sprite: {fileID: 21300000, guid: 560db21062388f943aa010a54a7b4794, type: 3}
   - name: Meadows
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043B\u0435\u0441,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439
-      \u0440\u043E\u0432\u043D\u043E \u0441 \u043E\u0434\u043D\u043E\u0439 \u0441\u0442\u0435\u043F\u044C\u044E"
+    sprite: {fileID: 21300000, guid: 4486af7125ad66f4ead313035b6e2d47, type: 3}
   - name: Swamps
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u044B\u0439 \u043B\u0435\u0441,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u043E\u0434\u043D\u0438\u043C
-      \u043E\u0437\u0435\u0440\u043E\u043C"
+    sprite: {fileID: 21300000, guid: faa7e7c6e42c3a04795cde58fd8032f9, type: 3}
   - name: Towns
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0434\u0435\u0440\u0435\u0432\u043D\u044E,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0445\u043E\u0442\u044F \u0431\u044B \u0441 \u043E\u0434\u043D\u043E\u0439
-      \u0434\u0440\u0443\u0433\u043E\u0439 \u0434\u0435\u0440\u0435\u0432\u043D\u0435\u0439"
+    sprite: {fileID: 21300000, guid: 73e03bd4e21a6634980253a8a16107bf, type: 3}
   - name: Twins
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u0443\u044E \u0433\u043E\u0440\u0443,
-      \u0441\u043E\u0441\u0435\u0434\u0441\u0442\u0432\u0443\u044E\u0449\u0443\u044E
-      \u0440\u043E\u0432\u043D\u043E \u0441 \u043E\u0434\u043D\u043E\u0439 \u0434\u0440\u0443\u0433\u043E\u0439
-      \u0433\u043E\u0440\u043E\u0439"
+    sprite: {fileID: 21300000, guid: ba95421d59cb1ab41a0c4081159fd0a6, type: 3}
   - name: Ponds
-    text: "+1 \u0437\u0430 \u043A\u0430\u0436\u0434\u043E\u0435 \u043E\u0437\u0435\u0440\u043E,
-      \u0441\u043E \u0432\u0441\u0435\u0445 \u0441\u0442\u043E\u0440\u043E\u043D
-      \u043E\u043A\u0440\u0443\u0436\u0451\u043D\u043D\u043E\u0435 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u043C\u0438
-      \u043D\u0435 \u043E\u0437\u0451\u0440\u043D\u044B\u043C\u0438 \u0443\u0447\u0430\u0441\u0442\u043A\u0430\u043C\u0438"
+    sprite: {fileID: 21300000, guid: 2a6155ea7abe9f44e9788605db91d160, type: 3}
   testingObjective:
     name: 
-    text: 
+    sprite: {fileID: 0}
   cheatMode: 0
   soundManager: {fileID: 1413484976}
   boardWidth: 5
@@ -11551,11 +11400,11 @@ MonoBehaviour:
   gameManager: {fileID: 1178566553}
   tutorialObjectives:
   - name: Farmlands
-    text: 
+    sprite: {fileID: 21300000, guid: 44870f386ffdbf74b8c73f2ebc17b6cb, type: 3}
   - name: Groves
-    text: 
+    sprite: {fileID: 21300000, guid: 599e10e9cad30f747b20246185839427, type: 3}
   - name: Twins
-    text: 
+    sprite: {fileID: 21300000, guid: ba95421d59cb1ab41a0c4081159fd0a6, type: 3}
   tutorialCanvas: {fileID: 109757701}
 --- !u!1 &2063733026
 GameObject:
@@ -11829,7 +11678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 489.0493, y: 275.2153}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2095488660
@@ -11845,7 +11694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1178566553}
-  scoreObjectHolder: {fileID: 1592824437}
+  scoreHolder: {fileID: 1592824437}
   scoreObjectPrefab: {fileID: 6516615548859586394, guid: ff7735e02477a2d4292d6e71ab3ab06d,
     type: 3}
   objectiveImage: {fileID: 7633740881858432063}

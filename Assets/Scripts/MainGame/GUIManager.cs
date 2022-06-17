@@ -53,12 +53,8 @@ namespace MainGame
                 var scoreObject = Instantiate(scoreObjectPrefab, scoreObjectHolder.transform);
                 var scoreText = scoreObject.transform.Find("ScoreHolder").GetComponentInChildren<Text>();
                 var objectiveText = scoreObject.transform.Find("ObjectiveHolder").GetComponentInChildren<Text>();
-                var scoreObjectScript = scoreObject.GetComponent<ScoreObject>();
                 scoreTexts.Add(scoreText);
                 objectiveText.text = obj.text;
-                scoreObjectScript.Init(obj);
-                scoreObjectScript.CursorEntered += OnCursorEnterScoreObject;
-                scoreObjectScript.CursorExited += OnCursorExitScoreObject;
             }
         }
 
@@ -168,18 +164,6 @@ namespace MainGame
             tileToLight.GetComponent<Light>().intensity = isLightOn ? tileLightMaxValue : 0;
         }
 
-        private void OnCursorEnterScoreObject(object sender, EventArgs e)
-        {
-            var scoreObject = (ScoreObject)sender;
-            Debug.Log(scoreObject.Objective.name+" entered");
-        }
-        
-        private void OnCursorExitScoreObject(object sender, EventArgs e)
-        {
-            var scoreObject = (ScoreObject)sender;
-            Debug.Log(scoreObject.Objective.name+" left");
-        }
-        
         private void OnDestroy()
         {
             postProcessProfile.TryGetSettings(out bloom);
