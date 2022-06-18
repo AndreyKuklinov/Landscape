@@ -51,7 +51,9 @@ namespace MainGame
                 var scoreObject = Instantiate(scoreObjectPrefab, scoreHolder.transform);
                 var scoreObjectScript = scoreObject.GetComponent<ScoreObject>();
                 scoreObjectScript.PointerExited += gameManager.tutorialManager.OnObjectiveRead;
-                scoreObjectScript.Init(obj.sprite, objectiveImage);
+                scoreObjectScript.PointerExited += OnPointerExitedScoreObject;
+                scoreObjectScript.PointerEntered += OnPointerEnteredScoreObject;
+                scoreObjectScript.Init(obj.sprite, objectiveImage, obj);
                 scoreTexts.Add(scoreObject.GetComponentInChildren<Text>());
             }
         }
@@ -68,6 +70,7 @@ namespace MainGame
         {
             if(Input.GetKeyUp(KeyCode.F))
                 mainCanvas.gameObject.SetActive(!mainCanvas.gameObject.activeSelf);
+            objectiveImage.transform.position = Input.mousePosition;
             if (!isGameOver) return;
             if (bloom.intensity.value < bloomingMax && !isBloomDescending)
                 bloom.intensity.value += bloomingSpeed * Time.deltaTime;
@@ -166,6 +169,20 @@ namespace MainGame
         {
             postProcessProfile.TryGetSettings(out bloom);
             bloom.intensity.value = bloomingBase;
+        }
+
+        private void OnPointerEnteredScoreObject(object sender, EventArgs e)
+        {
+            var scoreObject = (ScoreObject)sender;
+            var criterion = scoreObject.Objective.Criterion;
+            foreach (var tile in gameManager.boardRenderer.GameBoard)
+                tile.SetPointMarkerVisible(criterion(tile.Tile.X, tile.Tile.Y, gameManager) == 1);
+        }
+        
+        private void OnPointerExitedScoreObject(object sender, EventArgs e)
+        {
+            foreach (var tile in gameManager.boardRenderer.GameBoard)
+                tile.SetPointMarkerVisible(false);
         }
     }
 }

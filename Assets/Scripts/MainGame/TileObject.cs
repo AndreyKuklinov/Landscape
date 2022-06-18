@@ -7,9 +7,11 @@ namespace MainGame
         public Tile Tile { get; private set; }
         private GameObject model;
         private GameObject Light;
+        private GameObject pointMarker;
         private GameObject tileButton;
         private SpriteRenderer tileButtonSpriteRenderer;
         private GameManager gameManager;
+        
 
         private bool isLit;
 
@@ -36,6 +38,7 @@ namespace MainGame
             transform.position = screenPosition;
             this.gameManager = gameManager;
             isLit = false;
+            pointMarker = transform.Find("PointMarker").gameObject;
             Light = Instantiate(lightModelPrefab, transform);
             Light.SetActive(false);
             tileButton = Instantiate(tileButtonPrefab, transform);
@@ -79,5 +82,8 @@ namespace MainGame
 
         public void UndisplayMove() =>
             tileButton.SetActive(false);
+
+        public void SetPointMarkerVisible(bool value)
+            => pointMarker.SetActive(value);
     }
 }
