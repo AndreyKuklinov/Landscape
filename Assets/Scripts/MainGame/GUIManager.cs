@@ -4,7 +4,6 @@ using MetaScripts;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 
 namespace MainGame
